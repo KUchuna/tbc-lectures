@@ -1,0 +1,38 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    background-color: #F2F4F7;
+    padding: 18px 112px;
+    border-bottom:  1px solid #D0D5DD;
+}
+
+.header-left-section-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-list-container {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    color: #475467;
+    font-weight: bold;
+}
+
+.header-logo {
+    margin-right: 80px;
+}
+
+.profile-button {
+    border-radius: 50%;
+    border: 1px solid #EAECF0;
+    padding: 16px;
+    height: 44px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
