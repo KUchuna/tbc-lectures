@@ -21,6 +21,10 @@
     font-size: 1.1rem;
 }
 
+.footer-list-item {
+    cursor: pointer;
+}
+
 .subscribe-text {
     color: #101828;
     font-size: 1.1rem;
@@ -72,4 +76,8 @@
     list-style: none;
     display: flex;
     gap: 24px; 
+}
+
+.footer-socials-item {
+    cursor: pointer;
 }
