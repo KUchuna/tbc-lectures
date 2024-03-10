@@ -1,6 +1,5 @@
 {
   "name": "react-app",
-  "homepage": "https://kuchuna.github.io/tbc-lectures/react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
