@@ -11,8 +11,8 @@ export default function Main() {
                     architectural sophistication, 
                     we bring precision to life. Elevate your vision with us.
                 </p>
-            </div>
             <Filter />
+            </div>
         </div>
     )
 } 
