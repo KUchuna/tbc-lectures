@@ -21,6 +21,10 @@
     font-weight: bold;
 }
 
+.header-list-item {
+    cursor: pointer;
+}
+
 .header-logo {
     margin-right: 80px;
 }
@@ -35,4 +39,5 @@
     align-items: center;
     justify-content: center;
     background-color: white;
+    cursor: pointer;
 }
