@@ -1,4 +1,5 @@
 import '../styles/Main.css'
+import Filter from './Filter'
 
 export default function Main() {
     return (
@@ -10,6 +11,7 @@ export default function Main() {
                     architectural sophistication, 
                     we bring precision to life. Elevate your vision with us.
                 </p>
+            <Filter />
             </div>
         </div>
     )
