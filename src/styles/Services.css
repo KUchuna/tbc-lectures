@@ -1,0 +1,11 @@
+.services-container {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 1;
+    gap: 15px;
+    justify-content: center;
+    max-height: 100%;
+    padding: 20px;
+    flex-grow: 1;
+}

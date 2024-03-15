@@ -28,6 +28,10 @@ export default function Footer() {
                     </form>
                 </div>
             </div>
+            
+            {/* temporary for assignment */}
+
+            {/*
             <div className='footer-down-container'>
                 <span>
                 © 2077 MOVAN. All rights reserved.
@@ -38,6 +42,7 @@ export default function Footer() {
                     <li className='footer-socials-item'><img src={facebook} alt='twitter' /></li>
                 </ul>
             </div>
+    */}
         </footer>
     )
 }

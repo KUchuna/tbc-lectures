@@ -1,0 +1,40 @@
+.service-card-container {
+    background-color: #F9FAFB;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 350px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.service-card-container:hover {
+    transform: scale(110%);
+}
+
+.service-card-img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.service-card-title, .service-card-desc {
+    margin-bottom: 15px;
+}
+
+.service-card-desc {
+    color: #475467;
+    font-size: 0.9rem;
+}
+
+.service-card-button {
+    padding: 10px 18px;
+    color: white;
+    background-color: #F54700;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.service-card-button img {
+    margin-left: 10px;
+}

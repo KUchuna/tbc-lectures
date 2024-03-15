@@ -4,8 +4,10 @@
     justify-content: space-between;
     padding: 18px 0;
     background-color: #F2F4F7;
-    padding: 18px 112px;
+    padding: 10px 60px;
     border-bottom:  1px solid #D0D5DD;
+    position: sticky;
+    top: 0;
 }
 
 .header-left-section-container {

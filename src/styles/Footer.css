@@ -1,14 +1,15 @@
 .footer-container {
     border-top: 1px solid #D0D5DD;
-    padding: 64px 112px;
+    padding: 10px 60px;
     margin-top: auto;
+    /* temporary for assignment */
+    max-height: 150px;
 }
 
 .footer-up-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 64px;
 }
 
 .footer-list-container {
