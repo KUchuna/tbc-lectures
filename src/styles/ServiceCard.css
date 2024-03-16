@@ -3,6 +3,7 @@
     border-radius: 16px;
     padding: 24px;
     max-width: 350px;
+    max-height: 400px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -33,6 +34,7 @@
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .service-card-button img {
