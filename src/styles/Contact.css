@@ -1,0 +1,47 @@
+.contact-above-section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 96px 112px;
+}
+
+.contact-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contact-us {
+    color: rgba(223, 65, 0, 1);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+#contact-title {
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-bottom: 24px;
+}
+
+#contact-subtitle {
+    color: rgba(71, 84, 103, 1);
+    font-size: 1.2rem; 
+}
+
+.contact-info-cards-container {
+    width: 100%;
+    padding: 96px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-below-section-container {
+    padding: 96px 112px;
+    background-color: rgba(242, 244, 247, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

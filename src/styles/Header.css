@@ -6,6 +6,9 @@
     background-color: #F2F4F7;
     padding: 18px 112px;
     border-bottom:  1px solid #D0D5DD;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-left-section-container {
