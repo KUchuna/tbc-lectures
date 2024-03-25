@@ -16,9 +16,11 @@ export default function Header() {
                     <li className='header-list-item'>FAQ</li>
                 </ul>
             </div>
+            <Link to='/profile'>
                 <span className='profile-button'>
                     <img src={profileLogo} alt='profile' />
                 </span>
+            </Link>
         </header>
     )
 }
