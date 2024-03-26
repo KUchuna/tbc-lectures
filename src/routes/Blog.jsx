@@ -17,13 +17,15 @@ export default function Blog() {
 
     return (
         <div className="blog-page-container">
-            <div className="blog-page-title-container">
+            <div className="blog-page-title-container parent-flex-column-center">
                 <span className="blog-page-short-title">BLOG</span>
                 <h1 className="blog-page-title">read our latest blog</h1>
                 <p className="blog-page-desc">Insights, Tips, and News for Car Enthusiasts</p>
             </div>
-            <div className="blog-page-cards-container">
-                {mappedBlog}
+            <div className="parent-flex-column-center">
+                <div className="blog-page-cards-container">
+                    {mappedBlog}
+                </div>
             </div>
         </div>
     )

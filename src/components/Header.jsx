@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
-        <header className='header-container'>
+        <header className='header-container parent-flex-row-center'>
+            <div className='parent-flex-row-between parent-max-width'>
             <div className='header-left-section-container'>
                 <Link to='/home'><img src={headerLogo} className='header-logo' alt='header logo'/></Link>
                 <ul className='header-list-container'>
@@ -21,6 +22,7 @@ export default function Header() {
                     <img src={profileLogo} alt='profile' />
                 </span>
             </Link>
+            </div>
         </header>
     )
 }

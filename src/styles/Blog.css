@@ -1,8 +1,4 @@
 .blog-page-title-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     padding: 96px 112px;
     background-color: rgba(242, 244, 247, 1);
     border-bottom-left-radius: 20px;
@@ -29,10 +25,10 @@
 
 .blog-page-cards-container {
     display: flex;
-    gap: 40px;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 96px 112px;
+    gap: 32px;
+    padding: 96px 0;
+    width: 1390px;
 }
 
 .blog-page-card-container {
@@ -42,9 +38,4 @@
     border-radius: 20px;
     max-width: 425px;
     user-select: none;
-    transition: transform 0.3s ease;
-}
-
-.blog-page-card-container:hover {
-    transform: scale(110%);
 }

@@ -1,9 +1,5 @@
 .blog-section-container {
     background-color: rgba(242, 244, 247, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
     padding: 96px 112px;
 }
 
@@ -44,25 +40,8 @@
 
 .blog-cards-container {
     display: flex;
-    width: 100%;
-    gap: 32px;
-    height: fit-content;
-    overflow-x: auto;
-    border-radius: 20px;
-    padding: 0 10px 15px;
+    justify-content: space-between;
     user-select: none;
+    gap: 12px;
 }
 
-.scroll::-webkit-scrollbar {
-    height: 9px;
-  }
-   
-  .scroll::-webkit-scrollbar-thumb {
-    background: #666;
-    border-radius: 20px;
-  }
-  
-  .scroll::-webkit-scrollbar-track {
-    background: #ddd;
-    border-radius: 20px;
-  }

@@ -9,8 +9,8 @@ import ContactInput from '../components/ContactInput.jsx'
 
 export default function Contact() {
     return (
-        <div className="contact-page-container">
-            <div className="contact-above-section-container">
+        <div className="contact-page-container parent-flex-column-center">
+            <div className="contact-above-section-container parent-max-width parent-flex-column-center">
                 <div className="contact-title-container">
                     <span id="contact-us">Contact us</span>
                     <h1 id='contact-title'>We’d love to hear from you</h1>
@@ -37,7 +37,7 @@ export default function Contact() {
                     />
                 </div>
             </div>
-            <div className='contact-below-section-container'>
+            <div className='contact-below-section-container parent-flex-column-center'>
                 <ContactInput 
                     label="Full name"
                     type="text"

@@ -8,10 +8,23 @@
 }
 
 .blog-card-img {
-    margin-bottom: 32px;
-    width: 385px;
-    height: 240px;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
     border-radius: 20px;
+}
+
+.blog-card-img-container {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 384px;
+    min-height: 240px;
+    max-height: 240px;
+    margin-bottom: 32px;
+}
+
+.blog-card-container:hover .blog-card-img{
+    transform: scale(125%);
 }
 
 .blog-card-date {
