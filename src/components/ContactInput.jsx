@@ -6,7 +6,7 @@ export default function ContactInfo(props) {
             <span>{props.label}</span>
             {props.textarea ? <textarea placeholder={props.placeholder}></textarea>
             :
-            <input type={props.type} placeholder={props.placeholder}></input>}
+            <input type={props.type} placeholder={props.placeholder} defaultValue={props.default}></input>}
         </div>
     )
 }
