@@ -1,9 +1,5 @@
 .contact-above-section-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 96px 112px;
+    padding: 96px 0;
 }
 
 .contact-title-container {
@@ -41,7 +37,5 @@
 .contact-below-section-container {
     padding: 96px 112px;
     background-color: rgba(242, 244, 247, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
 }

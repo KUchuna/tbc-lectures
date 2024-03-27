@@ -7,8 +7,8 @@ import facebook from '../assets/facebook.svg'
 
 export default function Footer() {
     return (
-        <footer className="footer-container">
-            <div className='footer-up-container'>
+        <footer className="footer-container parent-flex-column-center">
+            <div className='footer-up-container parent-max-width parent-flex-row-between'>
                 <div className='footer-up-left-container'>
                     <img src={footerLogo} alt='footer-logo' />
                     <ul className='footer-list-container'>
@@ -28,7 +28,7 @@ export default function Footer() {
                     </form>
                 </div>
             </div>
-            <div className='footer-down-container'>
+            <div className='footer-down-container parent-max-width'>
                 <span>
                 © 2077 MOVAN. All rights reserved.
                 </span>

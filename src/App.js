@@ -4,6 +4,8 @@ import Home from './routes/Home.jsx'
 import Footer from './components/Footer.jsx';
 import { Route, Routes } from 'react-router-dom';
 import Contact from './routes/Contact.jsx';
+import Profile from './routes/Profile.jsx';
+import Blog from './routes/Blog.jsx';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/blog' element={<Blog />} />
       </Routes>
         <Footer />
     </div>
