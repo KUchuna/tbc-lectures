@@ -12,6 +12,8 @@ export default function Blog() {
                     title={card.title}
                     desc={card.desc}
                     style='blog-page-card-container'
+                    button
+                    
                 />
     })
 
