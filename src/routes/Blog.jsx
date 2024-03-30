@@ -12,8 +12,6 @@ export default function Blog() {
                     title={card.title}
                     desc={card.desc}
                     style='blog-page-card-container'
-                    button
-                    
                 />
     })
 
@@ -25,7 +23,7 @@ export default function Blog() {
                 <p className="blog-page-desc">Insights, Tips, and News for Car Enthusiasts</p>
             </div>
             <div className="parent-flex-column-center">
-                <div className="blog-page-cards-container">
+                <div className="blog-page-cards-container parent-flex-row-center">
                     {mappedBlog}
                 </div>
             </div>

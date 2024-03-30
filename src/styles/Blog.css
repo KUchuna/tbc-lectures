@@ -24,11 +24,11 @@
 }
 
 .blog-page-cards-container {
-    display: flex;
     flex-wrap: wrap;
     gap: 32px;
     padding: 96px 0;
-    width: 1390px;
+    max-width: 1390px;
+    width: 100%;
 }
 
 .blog-page-card-container {

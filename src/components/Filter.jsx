@@ -49,6 +49,10 @@ export default function Filter() {
                     inputPlaceHolder = "+995 555 555 555"
                 />
             </div>
+            <div className="filter-confirm-container">
+                <span className="filter-price">₾60</span>
+                <button className="filter-button">Book an appointment</button>
+            </div>
         </div>
     )
 }

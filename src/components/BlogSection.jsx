@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../styles/BlogSection.css'
+import '../styles/Section.css'
 import linkarrow from '../assets/uprightarrow.svg'
 import blogData from '../blogData'
 import BlogCard from './BlogCard'
@@ -16,7 +16,7 @@ export default function BlogSection() {
     })
 
     return (
-        <section className="blog-section-container parent-flex-column-center">
+        <section className="section-container parent-flex-column-center">
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Our blog</span>
