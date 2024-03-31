@@ -7,8 +7,12 @@ import React from "react";
 export default function Blog() {
 
     const [open, setOpen] = React.useState(false)
+    const [selection, setSelection] = React.useState("None")
+    const [blogCards, setBlogCards] = React.useState(blogData)
+    const [sorted, setSorted] = React.useState(false)
 
-    const mappedBlog = blogData.map(card => {
+
+    const mappedBlog = blogCards.map(card => {
         return <BlogCard 
                     img={card.img}
                     date={card.date}
@@ -21,7 +25,40 @@ export default function Blog() {
 
     function handleClick() {
         setOpen(prevState => !prevState)
-        console.log(open)
+        
+    }
+
+    function storeSelection(option) {
+        setSelection(option)
+    }
+
+    function handleSort() {
+        console.log(selection)
+        console.log(blogCards)
+        console.log(sorted)
+        if(selection == "Date ascending") {
+            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
+                const dateA = new Date(a.date)
+                const dateB = new Date(b.date)
+                return dateA - dateB
+            }))
+            setSorted(true)
+        }else if(selection == "Date descending") {
+            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
+                const dateA = new Date(a.date)
+                const dateB = new Date(b.date)
+                return dateB - dateA
+            }))
+            setSorted(true)
+        }
+    }
+
+    function removeSort() {
+        if(sorted) {
+            setSorted(false)
+            setBlogCards(blogData)
+            setSelection("None")
+        }
     }
 
     return (
@@ -35,10 +72,15 @@ export default function Blog() {
                 <div className="sorting-container">
                     <span>Sort by:</span>
                         <FilterInput 
-                            dropDownDefault='None'
+                            dropDownDefault={selection}
                             sortingStyle='sorting-dropdown-container'
+                            contStyle='sorting-parent-container'
                             onClick={handleClick}
+                            open={open}
+                            selection={selection}
+                            storeSelection={storeSelection}
                         />
+                    <button className="sorting-button" onClick={sorted ? removeSort : handleSort}>{sorted ? "Remove Sorting" : "Apply"}</button>
                 </div>
                 <div className="blog-page-cards-container parent-flex-row-center">
                     {mappedBlog}

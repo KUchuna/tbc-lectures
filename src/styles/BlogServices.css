@@ -26,8 +26,8 @@
 .blog-page-cards-container {
     flex-wrap: wrap;
     gap: 32px;
-    padding: 60px 0;
-    max-width: 1390px;
+    padding: 96px 40px;
+    max-width: 1450px;
     width: 100%;
 }
 
@@ -51,16 +51,59 @@
     margin-left: 8px;
 }
 
+.sorting-parent-container {
+    flex: initial;
+    margin-right: 30px;
+}
+
 .sorting-container {
     display: flex;
     align-items: center;
-    max-width: 1320px;
-    width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 30px;
 }
 
 .sorting-dropdown-container {
     max-width: 300px;
+    width: 100%;
     margin-left: 10px;
+    user-select: none;
+    margin-top: 0;
+}
+
+.sorting-menu-container {
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    padding: 14px 0px;
+    max-width: 300px;
+    width: 100%;
+    z-index: 100;
+    border: 1px solid rgba(208, 213, 221, 1);
+    cursor: initial;
+}
+
+.sorting-menu-item {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sorting-menu-item:hover {
+    background-color: rgb(238, 237, 237);
+}
+
+.sorting-button {
+    height: 44px;
+    padding-inline: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F54700;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
 }
