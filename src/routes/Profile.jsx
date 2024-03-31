@@ -16,7 +16,6 @@ export default function Profile() {
     function handleChange(event) {
         const { name, value } = event.target
         setInfo(prevState =>  ({...prevState, [name]: value}))
-        console.log(info)
     }
 
     function handleClick() {

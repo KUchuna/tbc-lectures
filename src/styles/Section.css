@@ -54,3 +54,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 25px;
 }
+
+.services-section-desc {
+    margin-bottom: 20px;   
+}

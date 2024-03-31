@@ -50,13 +50,9 @@ export default function Blog() {
                 return dateB - dateA
             }))
             setSorted(true)
-        }
-    }
-
-    function removeSort() {
-        if(sorted) {
-            setSorted(false)
+        }else if(selection == "None") {
             setBlogCards(blogData)
+            setSorted(false)
             setSelection("None")
         }
     }
@@ -80,7 +76,7 @@ export default function Blog() {
                             selection={selection}
                             storeSelection={storeSelection}
                         />
-                    <button className="sorting-button" onClick={sorted ? removeSort : handleSort}>{sorted ? "Remove Sorting" : "Apply"}</button>
+                    <button className="sorting-button" onClick={handleSort}>Apply</button>
                 </div>
                 <div className="blog-page-cards-container parent-flex-row-center">
                     {mappedBlog}

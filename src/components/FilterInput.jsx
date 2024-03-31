@@ -9,7 +9,6 @@ export default function FilterInput(props) {
 
     function handleSelect(option) {
        props.storeSelection(option)
-       
     }
 
 
@@ -30,6 +29,7 @@ export default function FilterInput(props) {
                 <img src={dropDown} alt="" />
                 {props.open && 
                     <ul className="sorting-menu-container">
+                        <li className="sorting-menu-item" onClick={() => handleSelect("None")}>None</li>
                         <li className="sorting-menu-item" onClick={() => handleSelect("Date ascending")}>Date ascending</li>
                         <li className="sorting-menu-item" onClick={() => handleSelect("Date descending")}>Date descending</li>
                     </ul>
