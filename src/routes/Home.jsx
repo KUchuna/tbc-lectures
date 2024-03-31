@@ -6,7 +6,9 @@ export default function Home() {
     return (
         <div className='home-page-container'>
             <Main />
-            <ServiceSection />
+            <ServiceSection 
+                homePage
+            />
             <BlogSection />
         </div>
     )

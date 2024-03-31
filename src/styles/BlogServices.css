@@ -1,24 +1,24 @@
-.blog-page-title-container {
+.blog-service-page-title-container {
     padding: 96px 112px;
     background-color: rgba(242, 244, 247, 1);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.blog-page-short-title {
+.blog-service-page-short-title {
     color: rgba(245, 71, 0, 1);
     font-weight: bold;
     font-size: 1.1rem;
     margin-bottom: 12px;
 }
 
-.blog-page-title {
+.blog-service-page-title {
     text-transform: uppercase;
     font-size: 3rem;
     margin-bottom: 23px;
 }
 
-.blog-page-desc {
+.blog-service-page-desc {
     color: rgba(71, 84, 103, 1);
     font-size: 1.1rem;
 }
@@ -26,7 +26,7 @@
 .blog-page-cards-container {
     flex-wrap: wrap;
     gap: 32px;
-    padding: 96px 0;
+    padding: 60px 0;
     max-width: 1390px;
     width: 100%;
 }
@@ -49,4 +49,18 @@
     border-radius: 8px;
     cursor: pointer;
     margin-left: 8px;
+}
+
+.sorting-container {
+    display: flex;
+    align-items: center;
+    max-width: 1320px;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.sorting-dropdown-container {
+    max-width: 300px;
+    margin-left: 10px;
 }

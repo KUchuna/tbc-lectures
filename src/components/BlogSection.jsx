@@ -12,6 +12,7 @@ export default function BlogSection() {
                     date={card.date}
                     title={card.title}
                     desc={card.desc}
+                    key={card.id}
                 />
     })
 
@@ -24,7 +25,7 @@ export default function BlogSection() {
                 </div>
                 <h3 className="section-title">latest blog posts</h3>
                 <p className="section-description">Tool and strategies modern teams need to help their companies grow.</p>
-                <div className="blog-cards-container">
+                <div className="section-cards-container">
                     {mappedBlog}
                 </div>
             </div>

@@ -38,14 +38,19 @@
     margin-bottom: 64px;
 }
 
-.blog-cards-container {
+.section-cards-container {
     display: flex;
     justify-content: space-between;
     user-select: none;
-    gap: 12px;
-    flex-shrink: 1;
+    gap: 25px;
 }
 
-#service-section {
+.service-section {
     background-color: white;
+}
+
+.service-cards-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
 }

@@ -50,3 +50,9 @@
     cursor: pointer;
     margin-top: 6px;
 }
+
+.date-input {
+    padding-right: 10px;
+    margin-left: 0;
+    font-size: 1rem;
+}

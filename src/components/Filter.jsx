@@ -23,8 +23,9 @@ export default function Filter() {
                     dropDownDefault = "Sedan"
                     />
                 <FilterInput 
-                    label = "Choose service"
+                    label = "Date of reservation"
                     dropDownDefault = "Polishing"
+                    isDate
                     />
             </div>
             <div className="filter-inputs-container">
