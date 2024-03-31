@@ -11,7 +11,7 @@ export default function Header() {
                 <Link to='/home'><img src={headerLogo} className='header-logo' alt='header logo'/></Link>
                 <ul className='header-list-container'>
                     <li className='header-list-item'><Link to='/home'>Home</Link></li>
-                    <li className='header-list-item'>Services</li>
+                    <li className='header-list-item'><Link to='/services'>Services</Link></li>
                     <li className='header-list-item'>About Us</li>
                     <li className='header-list-item'><Link to='/contact'>Contact Us</Link></li>
                     <li className='header-list-item'>FAQ</li>

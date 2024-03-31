@@ -1,0 +1,109 @@
+.blog-service-page-title-container {
+    padding: 96px 112px;
+    background-color: rgba(242, 244, 247, 1);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.blog-service-page-short-title {
+    color: rgba(245, 71, 0, 1);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.blog-service-page-title {
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-bottom: 23px;
+}
+
+.blog-service-page-desc {
+    color: rgba(71, 84, 103, 1);
+    font-size: 1.1rem;
+}
+
+.blog-page-cards-container {
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 96px 40px;
+    max-width: 1450px;
+    width: 100%;
+}
+
+.blog-page-card-container {
+    background-color: rgba(249, 250, 251, 1);
+    padding: 20px 20px 40px;
+    height: 490px;
+    border-radius: 20px;
+    max-width: 425px;
+    user-select: none;
+}
+
+.blog-card-button {
+    min-width: fit-content;
+    padding: 6px 10px;
+    background-color: rgba(245, 71, 0, 1);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.sorting-parent-container {
+    flex: initial;
+    margin-right: 30px;
+}
+
+.sorting-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.sorting-dropdown-container {
+    max-width: 300px;
+    width: 100%;
+    margin-left: 10px;
+    user-select: none;
+    margin-top: 0;
+}
+
+.sorting-menu-container {
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    padding: 14px 0px;
+    max-width: 300px;
+    width: 100%;
+    z-index: 100;
+    border: 1px solid rgba(208, 213, 221, 1);
+    cursor: initial;
+}
+
+.sorting-menu-item {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sorting-menu-item:hover {
+    background-color: rgb(238, 237, 237);
+}
+
+.sorting-button {
+    height: 44px;
+    padding-inline: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F54700;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}

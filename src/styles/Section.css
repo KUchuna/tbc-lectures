@@ -1,4 +1,4 @@
-.blog-section-container {
+.section-container {
     background-color: rgba(242, 244, 247, 1);
     padding: 96px 112px;
 }
@@ -38,10 +38,23 @@
     margin-bottom: 64px;
 }
 
-.blog-cards-container {
+.section-cards-container {
     display: flex;
     justify-content: space-between;
     user-select: none;
-    gap: 12px;
+    gap: 25px;
 }
 
+.service-section {
+    background-color: white;
+}
+
+.service-cards-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+}
+
+.services-section-desc {
+    margin-bottom: 20px;   
+}
