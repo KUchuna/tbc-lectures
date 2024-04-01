@@ -16,6 +16,7 @@ export default function ServiceSection(props) {
                     desc={card.desc}
                     contStyle='service-card-container'
                     imgStyle='service-card-img'
+                    descStyle='service-card-desc'
                     key={card.id}
                />
     }) : (props.searchValue === "" ? mappedServices = serviceData.map(card => {
@@ -25,6 +26,7 @@ export default function ServiceSection(props) {
                     desc={card.desc}
                     contStyle='service-card-container'
                     imgStyle='service-card-img'
+                    descStyle='service-card-desc'
                     key={card.id}
                /> }) : mappedServices = props.searchedService.map(card => {
                 return <ServiceCard 
@@ -33,6 +35,7 @@ export default function ServiceSection(props) {
                             desc={card.desc}
                             contStyle='service-card-container'
                             imgStyle='service-card-img'
+                            descStyle='service-card-desc'
                             key={card.id}
                        /> }))
 
