@@ -7,7 +7,7 @@ import blog6 from './assets/blog6.jpeg'
 import blog7 from './assets/blog7.jpeg'
 import blog8 from './assets/blog8.jpg'
 import blog9 from './assets/blog9.jpg'
-import blog10 from './assets/blog10.png'
+import blog10 from './assets/blog10.jpeg'
 
 
 

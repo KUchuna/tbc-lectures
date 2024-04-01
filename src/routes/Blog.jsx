@@ -78,7 +78,7 @@ export default function Blog() {
                         />
                     <button className="sorting-button" onClick={handleSort}>Apply</button>
                 </div>
-                <div className="blog-page-cards-container parent-flex-row-center">
+                <div className="blog-page-cards-container">
                     {mappedBlog}
                 </div>
             </div>
