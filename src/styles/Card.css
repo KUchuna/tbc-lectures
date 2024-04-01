@@ -16,7 +16,6 @@
     margin-bottom: 32px;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     border-radius: 20px;
 }
 
@@ -43,6 +42,9 @@
 .card-description {
     color: rgba(71, 84, 103, 1);
     line-height: 24px;
+}
+
+.service-card-desc {
     margin-bottom: 20px;
 }
 
