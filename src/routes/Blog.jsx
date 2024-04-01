@@ -9,8 +9,6 @@ export default function Blog() {
     const [open, setOpen] = React.useState(false)
     const [selection, setSelection] = React.useState("None")
     const [blogCards, setBlogCards] = React.useState(blogData)
-    const [sorted, setSorted] = React.useState(false)
-
 
     const mappedBlog = blogCards.map(card => {
         return <BlogCard 
@@ -30,30 +28,20 @@ export default function Blog() {
 
     function storeSelection(option) {
         setSelection(option)
-    }
-
-    function handleSort() {
-        console.log(selection)
-        console.log(blogCards)
-        console.log(sorted)
-        if(selection == "Date ascending") {
+        if(option == "Date ascending") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
                 return dateA - dateB
             }))
-            setSorted(true)
-        }else if(selection == "Date descending") {
+        }else if(option == "Date descending") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
                 return dateB - dateA
             }))
-            setSorted(true)
-        }else if(selection == "None") {
+        }else if(option == "None") {
             setBlogCards(blogData)
-            setSorted(false)
-            setSelection("None")
         }
     }
 
@@ -76,7 +64,6 @@ export default function Blog() {
                             selection={selection}
                             storeSelection={storeSelection}
                         />
-                    <button className="sorting-button" onClick={handleSort}>Apply</button>
                 </div>
                 <div className="blog-page-cards-container">
                     {mappedBlog}
