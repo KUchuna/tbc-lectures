@@ -8,7 +8,7 @@
 
 .main-image {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.552) 0%, rgba(0, 0, 0, 0.00) 100%), 
-            url('../assets/mainimage.jpg') lightgray;
+            url('../public/assets/mainimage.jpg') lightgray;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
