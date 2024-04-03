@@ -1,6 +1,6 @@
 "use client";
 
-import linkarrow from '../assets/uprightarrow.svg'
+import linkarrow from '../public/assets/uprightarrow.svg'
 import '../styles/Section.css'
 import serviceData from "../datas/serviceData.js"
 import ServiceCard from '../components/ServiceCard.jsx'

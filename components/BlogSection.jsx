@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import '../styles/Section.css'
-import linkarrow from '../assets/uprightarrow.svg'
+import linkarrow from '../public/assets/uprightarrow.svg'
 import blogData from '../datas/blogData.js'
 import BlogCard from './BlogCard'
 import Image from 'next/image'

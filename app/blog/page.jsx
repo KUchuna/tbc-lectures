@@ -11,8 +11,6 @@ export default function Blog() {
     const [open, setOpen] = React.useState(false)
     const [selection, setSelection] = React.useState("None")
     const [blogCards, setBlogCards] = React.useState(blogData)
-    const [sorted, setSorted] = React.useState(false)
-
 
     const mappedBlog = blogCards.map(card => {
         return <BlogCard 
@@ -38,14 +36,12 @@ export default function Blog() {
                 const dateB = new Date(b.date)
                 return dateA - dateB
             }))
-            setSorted(true)
         }else if(option == "Date descending") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
                 return dateB - dateA
             }))
-            setSorted(true)
         }else if(option == "None") {
             setBlogCards(blogData)
         }

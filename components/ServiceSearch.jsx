@@ -1,5 +1,5 @@
 import '../styles/ServiceSearch.css'
-import search from '../assets/search.svg'
+import search from '../public/assets/search.svg'
 import React from 'react'
 import Image from 'next/image';
 
@@ -24,7 +24,7 @@ export default function ServiceSearch(props) {
         <div className="service-search-container">
             <div className='service-search-content '>
                 <input type="text" className="service-search-input" onChange={handleChange} placeholder='Search for service'/>
-                <Image src={search} alt="" />
+                <Image className='service-search-icon' src={search} alt="" />
             </div>
         </div>
     )

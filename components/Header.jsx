@@ -1,8 +1,8 @@
 "use client";
 
 import '../styles/Header.css'
-import headerLogo from '../assets/headerlogo.svg'
-import profileLogo from '../assets/profilelogo.svg'
+import headerLogo from '../public/assets/headerlogo.svg'
+import profileLogo from '../public/assets/profilelogo.svg'
 import Link from 'next/link';
 import Image from 'next/image';
 

@@ -10,9 +10,10 @@
     border: 1px solid #d0d5dd;
     border-radius: 8px;
     display: flex;
+    align-items: center;
 }
 
-.service-search-content img {
+.service-search-icon {
     width: 25px;
     cursor: pointer;
     filter: invert(99%) sepia(0%) saturate(6883%) hue-rotate(200deg) brightness(97%) contrast(77%);

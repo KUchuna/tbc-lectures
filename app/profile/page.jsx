@@ -1,10 +1,11 @@
 "use client";
 
-import login from '@/assets/login.svg'
+import login from '@/public/assets/login.svg'
 import ContactInput from '@/components/ContactInput.jsx'
 import '@/styles/Profile.css'
 import React from 'react'
 import Image from 'next/image'
+
 
 export default function Profile() {
 
