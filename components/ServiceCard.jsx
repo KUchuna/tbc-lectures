@@ -9,7 +9,7 @@ export default function ServiceCard(props) {
             <span className='card-date'>{props.date}</span>
             <h3 className='card-title'>{props.title}</h3>
             <p className={`card-description ${props.descStyle}`}>{props.desc}</p>
-            <span className='card-full-info'>View full information <img src={servicearrow} alt="" /></span>
+            <span className='card-full-info'>View full information <Image src={servicearrow} alt="" /></span>
         </div>
     )
 }
