@@ -1,9 +1,9 @@
-import service1 from '../assets/service1.png'
-import service2 from '../assets/service2.png'
-import service3 from '../assets/service3.png'
-import service4 from '../assets/service4.png'
-import service5 from '../assets/service5.png'
-import service6 from '../assets/service6.png'
+import service1 from '@/public/assets/service1.png'
+import service2 from '@/public/assets/service2.png'
+import service3 from '@/public/assets/service3.png'
+import service4 from '@/public/assets/service4.png'
+import service5 from '@/public/assets/service5.png'
+import service6 from '@/public/assets/service6.png'
 
 const serviceData = [
     {
