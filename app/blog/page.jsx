@@ -1,7 +1,9 @@
-import BlogCard from "../components/BlogCard";
-import blogData from "../blogData";
-import '../styles/BlogServices.css'
-import FilterInput from '../components/FilterInput.jsx'
+"use client";
+
+import BlogCard from "@/components/BlogCard.jsx";
+import blogData from "@/datas/blogData.js";
+import '@/styles/BlogServices.css'
+import FilterInput from '@/components/FilterInput.jsx'
 import React from "react";
 
 export default function Blog() {
@@ -30,33 +32,25 @@ export default function Blog() {
 
     function storeSelection(option) {
         setSelection(option)
-    }
-
-    function handleSort() {
-        console.log(selection)
-        console.log(blogCards)
-        console.log(sorted)
-        if(selection == "Date ascending") {
+        if(option == "Date ascending") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
                 return dateA - dateB
             }))
             setSorted(true)
-        }else if(selection == "Date descending") {
+        }else if(option == "Date descending") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
                 return dateB - dateA
             }))
             setSorted(true)
-        }else if(selection == "None") {
+        }else if(option == "None") {
             setBlogCards(blogData)
-            setSorted(false)
-            setSelection("None")
         }
     }
-
+    
     return (
         <div className="blog-page-container">
             <div className="blog-service-page-title-container parent-flex-column-center">
@@ -76,7 +70,6 @@ export default function Blog() {
                             selection={selection}
                             storeSelection={storeSelection}
                         />
-                    <button className="sorting-button" onClick={handleSort}>Apply</button>
                 </div>
                 <div className="blog-page-cards-container">
                     {mappedBlog}

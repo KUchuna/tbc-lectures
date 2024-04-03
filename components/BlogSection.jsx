@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import '../styles/Section.css'
 import linkarrow from '../assets/uprightarrow.svg'
-import blogData from '../blogData'
+import blogData from '../datas/blogData.js'
 import BlogCard from './BlogCard'
+import Image from 'next/image'
 
 export default function BlogSection() {
 
@@ -21,7 +22,7 @@ export default function BlogSection() {
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Our blog</span>
-                    <Link to='/blog'><span className="section-link">View all posts<img src={linkarrow} alt='' /></span></Link>
+                    <Link href='/blog'><span className="section-link">View all posts<Image src={linkarrow} alt='' /></span></Link>
                 </div>
                 <h3 className="section-title">latest blog posts</h3>
                 <p className="section-description">Tool and strategies modern teams need to help their companies grow.</p>

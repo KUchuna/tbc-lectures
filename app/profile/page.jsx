@@ -1,7 +1,10 @@
-import login from '../assets/login.svg'
-import ContactInput from '../components/ContactInput.jsx'
-import '../styles/Profile.css'
+"use client";
+
+import login from '@/assets/login.svg'
+import ContactInput from '@/components/ContactInput.jsx'
+import '@/styles/Profile.css'
 import React from 'react'
+import Image from 'next/image'
 
 export default function Profile() {
 
@@ -27,7 +30,7 @@ export default function Profile() {
     return (
         <div className="profile-page-container parent-flex-column-center">
             <div className="profile-title-container parent-flex-column-center">
-                <img src={login} alt="" />
+                <Image src={login} alt="" />
                 <h4 className='profile-title'>Create new account</h4>
             </div>
             <div className='profile-form-container'>

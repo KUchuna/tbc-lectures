@@ -3,14 +3,14 @@ import footerLogo from '../assets/headerlogo.svg'
 import twitter from '../assets/twitter.svg'
 import linkedin from '../assets/linkedin.svg'
 import facebook from '../assets/facebook.svg'
-
+import Image from 'next/image'
 
 export default function Footer() {
     return (
         <footer className="footer-container parent-flex-column-center">
             <div className='footer-up-container parent-max-width parent-flex-row-between'>
                 <div className='footer-up-left-container'>
-                    <img src={footerLogo} alt='footer-logo' />
+                    <Image src={footerLogo} alt='footer-logo' />
                     <ul className='footer-list-container'>
                         <li className='footer-list-item'>Overview</li>
                         <li className='footer-list-item'>Features</li>
@@ -33,9 +33,9 @@ export default function Footer() {
                 © 2077 MOVAN. All rights reserved.
                 </span>
                 <ul className='footer-socials-container'>
-                    <li className='footer-socials-item'><img src={twitter} alt='twitter' /></li>
-                    <li className='footer-socials-item'><img src={linkedin} alt='twitter' /></li>
-                    <li className='footer-socials-item'><img src={facebook} alt='twitter' /></li>
+                    <li className='footer-socials-item'><Image src={twitter} alt='twitter' /></li>
+                    <li className='footer-socials-item'><Image src={linkedin} alt='twitter' /></li>
+                    <li className='footer-socials-item'><Image src={facebook} alt='twitter' /></li>
                 </ul>
             </div>
         </footer>

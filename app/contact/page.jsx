@@ -1,9 +1,9 @@
-import '../styles/Contact.css'
-import ContactInfo from '../components/ContactInfo'
-import contactemail from '../assets/contactemail.svg'
-import contactlocation from '../assets/contactlocation.svg'
-import contactphone from '../assets/contactphone.svg'
-import ContactInput from '../components/ContactInput.jsx'
+import '@/styles/Contact.css'
+import ContactInfo from '@/components/ContactInfo'
+import contactemail from '@/assets/contactemail.svg'
+import contactlocation from '@/assets/contactlocation.svg'
+import contactphone from '@/assets/contactphone.svg'
+import ContactInput from '@/components/ContactInput.jsx'
 
 
 

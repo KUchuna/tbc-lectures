@@ -1,7 +1,7 @@
 import "../styles/FilterInput.css"
 import dropDown from '../assets/dropdown.svg'
 import React from "react"
-
+import Image from "next/image"
 
 export default function FilterInput(props) {
 
@@ -17,7 +17,7 @@ export default function FilterInput(props) {
             <span className="filter-input-label">{props.label}</span>
             {props.isText ?
             <div className='filter-input-container'>
-                <img src={props.inputImg} alt='' />
+                <Image src={props.inputImg} alt='' />
                 <input type="text" className="filter-input" placeholder={props.inputPlaceHolder} />
             </div> 
             :
@@ -26,7 +26,7 @@ export default function FilterInput(props) {
                              </div> : 
             <div className={`filter-dropdown-container ${props.sortingStyle}`} onClick={props.onClick}>
                 {props.dropDownDefault}
-                <img src={dropDown} alt="" />
+                <Image src={dropDown} alt="" />
                 {props.open && 
                     <ul className="sorting-menu-container">
                         <li className="sorting-menu-item" onClick={() => handleSelect("None")}>None</li>
