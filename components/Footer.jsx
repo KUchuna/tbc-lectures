@@ -1,8 +1,8 @@
 import '../styles/Footer.css'
-import footerLogo from '../assets/headerlogo.svg'
-import twitter from '../assets/twitter.svg'
-import linkedin from '../assets/linkedin.svg'
-import facebook from '../assets/facebook.svg'
+import footerLogo from '../public/assets/headerlogo.svg'
+import twitter from '../public/assets/twitter.svg'
+import linkedin from '../public/assets/linkedin.svg'
+import facebook from '../public/assets/facebook.svg'
 import Image from 'next/image'
 
 export default function Footer() {

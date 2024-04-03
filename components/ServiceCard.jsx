@@ -1,4 +1,4 @@
-import servicearrow from '../assets/servicearrow.svg'
+import servicearrow from '../public/assets/servicearrow.svg'
 import '../styles/Card.css'
 import Image from 'next/image'
 

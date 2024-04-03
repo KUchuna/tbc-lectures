@@ -1,5 +1,5 @@
 import '../styles/Card.css'
-import blogarrow from '../assets/uprightarrow.svg'
+import blogarrow from '../public/assets/uprightarrow.svg'
 import Image from 'next/image'
 
 export default function BlogCard(props) {

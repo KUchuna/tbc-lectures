@@ -1,5 +1,5 @@
 import '../styles/ServiceSearch.css'
-import search from '../assets/search.svg'
+import search from '../public/assets/search.svg'
 import React from 'react'
 import Image from 'next/image';
 

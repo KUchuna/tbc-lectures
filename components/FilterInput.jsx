@@ -1,5 +1,5 @@
 import "../styles/FilterInput.css"
-import dropDown from '../assets/dropdown.svg'
+import dropDown from '../public/assets/dropdown.svg'
 import React from "react"
 import Image from "next/image"
 

@@ -1,8 +1,8 @@
 import "../styles/Filter.css"
 import FilterInput from "./FilterInput"
-import location from "../assets/location.svg"
-import idnumber from "../assets/idnumber.svg"
-import phone from "../assets/phone.svg"
+import location from "../public/assets/location.svg"
+import idnumber from "../public/assets/idnumber.svg"
+import phone from "../public/assets/phone.svg"
 
 export default function Filter() {
     return (

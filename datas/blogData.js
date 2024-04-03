@@ -1,13 +1,13 @@
-import blog1 from '../assets/blog1.png'
-import blog2 from '../assets/blog2.png'
-import blog3 from '../assets/blog3.png'
-import blog4 from '../assets/blog4.jpg'
-import blog5 from '../assets/blog5.jpg'
-import blog6 from '../assets/blog6.jpeg'
-import blog7 from '../assets/blog7.jpeg'
-import blog8 from '../assets/blog8.jpg'
-import blog9 from '../assets/blog9.jpg'
-import blog10 from '../assets/blog10.jpeg'
+import blog1 from '@/public/assets/blog1.png'
+import blog2 from '@/public/assets/blog2.png'
+import blog3 from '@/public/assets/blog3.png'
+import blog4 from '@/public/assets/blog4.jpg'
+import blog5 from '@/public/assets/blog5.jpg'
+import blog6 from '@/public/assets/blog6.jpeg'
+import blog7 from '@/public/assets/blog7.jpeg'
+import blog8 from '@/public/assets/blog8.jpg'
+import blog9 from '@/public/assets/blog9.jpg'
+import blog10 from '@/public/assets/blog10.jpeg'
 
 
 
