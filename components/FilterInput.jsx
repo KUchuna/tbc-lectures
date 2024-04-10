@@ -30,8 +30,8 @@ export default function FilterInput(props) {
                 {props.open && 
                     <ul className="sorting-menu-container">
                         <li className="sorting-menu-item" onClick={() => handleSelect("None")}>None</li>
-                        <li className="sorting-menu-item" onClick={() => handleSelect("Date ascending")}>Date ascending</li>
-                        <li className="sorting-menu-item" onClick={() => handleSelect("Date descending")}>Date descending</li>
+                        <li className="sorting-menu-item" onClick={() => handleSelect("Most reactions")}>Most reactions</li>
+                        <li className="sorting-menu-item" onClick={() => handleSelect("Least reactions")}>Least reactions</li>
                     </ul>
                     }
             </div>)}
