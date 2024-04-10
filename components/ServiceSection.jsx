@@ -1,5 +1,3 @@
-"use client";
-
 import linkarrow from '../public/assets/uprightarrow.svg'
 import '../styles/Section.css'
 import serviceData from "../datas/serviceData.js"
@@ -22,24 +20,26 @@ export default function ServiceSection(props) {
                     descStyle='service-card-desc'
                     key={card.id}
                />
-    }) : (props.searchValue === "" ? mappedServices = serviceData.map(card => {
+    }) : (props.searchValue === "" ? mappedServices = props.defaultService.map(card => {
         return <ServiceCard 
-                    img={card.img}
+                    img={card.thumbnail}
                     title={card.title}
-                    desc={card.desc}
+                    desc={card.description}
                     contStyle='service-card-container'
                     imgStyle='service-card-img'
                     descStyle='service-card-desc'
                     key={card.id}
+                    id={card.id}
                /> }) : mappedServices = props.searchedService.map(card => {
                 return <ServiceCard 
-                            img={card.img}
+                            img={card.thumbnail}
                             title={card.title}
-                            desc={card.desc}
+                            desc={card.description}
                             contStyle='service-card-container'
                             imgStyle='service-card-img'
                             descStyle='service-card-desc'
                             key={card.id}
+                            id={card.id}
                        /> }))
 
     return (

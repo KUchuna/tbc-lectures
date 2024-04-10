@@ -3,15 +3,26 @@
 import '@/styles/BlogServices.css'
 import ServiceSection from '@/components/ServiceSection.jsx'
 import React from 'react'
-import serviceData from '@/datas/serviceData.js'
-
+// import serviceData from '@/datas/serviceData.js'
 
 export default function Services() {
+    
+    const [searchedService, setSearchedService] = React.useState([])
+    const [defaultService, setDefaultService] = React.useState([])
 
-    const [searchedService, setSearchedService] = React.useState(serviceData)
+    React.useEffect(() => {
+        fetch('https://dummyjson.com/products')
+        .then(res => res.json())
+        .then(res => {
+            setSearchedService(res.products)
+            setDefaultService(res.products)
+        })
+    },[])
+
+
 
     function handleSearch (value) {
-        setSearchedService(serviceData.filter(item => item.title.toLowerCase().includes(value.toLowerCase())))
+        setSearchedService(defaultService.filter(item => item.title.toLowerCase().includes(value.toLowerCase())))
     }
 
     return (
@@ -26,6 +37,7 @@ export default function Services() {
                 descStyle='services-section-desc'
                 handleSearch={handleSearch}
                 searchedService={searchedService}
+                defaultService={defaultService}
             />
         </div>
     )
