@@ -42,3 +42,14 @@
     background-color: white;
     cursor: pointer;
 }
+
+.profile-actions {
+    display: flex;
+    align-items: center;
+
+}
+
+.log-out {
+    margin-right: 30px;
+    cursor: pointer;
+}

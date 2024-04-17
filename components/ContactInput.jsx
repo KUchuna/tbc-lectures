@@ -1,6 +1,6 @@
 import '../styles/ContactInput.css'
 
-export default function ContactInfo(props) {
+export default function ContactInput(props) {
 
     return (
         <div className="contact-input-container">

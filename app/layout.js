@@ -1,7 +1,4 @@
-import Footer from '@/components/Footer.jsx';
-import Header from '@/components/Header.jsx';
 import '../styles/App.css'
-
 
 export const metadata = {
   title: "Movan",
@@ -12,9 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
