@@ -1,12 +1,21 @@
-"use client";
+'use server'
 
 import '../styles/Header.css'
 import headerLogo from '../public/assets/headerlogo.svg'
 import profileLogo from '../public/assets/profilelogo.svg'
 import Link from 'next/link';
 import Image from 'next/image';
+import LogOut from './LogOut.jsx';
+import { cookies } from 'next/headers'
+import { logout } from '@/app/actions';
 
-export default function Header() {
+export default async function Header() {
+
+    const handleClick = async () => {
+        'use server'
+        await logout()
+    }
+
     return (
         <header className='header-container parent-flex-row-center'>
             <div className='parent-flex-row-between parent-max-width'>
@@ -20,11 +29,16 @@ export default function Header() {
                     <li className='header-list-item'>FAQ</li>
                 </ul>
             </div>
-            <Link href='/profile'>
-                <span className='profile-button'>
-                    <Image src={profileLogo} alt='profile' />
-                </span>
-            </Link>
+            <div className='profile-actions'>
+               <LogOut 
+                    onclick={handleClick}
+               />
+                <Link href='/login'>
+                    <span className='profile-button'>
+                        <Image src={profileLogo} alt='profile' />
+                    </span>
+                </Link>
+                </div>
             </div>
         </header>
     )
