@@ -16,13 +16,16 @@ export default function LoginForm(props) {
         setPassword(e.target.value)
     }
 
+
+
     return (
-        <>
+        <form>
             <ContactInput 
                 label='Email'
                 placeholder='Enter your email'
                 type='email'
                 name='email'
+                value={email}
                 onchange={handleEmail}
                 />
             <ContactInput 
@@ -30,9 +33,14 @@ export default function LoginForm(props) {
                 placeholder='Enter your password'
                 type='password'
                 name='password'
+                value={password}
                 onchange={handlePassword}
                 />
-            <button className='profile-verify' type='submit' onClick={() => props.handleclick(email, password)}>VERIFY</button>
-        </>
+            <button className='profile-verify' type='submit' onClick={(e) => 
+            {e.preventDefault() 
+            props.handleclick(email, password)
+            }}
+            >Log in</button>
+        </form>
     )
 }
