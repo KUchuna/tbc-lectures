@@ -1,21 +1,22 @@
-.profile-page-container {
+.login-page-container {
     background-color: rgba(242, 244, 247, 1);
     padding: 96px 112px;
+    height: 100vh;
 }
 
-.profile-title-container {
+.login-title-container {
     margin-bottom: 32px;
 }
 
-.profile-title-container img {
+.login-title-container img {
     margin-bottom: 24px;
 }
 
-.profile-title {
+.login-title {
     font-size: 1.5rem;
 }
 
-.profile-form-container {
+.login-form-container {
     background-color: white;
     border: 1px solid rgba(208, 213, 221, 1);
     padding: 32px 40px;
@@ -23,7 +24,7 @@
     width: 440px;
 }
 
-.profile-verify {
+.login-verify {
     width: 100%;
     background-color: rgba(245, 71, 0, 1);
     border: none;

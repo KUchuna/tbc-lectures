@@ -30,6 +30,7 @@
     margin-left: 10px;
     width: 100%;
     border-radius: 8px;
+    color: black;
 }
 
 .filter-input:focus {
@@ -56,4 +57,5 @@
     padding-right: 10px;
     margin-left: 0;
     font-size: 1rem;
+    color: black;
 }

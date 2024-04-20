@@ -36,7 +36,7 @@ export default function LoginForm(props) {
                 value={password}
                 onchange={handlePassword}
                 />
-            <button className='profile-verify' type='submit' onClick={(e) => 
+            <button className='login-verify' type='submit' onClick={(e) => 
             {e.preventDefault() 
             props.handleclick(email, password)
             }}
