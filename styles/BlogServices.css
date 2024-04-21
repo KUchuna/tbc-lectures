@@ -39,7 +39,7 @@
     border-radius: 20px;
     max-width: 425px;
     user-select: none;
-    height: 630px;
+    height: 500px;
 }
 
 .blog-card-button {
@@ -93,6 +93,7 @@
     list-style: none;
     padding: 10px;
     cursor: pointer;
+    transition: background-color 300ms ease;
 }
 
 .sorting-menu-item:hover {

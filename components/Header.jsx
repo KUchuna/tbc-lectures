@@ -2,7 +2,6 @@
 
 import '../styles/Header.css'
 import headerLogo from '../public/assets/headerlogo.svg'
-import LogOut from './LogOut.jsx';
 import { logout } from '@/app/actions';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -10,7 +9,7 @@ import ProfileButton from './ProfileButton';
 
 export default async function Header() {
 
-    const handleClick = async () => {
+    const handleLogout = async () => {
         'use server'
         await logout()
     }
@@ -29,7 +28,7 @@ export default async function Header() {
                     </ul>
                 </div>
                     <ProfileButton 
-                        handlelogout={handleClick}
+                        handlelogout={handleLogout}
                     />
             </div>
         </header>

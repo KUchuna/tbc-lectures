@@ -11,8 +11,9 @@ export default function ServiceCard(props) {
     const router = useRouter()
 
     function handleClick() {
-        router.push(`/services/${props.id}`)
+        props.servicepage && router.push(`/services/${props.id}`)
     }
+    
     return (
         <div className={`card-container ${props.contStyle}`} onClick={handleClick}>
             <Image src={props.img} className={`card-img ${props.imgStyle}`} width={300} height={300}/>

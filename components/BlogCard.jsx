@@ -10,7 +10,7 @@ export default function BlogCard(props) {
     const router = useRouter()
 
     function handleClick() {
-        router.push(`/blog/${props.id}`)
+        props.blogpage && router.push(`/blogs/${props.id}`)
     }
 
     return (
@@ -18,7 +18,7 @@ export default function BlogCard(props) {
             <Image src={props.img} className='card-img'/>
             <span className='card-date'>{props.reactionsText}{props.reactions}</span>
             <h3 className='card-title'>{props.title}<Image src={blogarrow} alt='' /></h3>
-            <p className='card-description'>{props.desc}</p>
+            <p className='card-description'>{props.blogpage ? props.desc.slice(0,150) + "..." : props.desc}</p>
         </div>
     )
 }

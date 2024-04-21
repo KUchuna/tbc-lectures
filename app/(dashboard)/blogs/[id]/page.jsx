@@ -1,3 +1,16 @@
+export async function generateStaticParams() {
+    const res = await fetch('https://dummyjson.com/posts')
+    const blogs = await res.json()
+
+    const paths = blogs.posts.map((post) => ({
+        params: { id: `/blogs/${post.id}`}
+    }))
+
+    return paths
+}
+
+
+
 async function getProduct(id) {
     const res = await fetch(`https://dummyjson.com/posts/${id}`)
     const data = await res.json()

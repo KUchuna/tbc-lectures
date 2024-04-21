@@ -22,7 +22,7 @@ export default function BlogSection() {
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Our blog</span>
-                    <Link href='/blog'><span className="section-link">View all posts<Image src={linkarrow} alt='' /></span></Link>
+                    <Link href='/blogs'><span className="section-link">View all posts<Image src={linkarrow} alt='' /></span></Link>
                 </div>
                 <h3 className="section-title">latest blog posts</h3>
                 <p className="section-description">Tool and strategies modern teams need to help their companies grow.</p>

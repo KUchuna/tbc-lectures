@@ -20,11 +20,12 @@ export default async function Login() {
   
 
 
-    const handleClick = async (username, password, e) => {
+    const handleClick = async (username, password) => {
         'use server'
         if(username != "" && password != "") {
             await login(username, password)
         }
+        console.log(username+password)
     }
 
     return (     

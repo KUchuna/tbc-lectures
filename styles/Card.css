@@ -4,7 +4,7 @@
     align-items: flex-start;
     cursor: pointer;
     height: fit-content;
-    min-width: 385px;
+    max-width: 385px;
     width: 100%;
     transition: transform 0.3s ease;
     height: 100%;
@@ -65,10 +65,10 @@
 }
 
 .service-card-img {
-    min-width: 340px;
     min-height: 200px;
-    max-width: 300px;
+    max-width: 340px;
     max-height: 200px;
+    width: 100%;
     margin-bottom: 16px;
     height: initial;
 }

@@ -5,11 +5,11 @@ import React from 'react'
 
 export default function LoginForm(props) {
     
-    const [email, setEmail] = React.useState("")
+    const [username, setUsername] = React.useState("")
     const [password, setPassword] = React.useState("")
     
-    function handleEmail(e) {
-        setEmail(e.target.value)
+    function handleUsername(e) {
+        setUsername(e.target.value)
     }
     
     function handlePassword(e) {
@@ -19,14 +19,17 @@ export default function LoginForm(props) {
 
 
     return (
-        <form>
+        <form onSubmit={(e) => 
+            {e.preventDefault() 
+            props.handleclick(username, password)
+            }}>
             <ContactInput 
-                label='Email'
+                label='Username'
                 placeholder='Enter your email'
-                type='email'
+                type='text'
                 name='email'
-                value={email}
-                onchange={handleEmail}
+                value={username}
+                onchange={handleUsername}
                 />
             <ContactInput 
                 label='Password'
@@ -36,11 +39,7 @@ export default function LoginForm(props) {
                 value={password}
                 onchange={handlePassword}
                 />
-            <button className='login-verify' type='submit' onClick={(e) => 
-            {e.preventDefault() 
-            props.handleclick(email, password)
-            }}
-            >Log in</button>
+            <button className='login-verify' type='submit'>Log in</button>
         </form>
     )
 }

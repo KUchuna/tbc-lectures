@@ -30,6 +30,7 @@ export default function ServiceSection(props) {
                     descStyle='service-card-desc'
                     key={card.id}
                     id={card.id}
+                    servicepage
                /> }) : mappedServices = props.searchedService.map(card => {
                 return <ServiceCard 
                             img={card.thumbnail}
@@ -40,6 +41,7 @@ export default function ServiceSection(props) {
                             descStyle='service-card-desc'
                             key={card.id}
                             id={card.id}
+                            servicepage
                        /> }))
 
     return (

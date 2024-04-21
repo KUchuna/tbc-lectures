@@ -3,9 +3,10 @@
 import Image from 'next/image';
 import profileLogo from '../public/assets/profilelogo.svg'
 import React from 'react';
-import LogOut from './LogOut';
+import { redirect } from "next/navigation"
 
-export default function ProfileButton(props) {
+
+export default function ProfileButton({ handlelogout }) {
 
     const [menu, setMenu] = React.useState(false)
     const containerRef = React.useRef()
@@ -27,7 +28,10 @@ export default function ProfileButton(props) {
         setMenu(!menu)
     }
 
-
+    function handleClick() {
+        handlelogout()
+        redirect('/login')
+    }
 
     return (
         <div className='profile-button' onClick={handleMenu} ref={containerRef}>
@@ -37,10 +41,8 @@ export default function ProfileButton(props) {
                         <li>
                             Profile
                         </li>
-                        <li>
-                            <LogOut 
-                            onclick={props.handlelogout}
-                            />
+                        <li onClick={handleClick}>
+                            Log out
                         </li>
                     </ul>
                     :

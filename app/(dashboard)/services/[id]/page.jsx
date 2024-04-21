@@ -1,5 +1,18 @@
 import Image from "next/image"
 
+export async function generateStaticParams() {
+    const res = await fetch('https://dummyjson.com/products')
+    const products = await res.json()
+
+    const paths = products.products.map((product) => ({
+        params: { id: `/services/${product.id}`}
+    }))
+    
+    return paths
+}
+
+
+
 async function getProduct(id) {
     const res = await fetch(`https://dummyjson.com/products/${id}`)
     const data = await res.json()
@@ -7,7 +20,7 @@ async function getProduct(id) {
 }
 
 
-export default async function Service({params}) {
+export default async function Service({ params }) {
 
     const product = await getProduct(params.id)
     

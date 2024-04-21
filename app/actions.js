@@ -11,9 +11,9 @@ export async function login(username, password) {
         password,
   })
 })
-    const user = response.json()
+    const user = await response.json()
     const cookieStore = cookies()
-    cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(user))
+    cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(user.token))
 }
 
 export async function logout() {

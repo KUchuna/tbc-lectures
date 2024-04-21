@@ -7,5 +7,5 @@ export default function LogOut({onclick}) {
         onclick()
         redirect('/login')
     }
-   return <span onClick={handleClick}>Log out</span>
+   return <span>Log out</span>
 }

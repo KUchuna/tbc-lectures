@@ -1,11 +1,10 @@
 "use client";
 
 import BlogCard from "@/components/BlogCard.jsx";
-// import blogData from "@/datas/blogData.js";
 import '@/styles/BlogServices.css'
 import FilterInput from '@/components/FilterInput.jsx'
 import React from "react";
-import defblog from '@/public/assets/defblog.png'
+import defblog from '@/public/assets/defblog.webp'
 
 export default function Blog() {
 
@@ -33,6 +32,7 @@ export default function Blog() {
                     style='blog-page-card-container'
                     key={card.id}
                     id={card.id}
+                    blogpage
                 />
     })
 
