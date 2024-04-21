@@ -56,13 +56,14 @@
 .sorting-parent-container {
     flex: initial;
     margin-right: 30px;
+    width: 300px;
+    padding: 20px;
 }
 
 .sorting-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
 }
 
 .sorting-dropdown-container {

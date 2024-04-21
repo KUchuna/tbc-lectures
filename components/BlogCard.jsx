@@ -14,11 +14,11 @@ export default function BlogCard(props) {
     }
 
     return (
-        <div className={`card-container ${props.style}`} onClick={handleClick}>
+        <div className={`card-container ${props.style} dark:bg-slate-700`} onClick={handleClick}>
             <Image src={props.img} className='card-img'/>
             <span className='card-date'>{props.reactionsText}{props.reactions}</span>
             <h3 className='card-title'>{props.title}<Image src={blogarrow} alt='' /></h3>
-            <p className='card-description'>{props.blogpage ? props.desc.slice(0,150) + "..." : props.desc}</p>
+            <p className='card-description dark:text-slate-300'>{props.blogpage ? props.desc.slice(0,150) + "..." : props.desc}</p>
         </div>
     )
 }

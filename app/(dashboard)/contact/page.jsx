@@ -9,11 +9,11 @@ import ContactInput from '@/components/ContactInput.jsx'
 
 export default function Contact() {
     return (
-        <div className="contact-page-container parent-flex-column-center">
+        <div className="contact-page-container parent-flex-column-center dark:bg-slate-900">
             <div className="contact-above-section-container parent-max-width parent-flex-column-center">
                 <div className="contact-title-container">
                     <span id="contact-us">Contact us</span>
-                    <h1 id='contact-title'>We’d love to hear from you</h1>
+                    <h1 id='contact-title' className='font-bold'>We’d love to hear from you</h1>
                     <span id='contact-subtitle'>Our friendly team is always here to chat.</span>
                 </div>
                 <div className='contact-info-cards-container'>
@@ -37,7 +37,7 @@ export default function Contact() {
                     />
                 </div>
             </div>
-            <div className='contact-below-section-container parent-flex-column-center'>
+            <div className='contact-below-section-container parent-flex-column-center dark:bg-slate-700'>
                 <ContactInput 
                     label="Full name"
                     type="text"

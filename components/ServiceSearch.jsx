@@ -5,11 +5,8 @@ import Image from 'next/image';
 
 export default function ServiceSearch(props) {
     
-    const [inputValue, setInputValue] = React.useState('');
-
     const handleChange = (e) => {
         const value = e.target.value;
-        setInputValue(value);
         debounce(() => {
             props.handleSearch(value);
         }, 1300);
@@ -22,8 +19,8 @@ export default function ServiceSearch(props) {
 
     return (
         <div className="service-search-container">
-            <div className='service-search-content '>
-                <input type="text" className="service-search-input" onChange={handleChange} placeholder='Search for service'/>
+            <div className='service-search-content dark:bg-white'>
+                <input type="text" className="service-search-input dark:bg-white" onChange={handleChange} placeholder='Search for service'/>
                 <Image className='service-search-icon' src={search} alt="" />
             </div>
         </div>

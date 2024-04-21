@@ -17,7 +17,7 @@ export default async function Login() {
     if(cookie?.value) {
         redirect ('/')
     }
-  
+
 
 
     const handleClick = async (username, password) => {
@@ -25,16 +25,15 @@ export default async function Login() {
         if(username != "" && password != "") {
             await login(username, password)
         }
-        console.log(username+password)
     }
 
     return (     
-        <div className="login-page-container parent-flex-column-center">
+        <div className="login-page-container parent-flex-column-center dark:bg-slate-900">
             <div className="login-title-container parent-flex-column-center">
                 <Image src={loginsvg} alt="" />
-                <h4 className='login-title'>Welcome back!</h4>
+                <h4 className='text-4xl font-bold dark:text-slate-300'>Welcome back!</h4>
             </div>
-            <div className='login-form-container'>
+            <div className='login-form-container dark:bg-slate-700'>
                 <LoginForm 
                     handleclick={handleClick}
                     />

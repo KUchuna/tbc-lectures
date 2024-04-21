@@ -17,7 +17,6 @@ export default function LoginForm(props) {
     }
 
 
-
     return (
         <form onSubmit={(e) => 
             {e.preventDefault() 
@@ -25,7 +24,7 @@ export default function LoginForm(props) {
             }}>
             <ContactInput 
                 label='Username'
-                placeholder='Enter your email'
+                placeholder='Enter your username'
                 type='text'
                 name='email'
                 value={username}

@@ -3,7 +3,7 @@ import Filter from './Filter'
 
 export default function Main() {
     return (
-        <section className='main-container parent-flex-row-center'>
+        <section className='main-container parent-flex-row-center dark:bg-slate-700'>
             <div className='parent-max-width'>
                 <div className='main-image'>
                     <h1>Elevating Excellence in Detailing Services</h1>

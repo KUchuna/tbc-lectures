@@ -18,14 +18,14 @@ export default function BlogSection() {
     })
 
     return (
-        <section className="section-container parent-flex-column-center">
+        <section className="section-container parent-flex-column-center dark:bg-slate-700">
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Our blog</span>
-                    <Link href='/blogs'><span className="section-link">View all posts<Image src={linkarrow} alt='' /></span></Link>
+                    <Link href='/blogs'><span className="section-link dark:text-slate-400">View all posts<Image src={linkarrow} alt='' /></span></Link>
                 </div>
-                <h3 className="section-title">latest blog posts</h3>
-                <p className="section-description">Tool and strategies modern teams need to help their companies grow.</p>
+                <h3 className="text-4xl font-bold mb-5">Latest blog posts</h3>
+                <p className="section-description dark:text-slate-400">Tool and strategies modern teams need to help their companies grow.</p>
                 <div className="section-cards-container">
                     {mappedBlog}
                 </div>

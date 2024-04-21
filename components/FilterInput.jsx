@@ -13,18 +13,18 @@ export default function FilterInput(props) {
 
 
     return (
-        <div className={`filter-input-dropdown-container ${props.contStyle}`}>
-            <span className="filter-input-label">{props.label}</span>
+        <div className={props.isMainFilter ? "filter-input-dropdown-container" : props.contStyle}>
+            <span className="filter-input-label dark:text-slate-300">{props.label}</span>
             {props.isText ?
-            <div className='filter-input-container'>
+            <div className='filter-input-container dark:bg-white'>
                 <Image src={props.inputImg} alt='' />
-                <input type="text" className="filter-input" placeholder={props.inputPlaceHolder} />
+                <input type="text" className="filter-input dark:bg-white" placeholder={props.inputPlaceHolder} />
             </div> 
             :
-            (props.isDate ?  <div className='filter-input-container'>
-                                <input type="datetime-local" className="filter-input date-input" defaultValue={currentDate} min={currentDate}/>
+            (props.isDate ?  <div className='filter-input-container dark:bg-white'>
+                                <input type="datetime-local" className="filter-input date-input dark:bg-white" defaultValue={currentDate} min={currentDate}/>
                              </div> : 
-            <div className={`filter-dropdown-container ${props.sortingStyle}`} onClick={props.onClick}>
+            <div className={`filter-dropdown-container ${props.sortingStyle} dark:bg-white`} onClick={props.onClick}>
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 

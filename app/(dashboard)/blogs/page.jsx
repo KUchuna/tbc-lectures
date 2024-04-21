@@ -52,14 +52,14 @@ export default function Blog() {
     }
     
     return (
-        <div className="blog-page-container">
-            <div className="blog-service-page-title-container parent-flex-column-center">
+        <div className="blog-page-container dark:bg-slate-800">
+            <div className="blog-service-page-title-container parent-flex-column-center dark:bg-slate-900">
                 <span className="blog-service-page-short-title">BLOG</span>
-                <h1 className="blog-service-page-title">read our latest blog</h1>
-                <p className="blog-service-page-desc">Insights, Tips, and News for Car Enthusiasts</p>
+                <h1 className="blog-service-page-title font-bold">read our latest blog</h1>
+                <p className="blog-service-page-desc dark:text-slate-400">Insights, Tips, and News for Car Enthusiasts</p>
             </div>
             <div className="parent-flex-column-center">
-                <div className="sorting-container">
+                <div className="sorting-container dark:bg-slate-800 w-full h-full">
                     <span>Sort by:</span>
                         <FilterInput 
                             dropDownDefault={selection}
@@ -71,7 +71,7 @@ export default function Blog() {
                             storeSelection={storeSelection}
                         />
                 </div>
-                <div className="blog-page-cards-container">
+                <div className="blog-page-cards-container dark:bg-slate-800">
                     {mappedBlog}
                 </div>
             </div>
