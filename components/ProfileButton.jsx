@@ -37,11 +37,11 @@ export default function ProfileButton({ handlelogout }) {
         <div className='profile-button dark:bg-slate-300 dark:border-slate-500' onClick={handleMenu} ref={containerRef}>
             <Image src={profileLogo} alt='profile' id='profile-image'/>
 
-            {menu ? <ul className='profile-actions'>
-                        <li>
+            {menu ? <ul className='profile-actions dark:bg-slate-500 dark:border-slate-700'>
+                        <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
                             Profile
                         </li>
-                        <li onClick={handleClick}>
+                        <li onClick={handleClick} className='dark:text-slate-200 dark:hover:bg-slate-400'>
                             Log out
                         </li>
                     </ul>

@@ -8,7 +8,7 @@ import "@/styles/Footer.css"
 
 export default function Home() {
     return (
-        <div className='home-page-container'>
+        <div className='home-page-container dark:bg-slate-500'>
             <Main />
             <ServiceSection 
                 homePage

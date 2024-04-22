@@ -28,10 +28,10 @@ export default function FilterInput(props) {
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 
-                    <ul className="sorting-menu-container">
-                        <li className="sorting-menu-item" onClick={() => handleSelect("None")}>None</li>
-                        <li className="sorting-menu-item" onClick={() => handleSelect("Most reactions")}>Most reactions</li>
-                        <li className="sorting-menu-item" onClick={() => handleSelect("Least reactions")}>Least reactions</li>
+                    <ul className="sorting-menu-container dark:bg-slate-500 dark:border-slate-900">
+                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("None")}>None</li>
+                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Most reactions")}>Most reactions</li>
+                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Least reactions")}>Least reactions</li>
                     </ul>
                     }
             </div>)}
