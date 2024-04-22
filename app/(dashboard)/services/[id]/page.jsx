@@ -5,7 +5,7 @@ export async function generateStaticParams() {
     const products = await res.json()
 
     const paths = products.products.map((product) => ({
-        params: { id: product.id.toString()}
+        params: { id: product.id}
     }))
 
     return paths
