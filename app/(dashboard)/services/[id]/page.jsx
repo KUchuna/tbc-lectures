@@ -5,15 +5,14 @@ export async function generateStaticParams() {
     const products = await res.json()
 
     const paths = products.products.map((product) => ({
-        params: { id: `/services/${product.id}`}
+        params: { id: `${product.id}`}
     }))
-    
+
     return paths
 }
 
 
-
-async function getProduct(id) {
+export async function getProduct(id) {
     const res = await fetch(`https://dummyjson.com/products/${id}`)
     const data = await res.json()
     return data
@@ -21,9 +20,9 @@ async function getProduct(id) {
 
 
 export default async function Service({ params }) {
-
-    const product = await getProduct(params.id)
     
+    const product = await getProduct(params.id)
+
     return (
         <div style={{display: "flex", flexDirection: "column"}}>
             <h1>{product.title}</h1>
