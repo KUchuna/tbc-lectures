@@ -59,7 +59,7 @@ export default function Blog() {
                 <p className="blog-service-page-desc dark:text-slate-400">Insights, Tips, and News for Car Enthusiasts</p>
             </div>
             <div className="parent-flex-column-center">
-                <div className="sorting-container dark:bg-slate-800 w-full h-full">
+                <div className="sorting-container dark:bg-slate-800 w-full h-full mt-10">
                     <span>Sort by:</span>
                         <FilterInput 
                             dropDownDefault={selection}

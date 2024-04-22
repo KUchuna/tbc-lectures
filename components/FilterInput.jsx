@@ -24,7 +24,7 @@ export default function FilterInput(props) {
             (props.isDate ?  <div className='filter-input-container dark:bg-white'>
                                 <input type="datetime-local" className="filter-input date-input dark:bg-white" defaultValue={currentDate} min={currentDate}/>
                              </div> : 
-            <div className={`filter-dropdown-container ${props.sortingStyle} dark:bg-white`} onClick={props.onClick}>
+            <div className={`filter-dropdown-container ${props.sortingStyle} dark:bg-slate-400 dark:border-slate-500`} onClick={props.onClick}>
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 

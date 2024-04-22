@@ -14,7 +14,7 @@ export default function Contact() {
                 <div className="contact-title-container">
                     <span id="contact-us">Contact us</span>
                     <h1 id='contact-title' className='font-bold'>We’d love to hear from you</h1>
-                    <span id='contact-subtitle'>Our friendly team is always here to chat.</span>
+                    <span className='text-page-subtitle text-xl dark:text-slate-400'>Our friendly team is always here to chat.</span>
                 </div>
                 <div className='contact-info-cards-container'>
                     <ContactInfo 
