@@ -14,17 +14,17 @@ export default function FilterInput(props) {
 
     return (
         <div className={props.isMainFilter ? "filter-input-dropdown-container" : props.contStyle}>
-            <span className="filter-input-label dark:text-slate-300">{props.label}</span>
+            <span className="filter-input-label dark:text-slate-50">{props.label}</span>
             {props.isText ?
-            <div className='filter-input-container dark:bg-white'>
+            <div className='filter-input-container dark:bg-slate-600 dark:border-slate-500'>
                 <Image src={props.inputImg} alt='' />
-                <input type="text" className="filter-input dark:bg-white" placeholder={props.inputPlaceHolder} />
+                <input type="text" className="filter-input dark:bg-slate-600" placeholder={props.inputPlaceHolder} />
             </div> 
             :
-            (props.isDate ?  <div className='filter-input-container dark:bg-white'>
-                                <input type="datetime-local" className="filter-input date-input dark:bg-white" defaultValue={currentDate} min={currentDate}/>
+            (props.isDate ?  <div className='filter-input-container dark:bg-slate-600 dark:border-slate-500'>
+                                <input type="datetime-local" className="filter-input date-input dark:bg-slate-600 dark:text-slate-50" defaultValue={currentDate} min={currentDate}/>
                              </div> : 
-            <div className={`filter-dropdown-container ${props.sortingStyle} dark:bg-slate-400 dark:border-slate-500`} onClick={props.onClick}>
+            <div className={`filter-dropdown-container ${props.sortingStyle} dark:bg-slate-600 dark:border-slate-500 dark:text-slate-50`} onClick={props.onClick}>
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 

@@ -8,6 +8,8 @@ import Image from 'next/image';
 import ProfileButton from './ProfileButton';
 import ThemeSelector from './ThemeSelector.jsx';
 
+
+
 export default async function Header() {
 
     const handleLogout = async () => {
