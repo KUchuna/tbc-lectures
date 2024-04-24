@@ -18,7 +18,7 @@ export default function FilterInput(props) {
             {props.isText ?
             <div className='filter-input-container dark:bg-slate-600 dark:border-slate-500'>
                 <Image src={props.inputImg} alt='' />
-                <input type="text" className="filter-input dark:bg-slate-600" placeholder={props.inputPlaceHolder} />
+                <input type="text" className="filter-input dark:bg-slate-600 dark:text-slate-50" placeholder={props.inputPlaceHolder} />
             </div> 
             :
             (props.isDate ?  <div className='filter-input-container dark:bg-slate-600 dark:border-slate-500'>

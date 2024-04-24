@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import profileLogo from '../public/assets/profilelogo.svg'
 import React from 'react';
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
+import Logout from '../scripts/logout.js'
 
-
-export default function ProfileButton({ handlelogout }) {
+export default function ProfileButton() {
 
     const [menu, setMenu] = React.useState(false)
     const containerRef = React.useRef()
@@ -28,10 +28,12 @@ export default function ProfileButton({ handlelogout }) {
         setMenu(!menu)
     }
 
-    function handleClick() {
-        handlelogout()
-        redirect('/login')
+    const router = useRouter()
+
+    function handleLogout() {
+        Logout().then(() => router.push('/login'))
     }
+
 
     return (
         <div className='profile-button dark:bg-slate-300 dark:border-slate-500' onClick={handleMenu} ref={containerRef}>
@@ -41,7 +43,7 @@ export default function ProfileButton({ handlelogout }) {
                         <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
                             Profile
                         </li>
-                        <li onClick={handleClick} className='dark:text-slate-200 dark:hover:bg-slate-400'>
+                        <li onClick={handleLogout} className='dark:text-slate-200 dark:hover:bg-slate-400'>
                             Log out
                         </li>
                     </ul>

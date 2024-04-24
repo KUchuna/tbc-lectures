@@ -11,21 +11,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 export default async function Login() {
-    const cookieStore = cookies()
-    const cookie = cookieStore.get(AUTH_COOKIE_KEY)
-    
-    if(cookie?.value) {
-        redirect ('/')
-    }
 
-
-
-    const handleClick = async (username, password) => {
-        'use server'
-        if(username != "" && password != "") {
-            await login(username, password)
-        }
-    }
 
     return (     
         <div className="login-page-container parent-flex-column-center dark:bg-slate-900">
@@ -35,7 +21,7 @@ export default async function Login() {
             </div>
             <div className='login-form-container dark:bg-slate-700'>
                 <LoginForm 
-                    handleclick={handleClick}
+
                     />
             </div>
         </div>

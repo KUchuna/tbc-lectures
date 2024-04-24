@@ -12,11 +12,6 @@ import ThemeSelector from './ThemeSelector.jsx';
 
 export default async function Header() {
 
-    const handleLogout = async () => {
-        'use server'
-        await logout()
-    }
-
     return (
         <header className='header-container parent-flex-row-center dark:bg-slate-800 dark:border-slate-600'>
             <div className='parent-flex-row-between parent-max-width'>
@@ -32,9 +27,7 @@ export default async function Header() {
                     </ul>
                 </div>
                 <div className='flex items-center'>
-                    <ProfileButton 
-                        handlelogout={handleLogout}
-                        />
+                    <ProfileButton />
                      <ThemeSelector/>
                 </div>
             </div>

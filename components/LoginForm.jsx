@@ -1,7 +1,8 @@
 'use client';
 import ContactInput from '@/components/ContactInput.jsx'
 import React from 'react'
-
+import { useRouter } from 'next/navigation';
+import Login from '../scripts/login.js'
 
 export default function LoginForm(props) {
     
@@ -16,12 +17,17 @@ export default function LoginForm(props) {
         setPassword(e.target.value)
     }
 
+    const router = useRouter()
+
+    function handleLogin(e) {
+        e.preventDefault()
+        Login(username, password).then(() => router.push('/'))
+    }
+
+
 
     return (
-        <form onSubmit={(e) => 
-            {e.preventDefault() 
-            props.handleclick(username, password)
-            }}>
+        <form onSubmit={handleLogin}>
             <ContactInput 
                 label='Username'
                 placeholder='Enter your username'
