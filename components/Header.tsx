@@ -6,7 +6,7 @@ import { logout } from '@/app/actions';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileButton from './ProfileButton';
-import ThemeSelector from './ThemeSelector.jsx';
+import ThemeSelector from './ThemeSelector.tsx';
 
 
 

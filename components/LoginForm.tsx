@@ -1,5 +1,5 @@
 'use client';
-import ContactInput from '@/components/ContactInput.jsx'
+import ContactInput from '@/components/ContactInput.tsx'
 import React from 'react'
 
 

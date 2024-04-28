@@ -1,8 +1,8 @@
 "use client";
 
-import BlogCard from "@/components/BlogCard.jsx";
+import BlogCard from "@/components/BlogCard.tsx";
 import '@/styles/BlogServices.css'
-import FilterInput from '@/components/FilterInput.jsx'
+import FilterInput from '@/components/FilterInput.tsx'
 import React from "react";
 import defblog from '@/public/assets/defblog.webp'
 
