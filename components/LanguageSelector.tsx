@@ -8,7 +8,7 @@ export default function LanguageSelector() {
     const changeLocale = useChangeLocale();
     const currentLocale = useCurrentLocale();
 
-
+//test
     function handleOpen() {
         setOpen(!open)
     }
