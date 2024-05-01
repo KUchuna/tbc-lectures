@@ -18,8 +18,8 @@ export default function LanguageSelector() {
             {currentLocale}
             {open && 
             <ul className=' py-3 absolute bg-white border border-[#EAECF0] rounded-xl top-0 left-[50%] translate-y-[50%] translate-x-[-50%] dark:bg-slate-500 dark:text-slate-200 dark:border-slate-900'>
-                <li className='hover:bg-[#eeeded] w-full p-3' onClick={() => changeLocale('en')}>English</li>    
-                <li className='hover:bg-[#eeeded] w-full p-3' onClick={() => changeLocale('ge')}>Georgian</li>    
+                <li className='hover:bg-[#eeeded] w-full p-3 transition-colors ease-linear duration-300 dark:hover:bg-slate-400' onClick={() => changeLocale('en')}>English</li>    
+                <li className='hover:bg-[#eeeded] w-full p-3 transition-colors ease-linear duration-300 dark:hover:bg-slate-400' onClick={() => changeLocale('ge')}>Georgian</li>    
             </ul>}
         </div>
     )
