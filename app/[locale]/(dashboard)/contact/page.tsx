@@ -3,7 +3,7 @@ import ContactInfo from '@/components/ContactInfo'
 import contactemail from '@/public/assets/contactemail.svg'
 import contactlocation from '@/public/assets/contactlocation.svg'
 import contactphone from '@/public/assets/contactphone.svg'
-import ContactInput from '@/components/ContactInput.jsx'
+import ContactInput from '@/components/ContactInput.tsx'
 
 
 

@@ -1,7 +1,7 @@
 "use client";
 
 import '@/styles/BlogServices.css'
-import ServiceSection from '@/components/ServiceSection.jsx'
+import ServiceSection from '@/components/ServiceSection.tsx'
 import React from 'react'
 // import serviceData from '@/datas/serviceData.js'
 

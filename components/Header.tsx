@@ -2,15 +2,18 @@
 
 import '../styles/Header.css'
 import headerLogo from '../public/assets/headerlogo.svg'
-import { logout } from '@/app/actions';
+import { logout } from '@/app/[locale]/actions.js';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileButton from './ProfileButton';
-import ThemeSelector from './ThemeSelector.jsx';
-
-
+import ThemeSelector from './ThemeSelector.tsx';
+import { getI18n, getScopedI18n } from '../locales/server.ts'
+import LanguageSelector from './LanguageSelector.tsx';
 
 export default async function Header() {
+
+    const t = await getI18n()
+
 
     const handleLogout = async () => {
         'use server'
@@ -23,11 +26,11 @@ export default async function Header() {
                 <div className='header-left-section-container'>
                     <Link href='/'><Image src={headerLogo} className='header-logo dark:bg-slate-500 dark:p-4 dark:rounded-2xl' alt='header logo'/></Link>
                     <ul className='header-list-container dark:text-slate-300'>
-                        <li className='header-list-item'><Link href='/'>Home</Link></li>
-                        <li className='header-list-item'><Link href='/services'>Services</Link></li>
-                        <li className='header-list-item'>About Us</li>
-                        <li className='header-list-item'><Link href='/contact'>Contact Us</Link></li>
-                        <li className='header-list-item'>FAQ</li>
+                        <li className='header-list-item'><Link href='/'>{t('home')}</Link></li>
+                        <li className='header-list-item'><Link href='/services'>{t('services')}</Link></li>
+                        <li className='header-list-item'>{t('about')}</li>
+                        <li className='header-list-item'><Link href='/contact'>{t('contact')}</Link></li>
+                        <li className='header-list-item'>{t('faq')}</li>
                        
                     </ul>
                 </div>
@@ -35,7 +38,8 @@ export default async function Header() {
                     <ProfileButton 
                         handlelogout={handleLogout}
                         />
-                     <ThemeSelector/>
+                     <ThemeSelector />
+                     <LanguageSelector />
                 </div>
             </div>
         </header>
