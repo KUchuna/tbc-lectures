@@ -1,8 +1,8 @@
 import linkarrow from '../public/assets/uprightarrow.svg'
 import '../styles/Section.css'
 import serviceData from "../datas/serviceData.js"
-import ServiceCard from '../components/ServiceCard.jsx'
-import ServiceSearch from "./ServiceSearch.jsx"
+import ServiceCard from './ServiceCard.tsx'
+import ServiceSearch from "./ServiceSearch.tsx"
 import Link from 'next/link';
 import Image from 'next/image';
 

@@ -5,7 +5,7 @@ import '@/styles/Login.css'
 import React from 'react'
 import Image from 'next/image'
 import LoginForm from '@/components/LoginForm'
-import { login } from '@/app/actions'
+import { login } from '../actions'
 import { AUTH_COOKIE_KEY } from '@/constants'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
@@ -17,7 +17,6 @@ export default async function Login() {
     if(cookie?.value) {
         redirect ('/')
     }
-
 
 
     const handleClick = async (username, password) => {

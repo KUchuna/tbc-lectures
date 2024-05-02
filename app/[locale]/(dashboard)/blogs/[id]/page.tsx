@@ -2,7 +2,7 @@ export async function generateStaticParams() {
     const res = await fetch('https://dummyjson.com/posts')
     const blogs = await res.json()
 
-    const paths = blogs.posts.map((post) => ({
+    const paths = blogs.posts.map((post: {id: number}) => ({
         id: `${post.id}`,
     }))
     return paths
@@ -10,16 +10,16 @@ export async function generateStaticParams() {
 
 
 
-async function getProduct(id) {
+async function getBlog(id: string) {
     const res = await fetch(`https://dummyjson.com/posts/${id}`)
     const data = await res.json()
     return data
 }
 
 
-export default async function BlogPost({params}) {
+export default async function BlogPost({params}: { params: {id: string} }) {
 
-    const blog = await getProduct(params.id)
+    const blog = await getBlog(params.id)
 
     return(
         <div>
