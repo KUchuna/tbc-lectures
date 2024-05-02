@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ProfileButton from './ProfileButton';
 import ThemeSelector from './ThemeSelector.tsx';
-import { getI18n, getScopedI18n } from '../locales/server.ts'
+import { getI18n } from '../locales/server.ts'
 import LanguageSelector from './LanguageSelector.tsx';
 
 export default async function Header() {
