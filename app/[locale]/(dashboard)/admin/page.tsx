@@ -1,22 +1,24 @@
-import { createUserAction } from '@/app/actions.ts';
 import { User, getUsers } from '@/api';
 import DeleteUser from '@/components/DeleteUser.tsx';
+import AddUser from '@/components/AddUser';
 
 export default async function UsersPage() {
   const users = await getUsers();
 
   return (
-    <div className="px-5">
+    <div className="flex flex-col justify-center items-center w-full mb-[800px]">
+        <AddUser />
       {users.map((user: User) => (
-        <div className="flex justify-between border-b" key={user.id}>
-          <div className="flex gap-4 border-b">
+        <div className="flex justify-between border-b w-[400px]" key={user.id}>
+          <div className="flex gap-4">
             <h1>{user.name}</h1>
             <p>{user.email}</p>
+            <p>{user.age}</p>
           </div>
-
           <DeleteUser id={user.id} />
         </div>
       ))}
+
     </div>
   );
 }

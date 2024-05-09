@@ -24,9 +24,9 @@ export async function logout() {
 
 
 export async function createUserAction(formData: FormData) {
-  const { name, email } = Object.fromEntries(formData);
+  const { name, email, age } = Object.fromEntries(formData);
 
-  return createUser(name as string, email as string);
+  return createUser(name as string, email as string, age as string);
 }
 
 export async function deleteUserAction(id: number) {

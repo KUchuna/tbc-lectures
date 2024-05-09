@@ -1,5 +1,6 @@
 export interface User {
     id: number;
+    age: number;
     name: string;
     email: string;
   }
@@ -13,10 +14,11 @@ export interface User {
     return users.rows;
   }
   
-  export async function createUser(name: string, email: string) {
+  export async function createUser(name: string, email: string, age: string) {
+    "use server"
     return await fetch(BASE_URL + '/api/create-user', {
       method: 'POST',
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ name, email, age }),
     });
   }
   
