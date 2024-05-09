@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 
-export async function getProduct(id: string) {
+async function getProduct(id: string) {
     const res = await fetch(`https://dummyjson.com/products/${id}`)
     const data = await res.json()
     return data

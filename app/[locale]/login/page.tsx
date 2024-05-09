@@ -19,7 +19,7 @@ export default async function Login() {
     }
 
 
-    const handleClick = async (username, password) => {
+    const handleClick = async (username:string, password:string) => {
         'use server'
         if(username != "" && password != "") {
             await login(username, password)

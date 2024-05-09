@@ -2,17 +2,22 @@
 import ContactInput from '@/components/ContactInput.tsx'
 import React from 'react'
 
+interface LoginForm {
+    handleclick: (username: string, password: string) => void;
+    username?: string;
+    password?: string;
+}
 
-export default function LoginForm(props) {
+export default function LoginForm(props: LoginForm) {
     
     const [username, setUsername] = React.useState("")
     const [password, setPassword] = React.useState("")
     
-    function handleUsername(e) {
+    function handleUsername(e: React.ChangeEvent<HTMLInputElement>) {
         setUsername(e.target.value)
     }
     
-    function handlePassword(e) {
+    function handlePassword(e: React.ChangeEvent<HTMLInputElement>) {
         setPassword(e.target.value)
     }
 

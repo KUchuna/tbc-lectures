@@ -7,8 +7,18 @@ import React from 'react'
 
 export default function Services() {
     
-    const [searchedService, setSearchedService] = React.useState([])
-    const [defaultService, setDefaultService] = React.useState([])
+    interface Product {
+        id: number,
+        title: string,
+        description: string,
+        price: number,
+        image: string,
+        category: string
+    }
+
+
+    const [searchedService, setSearchedService] = React.useState<Product[]>([])
+    const [defaultService, setDefaultService] = React.useState<Product[]>([])
 
     React.useEffect(() => {
         fetch('https://dummyjson.com/products')
@@ -21,7 +31,7 @@ export default function Services() {
 
 
 
-    function handleSearch (value) {
+    function handleSearch (value:string) {
         setSearchedService(defaultService.filter(item => item.title.toLowerCase().includes(value.toLowerCase())))
     }
 

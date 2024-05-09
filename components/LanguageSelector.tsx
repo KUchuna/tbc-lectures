@@ -3,15 +3,15 @@ import {useChangeLocale, useCurrentLocale} from '@/locales/client'
 import React from 'react'
 
 export default function LanguageSelector() {
-    const [open, setOpen] = React.useState(false)
+    const [open, setOpen] = React.useState<Boolean>(false)
 
     const changeLocale = useChangeLocale();
     const currentLocale = useCurrentLocale();
-    const containerRef = React.useRef();
+    const containerRef = React.useRef<any>();
 
 
     React.useEffect(() => {
-        const handleClose = (e) => {
+        const handleClose = (e:any) => {
             if(e.target != containerRef.current) {
                 setOpen(false)
             }
