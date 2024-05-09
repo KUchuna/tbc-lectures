@@ -4,6 +4,7 @@ export default {
     'about': 'About Us',
     'contact': 'Contact Us',
     'faq': 'FAQ',
+    'admin': 'Admin',
     'main.title': 'Elevating Excellence in Detailing Services',
     'main.description': 'Experience perfection in every detail. From automotive finesse to architectural sophistication, we bring precision to life. Elevate your vision with us.',
     'filter.label.city': 'Choose City',

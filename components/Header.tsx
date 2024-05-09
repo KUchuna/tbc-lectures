@@ -2,7 +2,7 @@
 
 import '../styles/Header.css'
 import headerLogo from '../public/assets/headerlogo.svg'
-import { logout } from '@/app/[locale]/actions.js';
+import { logout } from '@/app/actions.ts';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileButton from './ProfileButton';
@@ -31,6 +31,7 @@ export default async function Header() {
                         <li className='header-list-item'>{t('about')}</li>
                         <li className='header-list-item'><Link href='/contact'>{t('contact')}</Link></li>
                         <li className='header-list-item'>{t('faq')}</li>
+                        <li className='header-list-item'><Link href='/admin'>{t('admin')}</Link></li>
                        
                     </ul>
                 </div>
