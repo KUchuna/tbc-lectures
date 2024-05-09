@@ -3,11 +3,27 @@ import dropDown from '../public/assets/dropdown.svg'
 import React from "react"
 import Image from "next/image"
 
-export default function FilterInput(props) {
+interface FilterInput {
+    isMainFilter?: boolean,
+    contStyle?: string,
+    label?: string,
+    inputImg?: any,
+    inputPlaceHolder?: string,
+    isText?: boolean,
+    isDate?: boolean,
+    sortingStyle?: string,
+    dropDownDefault?: string,
+    onClick?: React.MouseEventHandler,
+    open?: boolean,
+    storeSelection?: any,
+    selection?: string,
+}
+
+export default function FilterInput(props: FilterInput) {
 
     const currentDate = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60_000).toISOString().slice(0, 16)
 
-    function handleSelect(option) {
+    function handleSelect(option: string) {
        props.storeSelection(option)
     }
 

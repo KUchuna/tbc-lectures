@@ -1,6 +1,17 @@
 import '../styles/ContactInput.css'
 
-export default function ContactInput(props) {
+interface ContactInput {
+    label: string,
+    placeholder: string,
+    type: string,
+    value?: string,
+    onchange?: React.ChangeEventHandler,
+    name?: string,
+    textarea?: boolean
+}
+
+
+export default function ContactInput(props: ContactInput) {
 
     return (
         <div className="contact-input-container">

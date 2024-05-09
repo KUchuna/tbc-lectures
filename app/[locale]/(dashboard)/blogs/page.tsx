@@ -8,9 +8,16 @@ import defblog from '@/public/assets/defblog.webp'
 
 export default function Blog() {
 
+    interface BlogCard {
+        reactions: number,
+        title: string,
+        body: string,
+        id: number,
+    }
+
     const [open, setOpen] = React.useState(false)
     const [selection, setSelection] = React.useState("None")
-    const [blogCards, setBlogCards] = React.useState([])
+    const [blogCards, setBlogCards] = React.useState<BlogCard[]>([])
     const [defaultSorting, setDefaultSorting] = React.useState([])
 
     React.useEffect(() => {
@@ -22,11 +29,12 @@ export default function Blog() {
         })
     },[])
 
-    const mappedBlog = blogCards.map(card => {
+    
+
+    const mappedBlog = blogCards.map((card: BlogCard) => {
         return <BlogCard 
                     img={defblog}
                     reactions={card.reactions}
-                    reactionsText="Total reactions: "
                     title={card.title}
                     desc={card.body}
                     style='blog-page-card-container'
@@ -40,7 +48,9 @@ export default function Blog() {
         setOpen(prevState => !prevState)
     }
 
-    function storeSelection(option) {
+
+
+    function storeSelection(option: string) {
         setSelection(option)
         if(option == "Least reactions") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => a.reactions - b.reactions))

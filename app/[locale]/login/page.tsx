@@ -5,7 +5,7 @@ import '@/styles/Login.css'
 import React from 'react'
 import Image from 'next/image'
 import LoginForm from '@/components/LoginForm'
-import { login } from '../actions'
+import { login } from '../../actions'
 import { AUTH_COOKIE_KEY } from '@/constants'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
@@ -19,7 +19,7 @@ export default async function Login() {
     }
 
 
-    const handleClick = async (username, password) => {
+    const handleClick = async (username:string, password:string) => {
         'use server'
         if(username != "" && password != "") {
             await login(username, password)

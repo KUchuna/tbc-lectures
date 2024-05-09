@@ -6,7 +6,20 @@ import ServiceSearch from "./ServiceSearch.tsx"
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function ServiceSection(props) {
+interface ServiceSection {
+    homePage?: boolean,
+    searchValue?: string,
+    descStyle?: string,
+    defaultService?: any,
+    searchedService?: any,
+    setSearchedService?: any,
+    setDefaultService?: any,
+    setSearchValue?: any,
+    servicePage?: boolean,
+    handleSearch?: any,
+}
+
+export default function ServiceSection(props: ServiceSection) {
 
     let mappedServices;
 
@@ -20,7 +33,7 @@ export default function ServiceSection(props) {
                     descStyle='service-card-desc'
                     key={card.id}
                />
-    }) : (props.searchValue === "" ? mappedServices = props.defaultService.map(card => {
+    }) : (props.searchValue === "" ? mappedServices = props.defaultService.map((card:any) => {
         return <ServiceCard 
                     img={card.thumbnail}
                     title={card.title}
@@ -31,7 +44,7 @@ export default function ServiceSection(props) {
                     key={card.id}
                     id={card.id}
                     servicepage
-               /> }) : mappedServices = props.searchedService.map(card => {
+               /> }) : mappedServices = props.searchedService.map((card:any) => {
                 return <ServiceCard 
                             img={card.thumbnail}
                             title={card.title}

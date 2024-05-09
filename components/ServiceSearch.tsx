@@ -3,18 +3,24 @@ import search from '../public/assets/search.svg'
 import React from 'react'
 import Image from 'next/image';
 
-export default function ServiceSearch(props) {
+interface ServiceSearch {
+    handleSearch: (value: string) => void;
+}
+
+export default function ServiceSearch(props: ServiceSearch) {
     
-    const handleChange = (e) => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         debounce(() => {
             props.handleSearch(value);
         }, 1300);
     };
 
-    const debounce = (func, delay) => {
-        clearTimeout(debounce.timer);
-        debounce.timer = setTimeout(func, delay);
+    const debounce = (func: () => void, delay: number) => {
+        clearTimeout(timer);
+        timer = setTimeout(func, delay);
     };
 
     return (

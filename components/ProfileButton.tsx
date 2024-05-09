@@ -6,13 +6,13 @@ import React from 'react';
 import { redirect } from "next/navigation"
 
 
-export default function ProfileButton({ handlelogout }) {
+export default function ProfileButton({ handlelogout }: any) {
 
     const [menu, setMenu] = React.useState(false)
-    const containerRef = React.useRef()
+    const containerRef = React.useRef<any>()
 
     React.useEffect(() => {
-        const handleMenuClose = (e) => {
+        const handleMenuClose = (e: any) => {
             if(e.target != containerRef.current && e.target != document.getElementById('profile-image')) {
                 setMenu(false)
             }
