@@ -3,7 +3,7 @@
 import '@/styles/BlogServices.css'
 import ServiceSection from '@/components/ServiceSection.tsx'
 import React from 'react'
-// import serviceData from '@/datas/serviceData.js'
+
 
 export default function Services() {
     

@@ -6,7 +6,7 @@ import Image, { StaticImageData } from 'next/image'
 import { useRouter } from 'next/navigation'
 
 interface ServiceCard {
-    id?: string;
+    id?: number;
     title: string;
     desc: string;
     date?: string;

@@ -10,14 +10,14 @@ export async function generateStaticParams() {
 
 
 
-async function getBlog(id: string) {
+async function getBlog(id: number) {
     const res = await fetch(`https://dummyjson.com/posts/${id}`)
     const data = await res.json()
     return data
 }
 
 
-export default async function BlogPost({params}: { params: {id: string} }) {
+export default async function BlogPost({params}: { params: {id: number}}) {
 
     const blog = await getBlog(params.id)
 
@@ -25,7 +25,7 @@ export default async function BlogPost({params}: { params: {id: string} }) {
         <div>
             <h1>{blog.title}</h1>
             <p>{blog.body}</p>
-            <span style={{color: "orange", fontWeight: "bold"}}>Reactions: {blog.reactions}</span>
+            <span>Reactions: {blog.reactions}</span>
         </div>
     )
 }
