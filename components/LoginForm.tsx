@@ -38,6 +38,10 @@ export default function LoginForm(props) {
                 value={password}
                 onchange={handlePassword}
                 />
+            <div className='flex items-center justify-between mb-2'>
+                <p>USERNAME: kminchelle</p>
+                <p>PASSWORD: 0lelplR</p>
+            </div>
             <button className='login-verify' type='submit'>Log in</button>
         </form>
     )
