@@ -1,9 +1,9 @@
 
 
-import { editUserAction } from '@/app/actions'
+// import { editUserAction } from '@/app/actions'
 
-export default function EditUser({ id }: { id: number }) {
-    return (
-        <button>Edit</button>
-    )
-}
+// export default function EditUser({ id }: { id: number }) {
+//     return (
+//         <button>Edit</button>
+//     )
+// }
