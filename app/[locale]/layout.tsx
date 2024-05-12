@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ params: { locale }, children }: { params: { locale: string }, children: ReactElement }) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body>
         <Providers>
           <I18nProviderClient locale={locale}>
