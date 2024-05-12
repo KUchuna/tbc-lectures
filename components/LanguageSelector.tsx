@@ -32,8 +32,8 @@ export default function LanguageSelector() {
             {currentLocale=='en' ? "EN" : "GE"}
             {open && 
             <ul className='py-2 absolute bg-white border border-[#EAECF0] rounded-[8px] top-[7px] left-[50%] translate-y-[50%] translate-x-[-50%] dark:bg-slate-500 dark:text-slate-200 dark:border-slate-600 font-bold'>
-                <li className='text-[0.9rem] py-[8px] px-[12px] hover:bg-[#eeeded] w-full p-3 transition-colors ease-linear duration-300 dark:hover:bg-slate-400' onClick={() => changeLocale('en')}>English</li>    
-                <li className='text-[0.9rem] py-[8px] px-[12px] hover:bg-[#eeeded] w-full p-3 transition-colors ease-linear duration-300 dark:hover:bg-slate-400' onClick={() => changeLocale('ge')}>ქართული</li>    
+                <li className='text-[0.9rem] py-[8px] px-[12px] hover:bg-[#eeeded] w-full p-3 transition-colors ease-in-out text-[#475467] dark:text-slate-200 duration-300 dark:hover:bg-slate-400' onClick={() => changeLocale('en')}>English</li>    
+                <li className='text-[0.9rem] py-[8px] px-[12px] hover:bg-[#eeeded] w-full p-3 transition-colors ease-in-out text-[#475467] dark:text-slate-200 duration-300 dark:hover:bg-slate-400' onClick={() => changeLocale('ge')}>ქართული</li>    
             </ul>}
         </div>
     )

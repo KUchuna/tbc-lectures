@@ -1,6 +1,7 @@
+"use server"
 import { User, getUsers } from '@/api';
 import DeleteUser from '@/components/DeleteUser.tsx';
-import AddUser from '@/components/AddUser';
+import AddUser from '@/components/AddUser.tsx';
 
 export default async function UsersPage() {
   const users = await getUsers();
