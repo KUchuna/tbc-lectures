@@ -2,7 +2,7 @@
 
 import { AUTH_COOKIE_KEY } from "@/constants"
 import { cookies } from "next/headers"
-import { createUser, deleteUser } from '@/api';
+import { createUser, deleteUser, createCartItem } from '@/api';
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -49,4 +49,9 @@ export async function editUserAction(id: number, name: string, email: string, ag
   }
 
   revalidatePath("/admin");
+}
+
+export async function createCartItemAction(productId: number) {
+  await createCartItem(productId);
+  revalidatePath("/services");
 }

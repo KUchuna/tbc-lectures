@@ -9,6 +9,7 @@ import ProfileButton from './ProfileButton';
 import ThemeSelector from './ThemeSelector.tsx';
 import { getI18n } from '../locales/server.ts'
 import LanguageSelector from './LanguageSelector.tsx';
+import HeaderCart from './HeaderCart.tsx'
 
 export default async function Header() {
 
@@ -27,7 +28,7 @@ export default async function Header() {
                     <Link href='/'><Image src={headerLogo} className='header-logo dark:bg-slate-500 dark:p-4 dark:rounded-2xl' alt='header logo'/></Link>
                     <ul className='header-list-container dark:text-slate-300'>
                         <li className='header-list-item'><Link href='/'>{t('home')}</Link></li>
-                        <li className='header-list-item'><Link href='/services'>{t('services')}</Link></li>
+                        <li className='header-list-item'><Link href='/services'>{t('products')}</Link></li>
                         <li className='header-list-item'>{t('about')}</li>
                         <li className='header-list-item'><Link href='/contact'>{t('contact')}</Link></li>
                         <li className='header-list-item'>{t('faq')}</li>
@@ -36,6 +37,7 @@ export default async function Header() {
                     </ul>
                 </div>
                 <div className='flex items-center'>
+                    <HeaderCart />
                     <ProfileButton 
                         handlelogout={handleLogout}
                         />
