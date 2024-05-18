@@ -43,7 +43,7 @@ export async function editUserAction(
   age: string
 ) {
   try {
-    await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/edit-user`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/edit-user`, {
       method: "PUT",
       body: JSON.stringify({ id, name, email, age }),
     });
