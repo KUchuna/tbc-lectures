@@ -1,15 +1,17 @@
 import React from "react";
-import { getCartItemAction } from "@/app/actions";
-// type cartItem = {
-//   id: number;
-//   productId: number;
-//   quantity: number;
-// };
-async function ItemQuantity({ productId }: { productId: number }) {
-  const count = await getCartItemAction(productId);
-  console.log(count, "count");
+import { getCart } from "@/api";
 
-  return <div>in cart</div>;
+async function ItemQuantity({ productId }: { productId: number }) {
+  const cartItems = await getCart();
+  return (
+    <div>
+      {cartItems.find(
+        (item: { id: number; productid: number; quantity: number }) =>
+          item.productid === productId
+      )?.quantity || 0}
+      in cart
+    </div>
+  );
 }
 
 export default ItemQuantity;

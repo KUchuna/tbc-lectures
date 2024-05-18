@@ -68,22 +68,9 @@ export async function resetCart() {
 }
 export async function decreaseCartItem(productId: number) {
   return await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/create-user/${productId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/decrease-cart-item/${productId}`,
     {
       method: "POST",
-      body: JSON.stringify({ productId }),
-    }
-  );
-}
-
-export async function getCartItem(productId: number) {
-  return await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-cart-item/${productId}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({ productId }),
     }
   );

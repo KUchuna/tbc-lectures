@@ -10,7 +10,6 @@ interface Item {
 export const revalidate = 0;
 export default async function ShoppingCart() {
   const cartItems = await getCart();
-  console.log(cartItems);
   return (
     <>
       <ResetBtn />

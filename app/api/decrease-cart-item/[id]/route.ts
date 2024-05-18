@@ -21,6 +21,7 @@ export async function POST(request: Request) {
         await sql`
                     DELETE FROM cart
                     WHERE  productId = ${productId};
+
                 `;
       }
     } else {

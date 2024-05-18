@@ -8,7 +8,7 @@ import {
   createCartItem,
   resetCart,
   decreaseCartItem,
-  getCartItem,
+  // getCartItem,
 } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
@@ -73,10 +73,5 @@ export async function resetCartAction() {
 
 export async function decreaseCartItemAction(productId: number) {
   await decreaseCartItem(productId);
-  revalidatePath("/cart");
-}
-
-export async function getCartItemAction(productId: number) {
-  await getCartItem(productId);
   revalidatePath("/cart");
 }
