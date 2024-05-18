@@ -4,6 +4,7 @@ import servicearrow from '../public/assets/servicearrow.svg'
 import '../styles/Card.css'
 import Image, { StaticImageData } from 'next/image'
 import { useRouter } from 'next/navigation'
+import {createCartItemAction} from '../app/actions'
 
 interface ServiceCard {
     id?: number;
@@ -20,19 +21,28 @@ interface ServiceCard {
 
 export default function ServiceCard(props: ServiceCard) {
 
+
+
     const router = useRouter()
 
     function handleClick() {
         props.servicepage && router.push(`/services/${props.id}`)
     }
     
+    async function handleCartItem(id: number) {
+        await createCartItemAction(id)
+    }
+
+
     return (
-        <div className={`card-container ${props.contStyle} dark:bg-slate-600`} onClick={handleClick}>
-            <Image src={props.img} className={`card-img ${props.imgStyle}`} width={300} height={300} alt=''/>
-            <span className='card-date'>{props.date}</span>
-            <h3 className='text-xl font-bold mb-5 dark:text-slate-200'>{props.title}</h3>
-            <p className={`card-description ${props.descStyle} dark:text-slate-50`}>{props.desc}</p>
-            <span className='text-service-card-orange flex mt-auto dark:text-orange-700'>View full information <Image className='ml-6' src={servicearrow} alt="" /></span>
+        <div className={`card-container ${props.contStyle} dark:bg-slate-600`}>
+            <div onClick={handleClick}>
+                <Image src={props.img} className={`card-img ${props.imgStyle}`} width={300} height={300} alt=''/>
+                <span className='card-date'>{props.date}</span>
+                <h3 className='text-xl font-bold mb-5 dark:text-slate-200'>{props.title}</h3>
+                <p className={`card-description ${props.descStyle} dark:text-slate-50`}>{props.desc}</p>
+            </div>
+            {props.servicepage ? <button className='text-white flex mt-auto dark:text-white bg-service-card-orange px-3 py-2 rounded-xl' onClick={() => props.id !== undefined && handleCartItem(props.id)}>Add to cart</button> :<span className='text-service-card-orange flex mt-auto dark:text-orange-700'>View full information <Image className='ml-6' src={servicearrow} alt="" /></span>}
         </div>
     )
 }
