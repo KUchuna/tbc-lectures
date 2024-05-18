@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-
+import RemoveCartItem from "./RemoveCartItem";
+ 
 export default async function ShoppingItem({
   productId,
 }: {
@@ -26,6 +27,10 @@ export default async function ShoppingItem({
         <p className="font-semibold">Rating</p>
         <p>{product.rating}</p>
       </div>
+      <RemoveCartItem
+        id={product.id}
+      />
     </div>
   );
 }
+ 
