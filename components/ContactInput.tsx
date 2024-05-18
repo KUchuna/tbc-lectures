@@ -16,7 +16,7 @@ export default function ContactInput(props: ContactInput) {
     return (
         <div className="contact-input-container">
             <span className='dark:text-white'>{props.label}</span>
-            {props.textarea ? <textarea placeholder={props.placeholder} className='dark:bg-white'></textarea>
+            {props.textarea ? <textarea placeholder={props.placeholder} className='dark:bg-white p-[14px] dark:text-black'></textarea>
             :
             <input 
                 type={props.type} 
