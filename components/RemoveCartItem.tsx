@@ -13,7 +13,7 @@ export default function RemoveCardItem({ id }: RemoveCartItemProps) {
     }
  
     return (
-        <button onClick={() => handleRemove(id)} className='px-2 py-3 bg-service-card-orange rounded-b-lg hover:bg-service-card-hover-orange transition-colors duration-300'>
+        <button onClick={() => handleRemove(id)} className='text-white px-2 py-3 bg-service-card-orange rounded-b-lg hover:bg-service-card-hover-orange transition-colors duration-300'>
             Remove
         </button>
     );

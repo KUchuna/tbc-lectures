@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         "header-grey": "#475467",
         "service-card-orange": "#F54700",
+        "service-card-cont": "rgba(249, 250, 251, 1)",
         "service-card-hover-orange": "#bf3b06",
         "profile-icon": "12px",
         "page-subtitle": "rgba(71, 84, 103, 1)"

@@ -26,7 +26,7 @@ export default async function UsersPage() {
                 <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">{user.name}</td>
                 <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">{user.email}</td>
                 <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">{user.age}</td>
-                <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700 flex gap-2">
+                <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">
                   {/* <EditUser id={user.id} /> */}
                   <DeleteUser id={user.id} />
                 </td>
