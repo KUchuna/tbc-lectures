@@ -15,7 +15,7 @@ export default async function CartItem({
   const response = await fetch(`https://dummyjson.com/products/${productId}`);
   const product = await response.json();
   return (
-    <div className="flex flex-col bg-slate-400 rounded-xl cursor-pointer w-[320px]">
+    <div className="flex flex-col dark:bg-slate-500 bg-service-card-cont rounded-xl cursor-pointer w-[320px]">
       <div className="p-2 w-[fill] h-[250px]">
         <Image
           src={product.thumbnail}
