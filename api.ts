@@ -66,7 +66,17 @@ export async function resetCart() {
  
   return response;
 }
- 
+
+export async function decreaseCartItem(productId: number) {
+  return await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/decrease-cart-item/${productId}`,
+    {
+      method: "POST",
+      body: JSON.stringify({ productId }),
+    }
+  );
+}
+
 export async function removeCartItem(productId: number) {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/remove-cart-item`, {
     method: "DELETE",

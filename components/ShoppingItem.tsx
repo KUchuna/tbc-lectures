@@ -1,7 +1,12 @@
+"use server";
 import React from "react";
 import Image from "next/image";
+import IncreaseItemQuantity from "./IncreaseItemQuantity";
+import DecreaseItemQuantity from "./DecreaseItemQuantity";
+import ItemQuantity from "./ItemQuantity";
 import RemoveCartItem from "./RemoveCartItem";
- 
+
+
 export default async function ShoppingItem({
   productId,
 }: {
@@ -26,6 +31,11 @@ export default async function ShoppingItem({
         <p>{product.price}$</p>
         <p className="font-semibold">Rating</p>
         <p>{product.rating}</p>
+        <div>
+          <DecreaseItemQuantity productId={productId} />
+          <ItemQuantity productId={productId} />
+          <IncreaseItemQuantity productId={productId} />
+        </div>
       </div>
       <RemoveCartItem
         id={product.id}

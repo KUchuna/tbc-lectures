@@ -2,7 +2,7 @@
  
 import { AUTH_COOKIE_KEY } from "@/constants";
 import { cookies } from "next/headers";
-import { createUser, deleteUser, createCartItem, resetCart, removeCartItem } from "@/api";
+import { createUser,deleteUser,createCartItem,resetCart,decreaseCartItem } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
  
@@ -63,8 +63,13 @@ export async function resetCartAction() {
   await resetCart();
   revalidatePath("/cart");
 }
- 
+
 export async function removeCartItemAction(productId: number) {
   await removeCartItem(productId);
+  revalidatePath("/cart");
+}
+
+export async function decreaseCartItemAction(productId: number) {
+  await decreaseCartItem(productId);
   revalidatePath("/cart");
 }
