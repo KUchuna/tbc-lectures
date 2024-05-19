@@ -7,7 +7,7 @@ import ItemQuantity from "./ItemQuantity";
 import RemoveCartItem from "./RemoveCartItem";
 
 
-export default async function ShoppingItem({
+export default async function CartItem({
   productId,
 }: {
   productId: number;
@@ -15,23 +15,23 @@ export default async function ShoppingItem({
   const response = await fetch(`https://dummyjson.com/products/${productId}`);
   const product = await response.json();
   return (
-    <div className="flex flex-col bg-slate-400 rounded-xl cursor-pointer">
-      <div className="p-2">
+    <div className="flex flex-col bg-slate-400 rounded-xl cursor-pointer w-[320px]">
+      <div className="p-2 w-[fill] h-[250px]">
         <Image
           src={product.thumbnail}
           alt={product.title}
           width={300}
           height={250}
-          className="rounded-lg "
+          className="rounded-lg w-full h-full object-cover"
         />
       </div>
-      <div className="px-4 py-8">
+      <div className="px-4 py-8 pb-2">
         <h2 className="text-lg">{product.title}</h2>
         <p className="font-semibold">Price</p>
         <p>{product.price}$</p>
         <p className="font-semibold">Rating</p>
         <p>{product.rating}</p>
-        <div>
+        <div className="flex mt-5 w-full justify-center">
           <DecreaseItemQuantity productId={productId} />
           <ItemQuantity productId={productId} />
           <IncreaseItemQuantity productId={productId} />

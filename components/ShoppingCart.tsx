@@ -1,5 +1,5 @@
 import { getCart } from "@/api";
-import ShoppingItem from "./ShoppingItem";
+import CartItem from "./CartItem";
 import ResetBtn from "./ResetBtn";
 
 interface Item {
@@ -13,9 +13,9 @@ export default async function ShoppingCart() {
   return (
     <>
       <ResetBtn />
-      <div className="grid grid-cols-1 place-items-center gap-10 dark:bg-slate-700">
+      <div className="grid grid-cols-3 place-items-center gap-10 dark:bg-slate-700 w-full">
         {cartItems.map((item: Item) => (
-          <ShoppingItem key={item.productid} productId={item.productid} />
+          <CartItem key={item.productid} productId={item.productid} />
         ))}
       </div>
     </>
