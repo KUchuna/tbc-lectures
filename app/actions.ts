@@ -2,7 +2,7 @@
  
 import { AUTH_COOKIE_KEY } from "@/constants";
 import { cookies } from "next/headers";
-import { createUser,deleteUser,createCartItem,resetCart,decreaseCartItem } from "@/api";
+import { createUser,deleteUser,createCartItem,resetCart,decreaseCartItem, removeCartItem } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
  
