@@ -9,6 +9,7 @@ interface Item {
 }
 export const revalidate = 0;
 export default async function ShoppingCart() {
+  await new Promise(resolve => setTimeout(resolve, 1500))
   const cartItems = await getCart();
   return (
     <div className="min-h-screen dark:bg-slate-700 p-4 flex flex-col items-center">

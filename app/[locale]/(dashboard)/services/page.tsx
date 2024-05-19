@@ -4,7 +4,6 @@ import '@/styles/BlogServices.css'
 import ServiceSection from '@/components/ServiceSection.tsx'
 import React from 'react'
 
-
 export default function Services() {
     
     interface Product {
@@ -42,13 +41,13 @@ export default function Services() {
                 <h1 className="blog-service-page-title font-bold">Choose and book service with us</h1>
                 <p className="blog-service-page-desc text-page-subtitle text-xl dark:text-slate-400">Subscribe to learn about new product features, the latest in technology, solutions, and updates.</p>
             </div>
-            <ServiceSection 
-                servicePage
-                descStyle='services-section-desc'
-                handleSearch={handleSearch}
-                searchedService={searchedService}
-                defaultService={defaultService}
-            />
+                <ServiceSection 
+                    servicePage
+                    descStyle='services-section-desc'
+                    handleSearch={handleSearch}
+                    searchedService={searchedService}
+                    defaultService={defaultService}
+                    />
         </div>
     )
 }
