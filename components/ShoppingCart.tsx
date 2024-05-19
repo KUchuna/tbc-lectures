@@ -13,7 +13,7 @@ export default async function ShoppingCart() {
   return (
     <>
       <ResetBtn />
-      <div>
+      <div className="grid grid-cols-1 place-items-center gap-10 dark:bg-slate-700">
         {cartItems.map((item: Item) => (
           <ShoppingItem key={item.productid} productId={item.productid} />
         ))}
