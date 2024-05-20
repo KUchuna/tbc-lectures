@@ -26,10 +26,16 @@ export default async function Service({
   const product = await getProduct(id);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <h1>{product.title}</h1>
-      <Image src={product.thumbnail} alt="asd" width={400} height={400} />
-      <span>In stock: {product.stock}</span>
+    <div className="flex flex-col items-center p-6 bg-gray-300 rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-4 text-gray-800">{product.title}</h1>
+      <Image
+        src={product.thumbnail}
+        alt="Product Image"
+        width={400}
+        height={400}
+        className="mb-4 rounded-lg"
+      />
+      <span className="text-sm text-gray-500">In stock: {product.stock}</span>
     </div>
   );
 }
