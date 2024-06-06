@@ -19,9 +19,6 @@ export default function Blog() {
     const [open, setOpen] = React.useState(false)
     const [selection, setSelection] = React.useState("None")
     const [blogCards, setBlogCards] = React.useState<BlogCard[]>(blogData)
-    const [defaultSorting, setDefaultSorting] = React.useState(blogData)
-
-
 
 
     const mappedBlog = blogCards.map((card: BlogCard) => {
@@ -49,7 +46,7 @@ export default function Blog() {
         }else if(option == "Most reactions") {
             setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => b.date - a.date))
         }else if(option == "None") {
-            setBlogCards(defaultSorting)
+            setBlogCards(blogData)
         }
     }
     
