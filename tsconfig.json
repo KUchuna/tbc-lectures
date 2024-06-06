@@ -37,6 +37,6 @@
     "components/projectData.js",
     "app/layout.js",
     "components/headerFooterContent/LangButton.jsx"
-  ],
+, "app/[locale]/(dashboard)/loading.js"  ],
   "exclude": ["node_modules"]
 }

@@ -3,10 +3,12 @@
 import Image from 'next/image';
 import profileLogo from '../public/assets/profilelogo.svg'
 import React from 'react';
-import { redirect } from "next/navigation"
+import Link from 'next/link';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
+export default function ProfileButton() {
 
-export default function ProfileButton({ handlelogout }: any) {
+    const user = useUser()
 
     const [menu, setMenu] = React.useState(false)
     const containerRef = React.useRef<any>()
@@ -28,22 +30,30 @@ export default function ProfileButton({ handlelogout }: any) {
         setMenu(!menu)
     }
 
-    function handleClick() {
-        handlelogout()
-        redirect('/login')
-    }
-
     return (
         <div className='profile-button dark:bg-slate-300 dark:border-slate-500' onClick={handleMenu} ref={containerRef}>
             <Image src={profileLogo} alt='profile' id='profile-image'/>
 
             {menu ? <ul className='profile-actions dark:bg-slate-500 dark:border-slate-700'>
-                        <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
-                            Profile
-                        </li>
-                        <li onClick={handleClick} className='dark:text-slate-200 dark:hover:bg-slate-400'>
-                            Log out
-                        </li>
+                        <Link href='/profile' className='w-full'>
+                            <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
+                                Profile
+                            </li>
+                        </Link>
+                        {user.user ?
+                        <a href='api/auth/logout' className='w-full'>
+                            <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
+                                Log out
+                            </li>
+                        </a>
+                        :
+                        <a href='api/auth/login' className='w-full'>
+                            <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
+                                Log in
+                            </li>
+                        </a>
+                        }
+                        
                     </ul>
                     :
                     <></>}

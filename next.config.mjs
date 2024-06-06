@@ -1,5 +1,16 @@
 const nextConfig = {
-    images: { domains: ['cdn.dummyjson.com'] },
+    images: { domains: ['cdn.dummyjson.com'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 's.gravatar.com'
+        },
+        {
+          protocol: 'https',
+          hostname: 'imghippo.com'
+        }
+      ]
+     },
     async redirects() {
       return [
         {

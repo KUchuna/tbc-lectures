@@ -6,8 +6,15 @@
     height: fit-content;
     max-width: 385px;
     width: 100%;
-    transition: transform 0.3s ease;
     height: 100%;
+}
+
+.blog-card-container {
+    transition: transform 0.3s ease;
+}
+
+.blog-card-container:hover {
+    transform: scale(105%);
 }
 
 .card-img {
@@ -19,9 +26,7 @@
     border-radius: 20px;
 }
 
-.card-container:hover {
-    transform: scale(105%);
-}
+
 
 .card-date {
     color: rgba(245, 71, 0, 1);

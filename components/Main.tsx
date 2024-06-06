@@ -16,7 +16,7 @@ export default async function Main() {
                     <p>
                         {t('description')}
                     </p>
-                <Filter />
+                {/* <Filter /> */}
                 </div>
             </div>
         </section>

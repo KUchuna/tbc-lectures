@@ -18,7 +18,7 @@
 .header-list-container {
     display: flex;
     list-style: none;
-    gap: 32px;
+    gap: 20px;
     color: #475467;
     font-weight: bold;
 }
