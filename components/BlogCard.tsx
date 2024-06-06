@@ -27,9 +27,9 @@ export default function BlogCard(props: BlogCard) {
     return (
         <div className={`blog-card-container card-container ${props.style} dark:bg-slate-700`} onClick={handleClick}>
             <Image src={props.img} className='card-img' alt=''/>
-            <span className='card-date'>Total reactions: {props.reactions}</span>
+            <span className='card-date'>Date: {props.date}</span>
             <h3 className='card-title'>{props.title}<Image src={blogarrow} alt='' /></h3>
-            <p className='card-description dark:text-slate-300'>{props.blogpage ? props.desc.slice(0,150) + "..." : props.desc}</p>
+            <p className='card-description dark:text-slate-300'>{props.desc}</p>
         </div>
     )
 }

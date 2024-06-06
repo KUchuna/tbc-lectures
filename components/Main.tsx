@@ -1,5 +1,4 @@
 import '../styles/Main.css'
-import Filter from './Filter'
 import { getScopedI18n } from '../locales/server.ts'
 import { getCurrentLocale} from '@/locales/server'
 

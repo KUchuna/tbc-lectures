@@ -5,38 +5,30 @@ import '@/styles/BlogServices.css'
 import FilterInput from '@/components/FilterInput.tsx'
 import React from "react";
 import defblog from '@/public/assets/defblog.webp'
+import blogData from "@/datas/blogData";
 
 export default function Blog() {
 
     interface BlogCard {
-        reactions: number,
+        desc: string,
         title: string,
-        body: string,
+        date: any,
         id: number,
     }
 
     const [open, setOpen] = React.useState(false)
     const [selection, setSelection] = React.useState("None")
-    const [blogCards, setBlogCards] = React.useState<BlogCard[]>([])
-    const [defaultSorting, setDefaultSorting] = React.useState([])
+    const [blogCards, setBlogCards] = React.useState<BlogCard[]>(blogData)
+    const [defaultSorting, setDefaultSorting] = React.useState(blogData)
 
-    React.useEffect(() => {
-        fetch('https://dummyjson.com/posts')
-        .then(res => res.json())
-        .then(res => {
-            setBlogCards(res.posts)
-            setDefaultSorting(res.posts)
-        })
-    },[])
 
-    
+
 
     const mappedBlog = blogCards.map((card: BlogCard) => {
         return <BlogCard 
                     img={defblog}
-                    reactions={card.reactions}
                     title={card.title}
-                    desc={card.body}
+                    desc={card.desc}
                     style='blog-page-card-container'
                     key={card.id}
                     id={card.id}
@@ -53,9 +45,9 @@ export default function Blog() {
     function storeSelection(option: string) {
         setSelection(option)
         if(option == "Least reactions") {
-            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => a.reactions - b.reactions))
+            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => a.date - b.date))
         }else if(option == "Most reactions") {
-            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => b.reactions - a.reactions))
+            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => b.date - a.date))
         }else if(option == "None") {
             setBlogCards(defaultSorting)
         }
