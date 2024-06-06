@@ -3,6 +3,7 @@ import { User, getUsers } from '@/api';
 import DeleteUser from '@/components/DeleteUser.tsx';
 import AddUser from '@/components/AddUser.tsx';
 // import EditUser from '@/components/EditUser';
+import Image from 'next/image';
 
 export default async function UsersPage() {
   const users = await getUsers();
@@ -16,7 +17,7 @@ export default async function UsersPage() {
             <tr className="bg-gray-200 dark:bg-slate-700 text-left">
               <th className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Name</th>
               <th className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Email</th>
-              <th className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Age</th>
+              <th className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Avatar</th>
               <th className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">Actions</th>
             </tr>
           </thead>
@@ -25,7 +26,7 @@ export default async function UsersPage() {
               <tr key={user.id} className="hover:bg-gray-100 dark:hover:bg-slate-800">
                 <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">{user.name}</td>
                 <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">{user.email}</td>
-                <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">{user.age}</td>
+                <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700"><Image src={user.avatar} alt='' width={30} height={30}></Image></td>
                 <td className="py-2 px-4 border-b border-gray-200 dark:border-gray-700">
                   {/* <EditUser id={user.id} /> */}
                   <DeleteUser id={user.id} />

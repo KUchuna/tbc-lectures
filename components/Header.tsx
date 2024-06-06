@@ -2,7 +2,6 @@
 
 import '../styles/Header.css'
 import headerLogo from '../public/assets/headerlogo.svg'
-import { logout } from '@/app/actions.ts';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileButton from './ProfileButton';
@@ -15,11 +14,6 @@ export default async function Header() {
 
     const t = await getI18n()
 
-
-    const handleLogout = async () => {
-        'use server'
-        await logout()
-    }
 
     return (
         <header className='header-container parent-flex-row-center dark:bg-slate-800 dark:border-slate-600'>
@@ -38,9 +32,7 @@ export default async function Header() {
                 </div>
                 <div className='flex items-center'>
                     <HeaderCart />
-                    <ProfileButton 
-                        handlelogout={handleLogout}
-                        />
+                    <ProfileButton />
                      <ThemeSelector />
                      <LanguageSelector />
                 </div>

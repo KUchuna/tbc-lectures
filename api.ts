@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
  
 export interface User {
   id: number;
-  age: number;
+  avatar: string;
   name: string;
   email: string;
 }
