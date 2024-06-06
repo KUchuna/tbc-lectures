@@ -29,5 +29,5 @@ export const GET = async (_: NextRequest) => {
     return NextResponse.json({ err }, { status: 500 });
   }
 
-  return redirect('/admin');
+  return redirect('/');
 }
