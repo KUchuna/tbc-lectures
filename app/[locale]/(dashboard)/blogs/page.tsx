@@ -28,6 +28,7 @@ export default function Blog() {
                     desc={card.desc}
                     style='blog-page-card-container'
                     key={card.id}
+                    date={card.date}
                     id={card.id}
                     blogpage
                 />
