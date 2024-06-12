@@ -1,6 +1,6 @@
 export default {
     'home': 'მთავარი',
-    'products': 'პროდუქტები',
+    'services': 'სერვისები',
     'about': 'ჩვენ შესახებ',
     'contact': 'კონტაქტი',
     'faq': 'ხდკ',

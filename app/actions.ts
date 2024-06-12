@@ -10,6 +10,12 @@ export async function createUserAction(formData: FormData) {
   await createUser(name as string, email as string, age as string);
 }
  
+export async function addServiceAction(formData: FormData) {
+  const { title, short_description, sub_title, full_description, price, total_time_needed, image } = Object.fromEntries(formData);
+  await addService(title as string, short_description as string, sub_title as string, full_description as string, price as any, total_time_needed as string, image as string);
+}
+
+
 export async function deleteUserAction(id: number) {
   revalidatePath("/admin");
   await deleteUser(id);
@@ -38,9 +44,7 @@ export async function createCartItemAction(productId: number) {
   revalidatePath("/services");
 }
  
-export async function addServiceAction() {
-  await addService();
-}
+
 
 export async function resetCartAction() {
   await resetCart();

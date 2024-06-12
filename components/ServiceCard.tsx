@@ -26,7 +26,7 @@ export default function ServiceCard(props: ServiceCard) {
     const router = useRouter()
  
     function handleClick() {
-        props.servicepage && router.push(`/services/${props.id}`)
+        router.push(`/services/${props.id}`)
     }
    
     async function handleCartItem(id: number) {

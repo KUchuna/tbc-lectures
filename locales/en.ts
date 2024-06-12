@@ -1,6 +1,6 @@
 export default {
     'home': 'Home',
-    'products': 'Products',
+    'services': 'Services',
     'about': 'About Us',
     'contact': 'Contact Us',
     'faq': 'FAQ',

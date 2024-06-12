@@ -3,7 +3,6 @@
 import '@/styles/BlogServices.css'
 import ServiceSection from '@/components/ServiceSection.tsx'
 import React from 'react'
-import {addServiceAction} from '@/app/actions.ts'
 
 export default function Services() {
     
@@ -41,17 +40,12 @@ export default function Services() {
         fetchData();
     }, []);
 
-    const handleServiceadd = async () => {
-        await addServiceAction();
-      };
-
     function handleSearch (value:string) {
         setSearchedService(defaultService.filter(item => item.title.toLowerCase().includes(value.toLowerCase())))
     }
 
     return (
         <div className="services-page-container">
-            {/* <button onClick={handleServiceadd}>add service</button> */}
             <div className="blog-service-page-title-container parent-flex-column-center dark:bg-slate-900">
                 <span className="blog-service-page-short-title">SERVICES</span>
                 <h1 className="blog-service-page-title font-bold">Choose and book service with us</h1>
