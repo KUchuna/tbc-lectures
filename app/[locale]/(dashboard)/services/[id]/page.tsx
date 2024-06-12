@@ -18,14 +18,6 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams() {
-  const services = await getServices();
-  const paths = services.map((service: { id: number }) => ({
-    id: `/services/${service.id}`,
-  }));
-  return paths;
-}
-
 export default async function Service({params: { id }}: any) {
   
   const services = await getServices();
