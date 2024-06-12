@@ -1,6 +1,7 @@
 import '../styles/Main.css'
 import { getScopedI18n } from '../locales/server.ts'
 import { getCurrentLocale} from '@/locales/server'
+import Partners from './Partners.tsx'
 
 export default async function Main() {
 
@@ -17,6 +18,7 @@ export default async function Main() {
                     </p>
                 {/* <Filter /> */}
                 </div>
+                <Partners />
             </div>
         </section>
     )

@@ -42,10 +42,21 @@ export default function Blog() {
 
     function storeSelection(option: string) {
         setSelection(option)
-        if(option == "Least reactions") {
-            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => a.date - b.date))
-        }else if(option == "Most reactions") {
-            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => b.date - a.date))
+        if(option == "Date ascending") {
+            console.log("date ascending")
+            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
+                const dateA: any = new Date(a.date)
+                const dateB: any = new Date(b.date)
+                return dateA - dateB
+            }))
+        }else if(option == "Date descending") {
+            setBlogCards(prevBlogCards => [...prevBlogCards].sort((a, b) => {
+                const dateA: any = new Date(a.date)
+                const dateB: any = new Date(b.date)
+                return dateB - dateA
+            }))
+            console.log("date descending")
+            console.log(blogCards)
         }else if(option == "None") {
             setBlogCards(blogData)
         }

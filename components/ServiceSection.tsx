@@ -1,10 +1,10 @@
 import linkarrow from '../public/assets/uprightarrow.svg'
 import '../styles/Section.css'
-import serviceData from "../datas/serviceData.js"
 import ServiceCard from './ServiceCard.tsx'
 import ServiceSearch from "./ServiceSearch.tsx"
 import Link from 'next/link';
 import Image from 'next/image';
+import {getServices} from '@/api.ts'
 
 interface ServiceSection {
     homePage?: boolean,
@@ -19,15 +19,17 @@ interface ServiceSection {
     handleSearch?: any,
 }
 
-export default function ServiceSection(props: ServiceSection) {
+export default async function ServiceSection(props: ServiceSection) {
+
+    const services = await getServices()
 
     let mappedServices;
 
-    props.homePage ? mappedServices = serviceData.slice(0,6).map(card => {
+    props.homePage ? mappedServices = services.slice(0,6).map((card: any) => {
         return <ServiceCard 
-                    img={card.img}
+                    img={card.image}
                     title={card.title}
-                    desc={card.desc}
+                    desc={card.short_description}
                     contStyle='service-card-container'
                     imgStyle='service-card-img'
                     descStyle='service-card-desc'
@@ -35,9 +37,9 @@ export default function ServiceSection(props: ServiceSection) {
                />
     }) : (props.searchValue === "" ? mappedServices = props.defaultService.map((card:any) => {
         return <ServiceCard 
-                    img={card.thumbnail}
+                    img={card.image}
                     title={card.title}
-                    desc={card.description}
+                    desc={card.short_description}
                     contStyle='service-card-container'
                     imgStyle='service-card-img'
                     descStyle='service-card-desc'
@@ -46,9 +48,9 @@ export default function ServiceSection(props: ServiceSection) {
                     servicepage
                /> }) : mappedServices = props.searchedService.map((card:any) => {
                 return <ServiceCard 
-                            img={card.thumbnail}
+                            img={card.image}
                             title={card.title}
-                            desc={card.description}
+                            desc={card.short_description}
                             contStyle='service-card-container'
                             imgStyle='service-card-img'
                             descStyle='service-card-desc'

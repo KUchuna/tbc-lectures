@@ -1,6 +1,6 @@
 "use server";
  
-import { createUser,deleteUser,createCartItem,resetCart,decreaseCartItem, removeCartItem } from "@/api";
+import { createUser,deleteUser,createCartItem,resetCart,decreaseCartItem, removeCartItem, addService } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -38,6 +38,10 @@ export async function createCartItemAction(productId: number) {
   revalidatePath("/services");
 }
  
+export async function addServiceAction() {
+  await addService();
+}
+
 export async function resetCartAction() {
   await resetCart();
   revalidatePath("/cart");

@@ -46,8 +46,8 @@ export default function FilterInput(props: FilterInput) {
                 {props.open && 
                     <ul className="sorting-menu-container dark:bg-slate-500 dark:border-slate-900">
                         <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("None")}>None</li>
-                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Most reactions")}>Most reactions</li>
-                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Least reactions")}>Least reactions</li>
+                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Date ascending")}>Date ascending</li>
+                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Date descending")}>Date descending</li>
                     </ul>
                     }
             </div>)}

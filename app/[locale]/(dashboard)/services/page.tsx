@@ -3,6 +3,7 @@
 import '@/styles/BlogServices.css'
 import ServiceSection from '@/components/ServiceSection.tsx'
 import React from 'react'
+import {addServiceAction} from '@/app/actions.ts'
 
 export default function Services() {
     
@@ -20,15 +21,29 @@ export default function Services() {
     const [defaultService, setDefaultService] = React.useState<Product[]>([])
 
     React.useEffect(() => {
-        fetch('https://dummyjson.com/products')
-        .then(res => res.json())
-        .then(res => {
-            setSearchedService(res.products)
-            setDefaultService(res.products)
-        })
-    },[])
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-services`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch services');
+                }
+                const data = await response.json();
+                if (!data || !data.users || !Array.isArray(data.users.rows)) {
+                    throw new Error('Invalid response format: missing or invalid data');
+                }
+                setSearchedService(data.users.rows);
+                setDefaultService(data.users.rows);
+            } catch (error) {
+                console.error('Error fetching services:', error);
+            }
+        };
 
+        fetchData();
+    }, []);
 
+    const handleServiceadd = async () => {
+        await addServiceAction();
+      };
 
     function handleSearch (value:string) {
         setSearchedService(defaultService.filter(item => item.title.toLowerCase().includes(value.toLowerCase())))
@@ -36,6 +51,7 @@ export default function Services() {
 
     return (
         <div className="services-page-container">
+            {/* <button onClick={handleServiceadd}>add service</button> */}
             <div className="blog-service-page-title-container parent-flex-column-center dark:bg-slate-900">
                 <span className="blog-service-page-short-title">SERVICES</span>
                 <h1 className="blog-service-page-title font-bold">Choose and book service with us</h1>

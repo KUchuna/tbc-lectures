@@ -40,7 +40,7 @@ export default function ServiceCard(props: ServiceCard) {
                 <Image src={props.img} className={`card-img ${props.imgStyle}`} width={300} height={300} alt=''/>
                 <span className='card-date'>{props.date}</span>
                 <h3 className='text-xl font-bold mb-5 dark:text-slate-200'>{props.title}</h3>
-                <p className={`card-description ${props.descStyle} dark:text-slate-50`}>{props.desc}</p>
+                <p className={`card-description ${props.descStyle} dark:text-slate-50`}>{props.desc.slice(0,100)}...</p>
             </div>
             {props.servicepage ?
             <div className='w-full mt-auto flex justify-center gap-4'>

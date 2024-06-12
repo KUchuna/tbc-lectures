@@ -12,9 +12,16 @@ module.exports = {
         "gradient-conic":
         "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+      },
       keyframes: {
         shimmer: {
           '100%' : {transform: 'translateX(100%)'}
+        },
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
         }
       },
       colors: {
@@ -23,7 +30,8 @@ module.exports = {
         "service-card-cont": "rgba(249, 250, 251, 1)",
         "service-card-hover-orange": "#bf3b06",
         "profile-icon": "12px",
-        "page-subtitle": "rgba(71, 84, 103, 1)"
+        "page-subtitle": "rgba(71, 84, 103, 1)",
+        "section-grey": "rgba(242, 244, 247, 1);"
       },
     },
   },
