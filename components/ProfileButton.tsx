@@ -41,13 +41,13 @@ export default function ProfileButton() {
                             </li>
                         </Link>
                         {user.user ?
-                        <a href='api/auth/logout' className='w-full'>
+                        <a href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`} className='w-full'>
                             <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
                                 Log out
                             </li>
                         </a>
                         :
-                        <a href='api/auth/login' className='w-full'>
+                        <a href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`} className='w-full'>
                             <li className='dark:text-slate-200 dark:hover:bg-slate-400'>
                                 Log in
                             </li>

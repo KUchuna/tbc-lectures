@@ -4,19 +4,6 @@ import caricon from '@/public/assets/caricon.svg'
 import clock from '@/public/assets/clock.svg'
 import BlogSection from '@/components/BlogSection';
 
-export async function generateMetadata(
-  { params }: any
-) {
-  const services = await getServices();
-  const service = services.find((service: any) => service.id == params.id);
-
-
-  return {
-    title: `${service.title}`,
-    description: `${service.description}`,
-    image: `${service.image}`
-  };
-}
 
 export default async function Service({params: { id }}: any) {
   

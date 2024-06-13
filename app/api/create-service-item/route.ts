@@ -8,7 +8,7 @@ export const POST = async (req: NextRequest) => {
     const { title, short_description, sub_title, full_description, price, total_time_needed, image } = body;
 
     // Validate required fields
-    if (!title || !short_description || !price || !total_time_needed) {
+    if (!title || !short_description || !price || !total_time_needed || !image || !sub_title || !full_description) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
