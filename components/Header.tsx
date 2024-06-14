@@ -8,7 +8,7 @@ import ProfileButton from './ProfileButton';
 import ThemeSelector from './ThemeSelector.tsx';
 import { getI18n } from '../locales/server.ts'
 import LanguageSelector from './LanguageSelector.tsx';
-import HeaderBookings from './HeaderCart.tsx';
+import HeaderBookings from './HeaderBookings.tsx';
 
 export default async function Header() {
 

@@ -6,21 +6,22 @@ import { NextRequest, NextResponse } from "next/server";
 export const GET = async (_: NextRequest) => {
   const data = await getSession();
 
-  let auth_id, email, name, avatar;
+  let auth_id, email, name, avatar, role;
 
   if (data) {
     auth_id = data.user.sub;
     email = data.user.email;
     name = data.user.nickname;
     avatar = data.user.picture;
+    role = "user";
   }
 
   try {
     const res = await sql`SELECT * FROM authusers WHERE auth_id = ${auth_id}`;
     if (res.rowCount === 0) {
       const insertRes = await sql`
-        INSERT INTO authusers (auth_id, email, name, avatar)
-        VALUES (${auth_id}, ${email}, ${name}, ${avatar})
+        INSERT INTO authusers (auth_id, email, name, avatar, role)
+        VALUES (${auth_id}, ${email}, ${name}, ${avatar}, ${role})
       `;
       console.log("Insert Result:", insertRes);
     }

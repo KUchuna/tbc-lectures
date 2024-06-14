@@ -5,7 +5,9 @@ const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
 const AUTH0_API_TOKEN = process.env.AUTH0_API_TOKEN;
 
 async function deleteAuth0User(authId: string) {
+
   const url = `https://${AUTH0_DOMAIN}/api/v2/users/${authId}`;
+  
   const myHeaders = new Headers({
     "Authorization": `Bearer ${AUTH0_API_TOKEN}`
   });
@@ -28,7 +30,7 @@ export async function DELETE(request: NextRequest) {
   try {
     if (!id) throw new Error('ID is required');
 
-    // Fetch the auth_id from the database based on the user ID
+    // fetch the auth_id from the database based on the userID
     const { rows } = await sql`SELECT auth_id FROM authusers WHERE id = ${Number(id)};`;
     if (rows.length === 0) {
       throw new Error('User not found');
@@ -36,13 +38,13 @@ export async function DELETE(request: NextRequest) {
 
     const authId = rows[0].auth_id;
 
-    // Delete related bookings first
+    // delete related bookings first
     await sql`DELETE FROM bookings WHERE auth_id = ${authId};`;
 
-    // Delete the user from the database
+    // delete the user from the database
     await sql`DELETE FROM authusers WHERE id = ${Number(id)};`;
 
-    // Delete the user from Auth0
+    // delete the user from auth0
     await deleteAuth0User(authId);
   } catch (error) {
     console.error('Error deleting user:', error);

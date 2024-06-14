@@ -1,20 +1,11 @@
 import { sql } from '@vercel/postgres';
 import { NextRequest, NextResponse } from 'next/server';
 
-// Function to add a booking for a user
 export const POST = async (request: NextRequest) => {
     
     const { service_id, auth_id } = await request.json();
     
-    // const data = await getSession();
-
-    // let auth_id;
-
     try {
-        // if(data) {
-        //     auth_id = data.user.sub;
-        //     }
-        // Check if the service exists
         const serviceExists = await sql`
             SELECT id FROM services 
             WHERE id = ${service_id}

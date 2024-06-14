@@ -3,12 +3,26 @@ import Image from 'next/image';
 import caricon from '@/public/assets/caricon.svg'
 import clock from '@/public/assets/clock.svg'
 import BlogSection from '@/components/BlogSection';
+import BookService from '@/components/BookService';
+
+interface service {
+  id: number;
+  title: string;
+  short_description: string;
+  sub_title: string;
+  full_description: string;
+  price: number;
+  total_time_needed: string;
+  image: string;
+}
 
 
 export default async function Service({params: { id }}: any) {
   
   const services = await getServices();
-  const service = services.find((service: any) => service.id == id);
+  
+  const service = services.find((service: service) => service.id == id);
+
  
   return ( 
       <div className='dark:bg-slate-800'>
@@ -50,7 +64,9 @@ export default async function Service({params: { id }}: any) {
                   <span className='text-slate-500 font-bold text-xl'>Service fee</span>
                   <span className='text-service-card-orange font-bold text-5xl'>₾{Math.round(service.price)}</span>
                 </div>
-                <button className='w-full bg-service-card-orange py-[16px] text-white rounded-xl'>Book this service</button>
+                <BookService 
+                  id={service.id}
+                />
               </div>
             </div>
           </div>

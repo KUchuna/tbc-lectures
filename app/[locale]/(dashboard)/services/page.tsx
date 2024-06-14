@@ -4,8 +4,6 @@ import AllServices from '@/components/AllServices';
 
 export default async function Services() {
 
-    //aq da servis sectionshi 2 jer xxdeba bazis gamodzaxeba
-    //gadasatania an axal komponentshi an fasaertianebeli!!!!!
     return (
         <div className="services-page-container">
             <div className="blog-service-page-title-container parent-flex-column-center dark:bg-slate-900">

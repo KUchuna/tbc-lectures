@@ -48,7 +48,7 @@ export default async function ServiceSection(props: ServiceSection) {
                 <h3 className="text-4xl font-bold mb-5">Get your finances right</h3>
                 <p className={`section-description ${props.descStyle} dark:text-slate-400`}>We offer the best accounting and expense tracking for ambitious businesses.</p>
                 <div className="service-cards-container">
-                        {mappedServices}
+                    {mappedServices}
                 </div>
             </div>
         </section>
