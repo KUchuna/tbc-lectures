@@ -1,7 +1,6 @@
 import { sql } from '@vercel/postgres';
 import { NextRequest, NextResponse } from 'next/server';
 
-
 const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
 const AUTH0_API_TOKEN = process.env.AUTH0_API_TOKEN;
 
@@ -29,7 +28,7 @@ export async function DELETE(request: NextRequest) {
   try {
     if (!id) throw new Error('ID is required');
 
-    // fetch the auth_id from the database based on the user ID
+    // Fetch the auth_id from the database based on the user ID
     const { rows } = await sql`SELECT auth_id FROM authusers WHERE id = ${Number(id)};`;
     if (rows.length === 0) {
       throw new Error('User not found');
@@ -37,12 +36,17 @@ export async function DELETE(request: NextRequest) {
 
     const authId = rows[0].auth_id;
 
+    // Delete related bookings first
+    await sql`DELETE FROM bookings WHERE auth_id = ${authId};`;
+
+    // Delete the user from the database
     await sql`DELETE FROM authusers WHERE id = ${Number(id)};`;
 
+    // Delete the user from Auth0
     await deleteAuth0User(authId);
   } catch (error) {
     console.error('Error deleting user:', error);
-    return NextResponse.json({ error}, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 
   const users = await sql`SELECT * FROM authusers;`;
