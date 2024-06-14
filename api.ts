@@ -54,6 +54,7 @@ export async function createBooking(service_id: number, auth_id: string) {
     }
   );
  
+  revalidatePath('/services')
   return response;
 }
 
@@ -74,12 +75,13 @@ export async function getBookings(auth_id: string) {
     if (!bookings || !Array.isArray(bookings.rows)) {
       throw new Error('Invalid response format: missing or invalid data');
     }
-
+    revalidatePath('/bookings')
     return bookings.rows;
   } catch (error) {
     console.error('Error fetching bookings:', error);
     throw new Error('Failed to fetch bookings. Please try again later.'); // Throw a new error to be caught by the caller
   }
+
 }
 
 

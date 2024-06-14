@@ -16,7 +16,7 @@ export default async function Bookings() {
   return (
     <div className="min-h-[100vh] dark:bg-slate-700 flex justify-center items-center">
       <section className="overflow-y-auto h-[full] py-[50px]">
-          {bookings.map((booking: any) => <h1>{booking.id}</h1>)}
+          {bookings.map((booking: any) => <h1 key={booking.id}>{booking.id}</h1>)}
       </section>
     </div>
   )
