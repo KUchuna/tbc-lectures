@@ -8,7 +8,7 @@ import ProfileButton from './ProfileButton';
 import ThemeSelector from './ThemeSelector.tsx';
 import { getI18n } from '../locales/server.ts'
 import LanguageSelector from './LanguageSelector.tsx';
-import HeaderCart from './HeaderCart.tsx'
+import HeaderBookings from './HeaderCart.tsx';
 
 export default async function Header() {
 
@@ -31,10 +31,10 @@ export default async function Header() {
                     </ul>
                 </div>
                 <div className='flex items-center'>
-                    <HeaderCart />
+                    <HeaderBookings />
                     <ProfileButton />
-                     <ThemeSelector />
-                     <LanguageSelector />
+                    <ThemeSelector />
+                    <LanguageSelector />
                 </div>
             </div>
         </header>

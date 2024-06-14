@@ -6,7 +6,7 @@ import ServiceSearch from './ServiceSearch'
 import ServiceCard from './ServiceCard'
 import '../styles/Section.css'
 import FancyLoading from './FancyLoading'
-
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 interface Service {
     id: number,
@@ -14,14 +14,23 @@ interface Service {
     description: string,
     price: number,
     image: string,
+    auth_id: string,
 }
 
 export default function AllServices() {
+
+    const { user } = useUser();
 
     const [searchedService, setSearchedService] = React.useState<Service[]>([])
     const [defaultService, setDefaultService] = React.useState<Service[]>([])
     const [searchValue, setSearchValue] = React.useState("")
     const [loading, setLoading] = React.useState(false)
+
+    let auth_id:any;
+
+    user ? auth_id = user?.sub : auth_id = null
+    
+
 
     React.useEffect(() => {
         
@@ -68,6 +77,7 @@ export default function AllServices() {
                     descStyle='service-card-desc'
                     key={card.id}
                     id={card.id}
+                    auth_id={auth_id}
                     servicepage
                /> }) : mappedServices = searchedService.map((card:any) => {
                 return <ServiceCard 
@@ -79,6 +89,7 @@ export default function AllServices() {
                             descStyle='service-card-desc'
                             key={card.id}
                             id={card.id}
+                            auth_id={auth_id}
                             servicepage
                        /> })
 

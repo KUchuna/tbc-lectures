@@ -6,6 +6,7 @@ import AddUser from '@/components/AddUser.tsx';
 import Image from 'next/image';
 
 export default async function UsersPage() {
+  
   const users = await getUsers();
 
   return (

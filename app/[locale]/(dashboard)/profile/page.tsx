@@ -8,14 +8,14 @@ export default function ProfileClient() {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
-
+  console.log(user)
   return (
       user && (
           <div className='min-h-[calc(100vh-460px)]'>
             {user.picture &&
                 <Image src={user.picture} alt='' width={30} height={30}/>
             }
-            <h2>{user.name}</h2>
+            <h2>{user.nickname}</h2>
             <p>{user.email}</p>
           </div>
       )

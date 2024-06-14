@@ -4,7 +4,7 @@ import servicearrow from '../public/assets/servicearrow.svg'
 import '../styles/Card.css'
 import Image, { StaticImageData } from 'next/image'
 import { useRouter } from 'next/navigation'
-import {createCartItemAction} from '../app/actions'
+import {createBookingAction} from '../app/actions'
  
 interface ServiceCard {
     id?: number;
@@ -16,6 +16,7 @@ interface ServiceCard {
     contStyle?: string;
     descStyle: string;
     servicepage?: boolean;
+    auth_id?: any;
     handleClick?: () => void;
 }
  
@@ -29,8 +30,8 @@ export default function ServiceCard(props: ServiceCard) {
         router.push(`/services/${props.id}`)
     }
    
-    async function handleCartItem(id: number) {
-        await createCartItemAction(id)
+    async function handleBookingItem(service_id: number, auth_id: string) {
+        await createBookingAction(service_id, auth_id)
     }
  
  
@@ -45,7 +46,7 @@ export default function ServiceCard(props: ServiceCard) {
             {props.servicepage ?
             <div className='w-full mt-auto flex justify-center gap-4'>
                 <button className='text-white flex  dark:text-white bg-service-card-orange px-3 py-2 rounded-xl hover:bg-service-card-hover-orange transition-colors duration-300' 
-                onClick={() => props.id !== undefined && handleCartItem(props.id)}>Add to cart</button>
+                onClick={() => props.id !== undefined && handleBookingItem(props.id, props.auth_id)}>Add to cart</button>
             </div>
             :<span className='text-service-card-orange flex mt-auto dark:text-orange-700'>View full information <Image className='ml-6' src={servicearrow} alt="" /></span>}
         </div>

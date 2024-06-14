@@ -34,15 +34,6 @@ export async function getService(id: number) {
   return response;
 }
 
-
-export async function getCart() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-cart-items`
-  );
-  const { cart } = await response.json();
-  revalidatePath("/services");
-  return cart.rows;
-}
  
 export async function createUser(name: string, email: string, age: string) {
   return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/create-user`, {
@@ -50,6 +41,47 @@ export async function createUser(name: string, email: string, age: string) {
     body: JSON.stringify({ name, email, age }),
   });
 }
+
+export async function createBooking(service_id: number, auth_id: string) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/create-booking`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ service_id, auth_id }),
+    }
+  );
+ 
+  return response;
+}
+
+export async function getBookings(auth_id: string) {
+  try {
+    if (!auth_id) {
+      throw new Error('auth_id is required');
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-bookings?auth_id=${auth_id}`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch bookings (${response.status} ${response.statusText})`);
+    }
+
+    const { bookings } = await response.json();
+
+    if (!bookings || !Array.isArray(bookings.rows)) {
+      throw new Error('Invalid response format: missing or invalid data');
+    }
+
+    return bookings.rows;
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+    throw new Error('Failed to fetch bookings. Please try again later.'); // Throw a new error to be caught by the caller
+  }
+}
+
 
 export async function addService(title: string, short_description: string, sub_title: string, full_description: string, price: number, total_time_needed: string, image: string) {
   return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/create-service-item`, {
@@ -73,51 +105,3 @@ export async function deleteUser(id: number) {
     }
   );
 }
- 
-export async function createCartItem(productId: number) {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/create-cart-item`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ productId }),
-    }
-  );
- 
-  return response;
-}
- 
-export async function resetCart() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/reset-cart`,
-    {
-      method: "DELETE",
-    }
-  );
- 
-  return response;
-}
-
-export async function decreaseCartItem(productId: number) {
-  return await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/decrease-cart-item/${productId}`,
-    {
-      method: "POST",
-      body: JSON.stringify({ productId }),
-    }
-  );
-}
-
-export async function removeCartItem(productId: number) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/remove-cart-item`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ productId }),
-  });
-  return response.json();
-}
-
