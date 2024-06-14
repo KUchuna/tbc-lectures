@@ -9,8 +9,7 @@ export interface User {
  
 export async function getUsers() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-users`
-  );
+    `${process.env.NEXT_PUBLIC_API_URL}/api/get-users`, {cache: 'no-store'});
   const { users } = await response.json();
  
   return users.rows;
@@ -64,7 +63,7 @@ export async function getBookings(auth_id: string) {
       throw new Error('auth_id is required');
     }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-bookings?auth_id=${auth_id}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-bookings?auth_id=${auth_id}`, {cache: 'no-store'});
 
     if (!response.ok) {
       throw new Error(`Failed to fetch bookings (${response.status} ${response.statusText})`);
