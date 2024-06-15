@@ -17,7 +17,7 @@ export default async function Header() {
     const t = await getI18n()
     const user = await getSession()
 
-    const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
+    const isAdmin = Array.isArray(user?.user.role) && user.user.role.includes("admin");
   
 
     return (

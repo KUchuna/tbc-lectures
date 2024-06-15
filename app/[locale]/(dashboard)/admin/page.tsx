@@ -11,9 +11,17 @@ export default async function UsersPage() {
   
   const users = await getUsers();
 
-  const user = await getSession()
+  const data = await getSession();
 
-  const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
+
+  if (!data || !data.user) {
+    redirect('/');
+  }
+
+  const user = data.user;
+
+
+  const isAdmin = Array.isArray(user.role) && user.role.includes("admin");
   if (!isAdmin) {
     redirect('/');
   }
