@@ -9,7 +9,8 @@ interface BookButton {
 
 
 
-export default async function BookService(props: BookButton) {
+export default function BookService(props: BookButton) {
+    
     const { user } = useUser();
     let auth_id:any;
 
@@ -19,6 +20,6 @@ export default async function BookService(props: BookButton) {
         await createBookingAction(service_id, auth_id)
     }
     return (
-        <button className='w-full bg-service-card-orange py-[16px] text-white rounded-xl' onClick={() => props.id !== undefined && handleBookingItem(props.id, auth_id)}>Book this service</button>
+        <button className='w-full bg-service-card-orange py-[16px] text-white rounded-xl shadow-def-button active:translate-y-[5px] active:shadow-clicked-button transition-all duration-100' onClick={() => props.id !== undefined && handleBookingItem(props.id, auth_id)}>Book this service</button>
     )
 }

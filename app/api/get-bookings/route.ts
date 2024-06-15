@@ -14,7 +14,6 @@ export const GET = async (request: NextRequest) => {
       SELECT * FROM bookings WHERE auth_id = ${auth_id} ORDER BY id;
     `;
     
-    console.log(bookings)
     return NextResponse.json({ bookings }, { status: 200 });
   } catch (error) {
     console.error("Error fetching bookings:", error);

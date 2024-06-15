@@ -1,17 +1,19 @@
 import { revalidatePath } from "next/cache";
 
+
 export interface User {
   id: number;
   avatar: string;
   name: string;
   email: string;
 }
- 
+
+
 export async function getUsers() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/get-users`, {cache: 'no-store'});
   const { users } = await response.json();
- 
+  revalidatePath('/admin')
   return users.rows;
 }
 
@@ -33,7 +35,8 @@ export async function getService(id: number) {
   return response;
 }
 
- 
+
+
 export async function createUser(name: string, email: string, age: string) {
   return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/create-user`, {
     method: "POST",

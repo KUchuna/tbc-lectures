@@ -9,6 +9,9 @@ export default async function UsersPage() {
   
   const users = await getUsers();
 
+
+
+
   return (
     <div className="flex flex-col items-center w-full p-4 bg-gray-100 dark:bg-slate-800 min-h-screen">
       <AddUser />
