@@ -1,10 +1,14 @@
 import { getBookings } from "@/api";
 import { getSession } from "@auth0/nextjs-auth0";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const revalidate = 0
 export const dynamic = 'force-dynamic'
 
+
 export default async function Bookings() {
+  
+  noStore()
 
   const data = await getSession()
 

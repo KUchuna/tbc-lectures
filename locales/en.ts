@@ -1,7 +1,7 @@
 export default {
     'home': 'Home',
     'services': 'Services',
-    'about': 'About Us',
+    'Blog': 'Blog',
     'contact': 'Contact Us',
     'faq': 'FAQ',
     'admin': 'Admin',

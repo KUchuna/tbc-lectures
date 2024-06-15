@@ -6,6 +6,14 @@ import Image from 'next/image';
 export default function ProfileClient() {
   const { user, error, isLoading } = useUser();
 
+
+  if (user) {
+    const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
+    console.log(user.role)
+    console.log(isAdmin)
+  }
+
+
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   console.log(user)

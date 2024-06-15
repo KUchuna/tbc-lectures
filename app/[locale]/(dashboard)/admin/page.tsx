@@ -4,13 +4,19 @@ import DeleteUser from '@/components/DeleteUser.tsx';
 import AddUser from '@/components/AddUser.tsx';
 // import EditUser from '@/components/EditUser';
 import Image from 'next/image';
+import { getSession } from '@auth0/nextjs-auth0';
+import { redirect } from 'next/navigation';
 
 export default async function UsersPage() {
   
   const users = await getUsers();
 
+  const user = await getSession()
 
-
+  const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
+  if (!isAdmin) {
+    redirect('/');
+  }
 
   return (
     <div className="flex flex-col items-center w-full p-4 bg-gray-100 dark:bg-slate-800 min-h-screen">

@@ -30,7 +30,7 @@ export default function AllServices() {
 
     user ? auth_id = user?.sub : auth_id = null
     
-
+    const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
 
     React.useEffect(() => {
         
@@ -103,7 +103,7 @@ export default function AllServices() {
                 <p className='section-description services-section-desc dark:text-slate-400'>We offer the best accounting and expense tracking for ambitious businesses.</p>
             </div>
             <div className='flex flex-col w-full 2xl:max-w-[1216px]'>
-                <AddService />
+                {isAdmin && <AddService />}
                 <ServiceSearch 
                     handleSearch={handleSearch}
                 />

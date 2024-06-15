@@ -18,7 +18,7 @@ export default function BlogSection() {
     })
 
     return (
-        <section className="section-container parent-flex-column-center dark:bg-slate-700">
+        <section className="section-container parent-flex-column-center dark:bg-slate-700" id='blog'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Our blog</span>

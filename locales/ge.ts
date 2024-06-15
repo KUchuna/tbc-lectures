@@ -1,7 +1,7 @@
 export default {
     'home': 'მთავარი',
     'services': 'სერვისები',
-    'about': 'ჩვენ შესახებ',
+    'Blog': 'ბლოგი',
     'contact': 'კონტაქტი',
     'faq': 'ხდკ',
     'admin': 'ადმინი',
