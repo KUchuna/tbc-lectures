@@ -14,11 +14,12 @@ export default function Bookings(props: BookingIds) {
     noStore()
 
   const [bookedServices, setBookedServices] = useState<any[]>([]);
-
+  const [loading, setLoading] = useState<boolean>()
 
 
   useEffect(() => {
     const fetchBookedServices = async () => {
+        setLoading(true)
         await new Promise(resolve => setTimeout(resolve, 2000))
       try {
         const services = await getServices();
@@ -30,25 +31,30 @@ export default function Bookings(props: BookingIds) {
         setBookedServices(filteredServices);
       } catch (error) {
         console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false)
       }
+      
     };
-
+    
     fetchBookedServices();
   }, [props.bookedIds]);
+  
 
 
   return (
-    <div>
-      {bookedServices.length > 0 ? (
-        bookedServices.map((service) => (
-          <div key={service.id}>
-            <h1 className="font-bold">{service.title}</h1>
-            <p>{service.short_description}</p>
-          </div>
-        ))
-      ) : (
-        <FancyLoading />
-      )}
+    <div className="w-full h-full flex justify-center items-center">
+      {loading ? <FancyLoading />  :
+      bookedServices.length == 0 ? <h1 className="font-bold text-4xl uppercase w-full flex justify-center align-center h-full"> you do not have any bookings </h1>
+      :
+      (
+          bookedServices.map((service) => (
+            <div key={service.id}>
+              <h1 className="font-bold">{service.title}</h1>
+              <p>{service.short_description}</p>
+            </div>
+          ))
+      )} 
     </div>
   );
 }

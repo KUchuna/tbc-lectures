@@ -6,9 +6,9 @@
 }
 
 .blog-service-page-short-title {
-    color: rgba(245, 71, 0, 1);
+    color: #f54700;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     margin-bottom: 12px;
 }
 
@@ -20,7 +20,7 @@
 
 .blog-service-page-desc {
     color: rgba(71, 84, 103, 1);
-    font-size: 1.1rem;
+    font-size: 1.125rem;
 }
 
 .blog-page-cards-container {

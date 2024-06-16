@@ -12,7 +12,7 @@ export async function createUserAction(formData: FormData) {
 
 export async function createBookingAction(service_id: number, auth_id: string) {
   await createBooking(service_id, auth_id)
-  revalidatePath('/services')
+  revalidatePath('/')
 }
 
 export async function addServiceAction(formData: FormData) {
