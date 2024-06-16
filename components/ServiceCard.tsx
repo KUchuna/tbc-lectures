@@ -37,14 +37,7 @@ export default function ServiceCard(props: ServiceCard) {
                 <h3 className='text-xl font-bold mb-5 dark:text-slate-200'>{props.title}</h3>
                 <p className={`card-description ${props.descStyle} dark:text-slate-50`}>{props.desc.slice(0,100)}...</p>
             </div>
-            {/* {props.servicepage ? */}
-            {/* <div className='w-full mt-auto flex justify-center gap-4'>
-                <button className='text-white flex  dark:text-white bg-service-card-orange px-3 py-2 rounded-xl hover:bg-service-card-hover-orange transition-colors duration-300' 
-                onClick={() => props.id !== undefined && handleBookingItem(props.id, props.auth_id)}>Add to cart</button>
-            </div> */}
-            {/* : */}
             <span className='text-service-card-orange flex mt-auto dark:text-orange-700'>View full information <Image className='ml-6' src={servicearrow} alt="" /></span>
-            {/* } */}
         </div>
     )
 }

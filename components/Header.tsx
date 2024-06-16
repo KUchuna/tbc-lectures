@@ -27,8 +27,8 @@ export default async function Header() {
                     <Link href='/'><Image src={headerLogo} className='header-logo dark:bg-slate-500 dark:p-4 dark:rounded-2xl' alt='header logo'/></Link>
                     <ul className='header-list-container dark:text-slate-300'>
                         <li className='header-list-item'><Link href='/'>{t('home')}</Link></li>
-                        <li className='header-list-item'><Link href='/#services'>{t('services')}</Link></li>
-                        <li className='header-list-item'><Link href='/#blog'>{t('Blog')}</Link></li>
+                        <li className='header-list-item'><Link href='/services'>{t('services')}</Link></li>
+                        <li className='header-list-item'><Link href='/blogs'>{t('Blog')}</Link></li>
                         <li className='header-list-item'><Link href='/contact'>{t('contact')}</Link></li>
                         <li className='header-list-item'><a href='/#faq'>{t('faq')}</a></li>
                         {isAdmin && <li className='header-list-item'><Link href='/admin'>{t('admin')}</Link></li>}
