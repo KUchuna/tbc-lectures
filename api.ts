@@ -13,32 +13,17 @@ export async function getUsers() {
     `${process.env.NEXT_PUBLIC_API_URL}/api/get-users`, {cache: 'no-store'});
   const { users } = await response.json();
   revalidatePath('/admin')
-  console.log("users: " +users.rows)
   return users.rows;
 }
 
 export async function getServices() {
-  try {
-    const response = await fetch(
-      `https://tbcmovan.vercel.app/api/get-services`
-    );
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    if (!data || !data.services || !Array.isArray(data.services.rows)) {
-      throw new Error('Invalid response format: missing or invalid data');
-    }
-
-    return data.services.rows;
-  } catch (error) {
-    console.error('Error fetching services:', error);
-    throw new Error('Failed to fetch services. Please try again later.');
-  }
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/get-services`, {cache: 'no-store'});
+  const {services} = await response.json();
+  console.log("services: " +services.rows)
+  return services.rows;
 }
+
 
 
 
@@ -102,48 +87,6 @@ export async function getBookedIds(auth_id: string) {
   }
 }
 
-// export async function getBookedServices(serviceIds: number[]) {
-  
-//   try {
-//     if (!serviceIds || serviceIds.length === 0) {
-//       throw new Error('Service IDs are required');
-//     }
-    
-//     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-services?service_id=${serviceIds}`, { cache: 'no-store' });
-
-//     if (!response.ok) {
-//       throw new Error(`Failed to fetch services (${response.status} ${response.statusText})`);
-//     }
-
-//     const { services } = await response.json();
-
-//     if (!services || !Array.isArray(services)) {
-//       throw new Error('Invalid response format: missing or invalid data');
-//     }
-//     console.log(services)
-//     return services;
-//   } catch (error) {
-//     console.error('Error fetching services:', error);
-//     throw new Error('Failed to fetch services. Please try again later.');
-//   }
-// }
-
-// // Function to fetch bookings and corresponding services
-// export async function fetchBookingsAndServices(auth_id: string) {
-//   try {
-//     const bookings = await getBookings(auth_id);
-//     const serviceIds = bookings.map((booking: any) => booking.service_id);
-//     const services = await getBookedServices(serviceIds);
-//     return { bookings, services };
-//   } catch (error) {
-//     console.error('Error fetching bookings and services:', error);
-//     throw new Error('Failed to fetch bookings and services. Please try again later.');
-//   }
-// }
-
-
-
-
 export async function addService(title: string, short_description: string, sub_title: string, full_description: string, price: number, total_time_needed: string, image: string) {
   return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/create-service-item`, {
     method: 'POST',
@@ -155,6 +98,7 @@ export async function addService(title: string, short_description: string, sub_t
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
+    
 }
 
 

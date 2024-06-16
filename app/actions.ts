@@ -18,6 +18,7 @@ export async function createBookingAction(service_id: number, auth_id: string) {
 export async function addServiceAction(formData: FormData) {
   const { title, short_description, sub_title, full_description, price, total_time_needed, image } = Object.fromEntries(formData);
   await addService(title as string, short_description as string, sub_title as string, full_description as string, price as any, total_time_needed as string, image as string);
+  revalidatePath('/services')
 }
 
 
