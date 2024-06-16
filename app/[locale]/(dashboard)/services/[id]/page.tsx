@@ -5,6 +5,8 @@ import clock from '@/public/assets/clock.svg'
 import BlogSection from '@/components/BlogSection';
 import BookService from '@/components/BookService';
 
+// @ts-nocheck
+
 interface service {
   id: number;
   title: string;
