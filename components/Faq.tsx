@@ -44,7 +44,7 @@ export default function Faq() {
     ];
 
     return (
-        <section className="py-[96px] px-[112px] flex items-center justify-center flex-col" id="faq">
+        <section className="py-[96px] xl:px-[112px] md:px-[40px] flex items-center justify-center flex-col" id="faq">
             <h1 className="uppercase font-bold text-4xl mb-5 dark:text-slate-200">Frequently asked questions</h1>
             <p className="text-slate-600 dark:text-slate-200">Everything you need to know about the product and billing.</p>
             <ul className="my-[64px] flex max-w-[768px] w-full flex-col select-none">

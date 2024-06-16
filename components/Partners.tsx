@@ -8,10 +8,10 @@ import partner6 from "@/public/assets/partner6.png"
 
 export default function Partners() {
     return (
-        <div className="mt-[64px] flex flex-col justify-center items-center flex-nowrap">
-            <p className="text-slate-600 dark:text-slate-200 mb-5">OUR PARTNERS</p>
-            <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-                <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+        <div className="py-[64px] md:pb-[20px] md:mt-[0] flex flex-col justify-center items-center flex-nowrap">
+            <p className="text-slate-600 dark:text-slate-200 mb-8">OUR PARTNERS</p>
+            <div className="flex-wrap w-full flex md:inline-flex md:flex-nowrap md:overflow-hidden md:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+                <ul className="flex-wrap md:flex-nowrap gap-8 md:gap-0 flex items-center justify-center md:justify-start md:[&_li]:mx-8 [&_img]:max-w-none md:animate-infinite-scroll">
                     <li>
                         <Image src={partner1} alt="partner1" className="w-[170px] h-[48px]"/>
                     </li>
@@ -31,7 +31,7 @@ export default function Partners() {
                         <Image src={partner6} alt="partner1" className="w-[170px] h-[48px]"/>
                     </li>
                 </ul>
-                <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll" aria-hidden="true">
+                <ul className="hidden md:flex md:items-center justify-center md:justify-start md:[&_li]:mx-8 md:[&_img]:max-w-none md:animate-infinite-scroll" aria-hidden="true">
                     <li>
                         <Image src={partner1} alt="partner1" className="w-[170px] h-[48px]"/>
                     </li>

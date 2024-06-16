@@ -61,12 +61,7 @@
 
 .card-full-info img {
     margin-left: 8px;
-}
-
-.service-card-container {
-    background-color: rgba(249, 250, 251, 1);
-    padding: 24px;
-    border-radius: 16px;
+    object-fit: cover;
 }
 
 .service-card-img {
@@ -76,4 +71,5 @@
     width: 100%;
     margin-bottom: 16px;
     height: initial;
+    object-fit: cover;
 }
