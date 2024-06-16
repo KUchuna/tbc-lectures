@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import { getServices } from "@/api"; // Adjust the import path as needed
 import FancyLoading from "./FancyLoading";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface BookingIds {
   bookedIds: number[];
 }
 
 export default function Bookings(props: BookingIds) {
+
+    noStore()
 
   const [bookedServices, setBookedServices] = useState<any[]>([]);
 

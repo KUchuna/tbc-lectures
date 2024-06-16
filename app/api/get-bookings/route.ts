@@ -1,6 +1,9 @@
 import { sql } from "@vercel/postgres";
 import { NextRequest, NextResponse } from "next/server";
 
+export const revalidate = 0;
+export const dynamic = 'force-dynamic';
+
 export const GET = async (request: NextRequest) => {
   const url = new URL(request.url);
   const auth_id = url.searchParams.get('auth_id');
