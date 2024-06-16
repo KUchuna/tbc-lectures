@@ -5,9 +5,9 @@ export const revalidate = 0;
 
 export async function GET() {
   try {
-    const users = await sql`SELECT * FROM services;`;
+    const services = await sql`SELECT * FROM services;`;
 
-    return NextResponse.json({ users }, { status: 200 });
+    return NextResponse.json({ services }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }

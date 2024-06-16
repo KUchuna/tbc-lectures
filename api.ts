@@ -1,6 +1,5 @@
 import { revalidatePath } from "next/cache";
 
-
 export interface User {
   id: number;
   avatar: string;
@@ -14,18 +13,33 @@ export async function getUsers() {
     `${process.env.NEXT_PUBLIC_API_URL}/api/get-users`, {cache: 'no-store'});
   const { users } = await response.json();
   revalidatePath('/admin')
+  console.log("users: " +users.rows)
   return users.rows;
 }
 
 export async function getServices() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/get-services`
-  );
-  //idk why but using anything else than users does not work
-  const { users } = await response.json();
- 
-  return users.rows;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/get-services`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data || !data.services || !Array.isArray(data.services.rows)) {
+      throw new Error('Invalid response format: missing or invalid data');
+    }
+
+    return data.services.rows;
+  } catch (error) {
+    console.error('Error fetching services:', error);
+    throw new Error('Failed to fetch services. Please try again later.');
+  }
 }
+
 
 
 export async function getService(id: number) {

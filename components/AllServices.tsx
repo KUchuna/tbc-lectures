@@ -7,6 +7,7 @@ import ServiceCard from './ServiceCard'
 import '../styles/Section.css'
 import FancyLoading from './FancyLoading'
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { getServices } from '@/api'
 
 interface Service {
     id: number,
@@ -33,32 +34,24 @@ export default function AllServices() {
     const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
 
     React.useEffect(() => {
-        
         const fetchData = async () => {
-            try {
-                setLoading(true)
-                await new Promise(resolve => setTimeout(resolve, 2000))
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-services`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch services');
-                }
-                const data = await response.json();
-                if (!data || !data.users || !Array.isArray(data.users.rows)) {
-                    throw new Error('Invalid response format: missing or invalid data');
-                }
-                setSearchedService(data.users.rows);
-                setDefaultService(data.users.rows);
-            } catch (error) {
-                console.error('Error fetching services:', error);
-            } finally {
-                setLoading(false);
-            }
+          try {
+            setLoading(true);
+            await new Promise(resolve => setTimeout(resolve, 2000))
+            const services = await getServices();
+            setSearchedService(services);
+            setDefaultService(services);
+      
+          } catch (error) {
+            console.error('Error fetching services:', error);
+          } finally {
+            setLoading(false);
+          }
         };
-
+      
         fetchData();
-    }, []);
-
-
+      }, []);
+      
 
     function handleSearch (value:string) {
         setSearchedService(defaultService.filter(item => item.title.toLowerCase().includes(value.toLowerCase())))
