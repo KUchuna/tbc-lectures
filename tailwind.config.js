@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       boxShadow: {
         'def-button': '0 5px 0px #ba4302',
-        'clicked-button': '0 0px 0 #ba4302'
+        'clicked-button': '0 0px 0 #ba4302',
+        'hamburger': '0px 20px 24px -4px rgba(16, 24, 40, 0.08)',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -35,7 +36,9 @@ module.exports = {
         "service-card-hover-orange": "#bf3b06",
         "profile-icon": "12px",
         "page-subtitle": "rgba(71, 84, 103, 1)",
-        "section-grey": "rgba(242, 244, 247, 1);"
+        "section-grey": "rgba(242, 244, 247, 1);",
+        "hamburger-list": "rgba(29, 41, 57, 1)",
+        "border-grey": "rgba(208, 213, 221, 1)",
       },
     },
   },
