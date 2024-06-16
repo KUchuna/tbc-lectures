@@ -28,7 +28,7 @@ export default function ServiceCard(props: ServiceCard) {
     function handleClick() {
         router.push(`/services/${props.id}`)
     }
- 
+    console.log("ID:"+props.id)
     return (
         <div className={`card-container ${props.contStyle} dark:bg-slate-600 hover:scale-[105%] transition-transform duration-300`}>
             <div onClick={handleClick}>

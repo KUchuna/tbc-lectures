@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import AddService from './AddService'
 import ServiceSearch from './ServiceSearch'
 import ServiceCard from './ServiceCard'
@@ -59,6 +59,7 @@ export default function AllServices() {
     }
 
     let mappedServices;
+    
 
     searchValue === "" ? mappedServices = defaultService.map((card:any) => {
         return <ServiceCard 

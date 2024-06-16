@@ -5,7 +5,6 @@ import clock from '@/public/assets/clock.svg'
 import BlogSection from '@/components/BlogSection';
 import BookService from '@/components/BookService';
 
-// @ts-nocheck
 
 interface service {
   id: number;
@@ -25,7 +24,9 @@ export default async function Service({params: { id }}: any) {
   
   const service = services.find((service: service) => service.id == id);
 
- 
+  console.log("ID" + id)
+  console.log("Service" + service.title)
+
   return ( 
       <div className='dark:bg-slate-800'>
         <div className='bg-section-grey dark:bg-slate-900 flex flex-col items-center pt-[96px] py-[112px] xl:mb-[600px] lg:mb-[600px] relative'>

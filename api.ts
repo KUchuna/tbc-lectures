@@ -20,7 +20,7 @@ export async function getUsers() {
 export async function getServices() {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/get-services`
+      `https://tbcmovan.vercel.app/api/get-services`
     );
 
     if (!response.ok) {
