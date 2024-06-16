@@ -10,8 +10,8 @@ export default async function HeaderBookings() {
 
 
   return (
-    <Link href={data ? '/bookings' : `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`}>
-      <div className="relative dark:bg-slate-300 flex items-center justify-center w-10 p-2 rounded-lg cursor-pointer bg-white border dark:border-slate-400">
+    <Link href={data ? '/bookings' : `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`} className="hidden md:block">
+      <div className="dark:bg-slate-300 flex items-center justify-center w-10 p-2 rounded-lg cursor-pointer bg-white border dark:border-slate-400">
         <Image src={bookingssvg} alt="" />
       </div>
     </Link>

@@ -22,7 +22,7 @@ export default async function Header() {
 
     return (
         <header className='relative header-container parent-flex-row-center dark:bg-slate-800 dark:border-slate-600 xl:px-[112px] md:px-[40px] py-[18px] px-[16px]'>
-            <div className='parent-flex-row-between parent-max-width'>
+            <div className='flex md:justify-between items-center md:max-w-[1216px] w-full'>
                 <div className='header-left-section-container'>
                     <Link href='/'><Image src={headerLogo} className='xl:mr-[80px] md:mr-[30px] dark:bg-slate-500 dark:p-4 dark:rounded-2xl' alt='header logo'/></Link>
                     <ul className='header-list-container md:flex hidden dark:text-slate-300 gap-[20px]'>
@@ -34,8 +34,8 @@ export default async function Header() {
                         {isAdmin && <li className='header-list-item'><Link href='/admin'>{t('admin')}</Link></li>}
                     </ul>
                 </div>
-                <Hamburger />
-                <div className='md:flex items-center xl:gap-4 md:gap-6 hidden'>
+                
+                <div className='md:flex items-center xl:gap-4 md:gap-6 ml-auto md:ml-0 mr-[40px] md:mr-0'>
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <ThemeSelector />
                         <LanguageSelector />
@@ -43,6 +43,7 @@ export default async function Header() {
                     <HeaderBookings />
                     <ProfileButton />
                 </div>
+                <Hamburger />
             </div>
         </header>
     )

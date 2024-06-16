@@ -31,7 +31,7 @@ export default function ProfileButton() {
     }
 
     return (
-        <div className='profile-button dark:bg-slate-300 dark:border-slate-500' onClick={handleMenu} ref={containerRef}>
+        <div className='hidden md:flex profile-button dark:bg-slate-300 dark:border-slate-500' onClick={handleMenu} ref={containerRef}>
             <Image src={profileLogo} alt='profile' id='profile-image'/>
 
             {menu ? <ul className={`select-none absolute ${user.user ? "bottom-[-100px]" : "bottom-[-60px]"} left-[50%] w-[100px] translate-x-[-50%] bg-[white] flex items-center flex-col justify-center border px-0 py-2 rounded-lg border-solid border-[rgb(209,209,209)] dark:bg-slate-500 dark:border-slate-700`}>
