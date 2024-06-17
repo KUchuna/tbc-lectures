@@ -38,7 +38,7 @@ export default async function ServiceSection(props: ServiceSection) {
 
 
     return (
-        <section className="section-container py-[64px] xl:px-[112px] md:px-[40px] lg:py-[96px] px-[16px] parent-flex-column-center service-section dark:bg-slate-800" id='services'>
+        <section className="py-[64px] xl:px-[112px] md:px-[40px] lg:py-[96px] px-[16px] parent-flex-column-center service-section dark:bg-slate-800" id='services'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Services</span>
