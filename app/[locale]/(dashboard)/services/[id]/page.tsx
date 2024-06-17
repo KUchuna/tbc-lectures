@@ -53,7 +53,7 @@ export default async function Service({params: { id }}: any) {
               </p>
             </div>
             <div className='max-w-[400px] w-full relative lg:max-w-[350px]'>
-              <div className='py-[32px] px-[24px] bg-section-grey rounded-xl sticky top-[130px] border-t-4 border-service-card-orange dark:bg-slate-900'>
+              <div className='py-[32px] px-[24px] bg-section-grey rounded-xl sticky top-[130px] border-t-4 border-light-orange dark:bg-slate-900'>
                 <Image src={caricon} alt='little car'/>
                 <div className='flex mt-[32px] justify-between items-center'>
                   <h2 className='text-xl font-bold dark:text-slate-300'>{service.title}</h2>
@@ -62,7 +62,7 @@ export default async function Service({params: { id }}: any) {
                 <p className='text-slate-500 mt-2'>Best option for your car!</p>
                 <div className='flex mt-[24px] items-center justify-between mb-[24px]'>
                   <span className='text-slate-500 font-bold text-xl'>Service fee</span>
-                  <span className='text-service-card-orange font-bold text-5xl'>₾{Math.round(service.price)}</span>
+                  <span className='text-light-orange font-bold text-5xl'>₾{Math.round(service.price)}</span>
                 </div>
                 <BookService 
                   id={service.id}

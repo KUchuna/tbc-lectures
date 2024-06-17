@@ -34,7 +34,6 @@
 .section-description {
     font-size: 1.1rem;
     color: rgba(71, 84, 103, 1);
-    margin-bottom: 64px;
 }
 
 .section-cards-container {
@@ -46,12 +45,6 @@
 
 .service-section {
     background-color: white;
-}
-
-.service-cards-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
 }
 
 .services-section-desc {

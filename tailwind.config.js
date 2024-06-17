@@ -31,7 +31,8 @@ module.exports = {
       },
       colors: {
         "header-grey": "#475467",
-        "service-card-orange": "#F54700",
+        "light-orange": "#F54700",
+        "dark-orange": "rgba(174, 50, 0, 1)",
         "service-card-cont": "rgba(249, 250, 251, 1)",
         "service-card-hover-orange": "#bf3b06",
         "profile-icon": "12px",

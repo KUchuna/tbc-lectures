@@ -30,14 +30,14 @@ export default function ServiceCard(props: ServiceCard) {
     }
 
     return (
-        <div className={`card-container bg-gray-50 xl:p-6 md:p-3 rounded-2xl dark:bg-slate-600 hover:scale-[105%] transition-transform duration-300`}>
-            <div onClick={handleClick}>
-                <Image src={props.img} className={`card-img ${props.imgStyle}`} width={300} height={300} alt=''/>
+        <div className={`card-container bg-grey-50 xl:p-6 p-3 rounded-2xl dark:bg-slate-600 md:hover:scale-[105%] md:transition-transform md:duration-300`}>
+            <div onClick={handleClick} className='flex flex-col'>
+                <Image src={props.img} className={`card-img ${props.imgStyle} self-center`} width={300} height={300} alt=''/>
                 <span className='card-date'>{props.date}</span>
-                <h3 className='text-xl font-bold mb-5 dark:text-slate-200'>{props.title}</h3>
+                <h3 className='text-xl font-bold mb-2 md:mb-5 -mt-2 md:mt-0 dark:text-slate-200'>{props.title}</h3>
                 <p className={`card-description ${props.descStyle} dark:text-slate-50`}>{props.desc.slice(0,100)}...</p>
             </div>
-            <span className='text-service-card-orange flex mt-auto dark:text-orange-700'>View full information <Image className='ml-6' src={servicearrow} alt="" /></span>
+            <span className='text-dark-orange flex mt-auto dark:text-orange-700'>View full information <Image className='ml-6' src={servicearrow} alt="" /></span>
         </div>
     )
 }

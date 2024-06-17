@@ -9,24 +9,13 @@
     height: 100%;
 }
 
-.blog-card-container {
-    transition: transform 0.3s ease;
-}
-
-.blog-card-container:hover {
-    transform: scale(105%);
-}
-
 .card-img {
     max-width: 384px;
     max-height: 240px;
-    margin-bottom: 32px;
     width: 100%;
     height: 100%;
     border-radius: 20px;
 }
-
-
 
 .card-date {
     color: rgba(245, 71, 0, 1);
@@ -36,7 +25,6 @@
 }
 
 .card-title {
-    font-size: 1.2rem;
     display: flex;
     align-items: center;
     width: 100%;

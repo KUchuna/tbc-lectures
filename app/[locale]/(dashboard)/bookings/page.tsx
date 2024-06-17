@@ -23,7 +23,7 @@ export default async function BookingsPage() {
   return (
     <div className="dark:bg-slate-800">
       <section className="h-[354px] dark:bg-slate-900 bg-section-grey flex flex-col justify-center items-center py-[96px] px-[112px] rounded-br-[20px] rounded-bl-[20px]">
-        <h5 className="font-bold uppercase text-lg text-service-card-orange mb-[12px]">Your bookings</h5>
+        <h5 className="font-bold uppercase text-lg text-light-orange mb-[12px]">Your bookings</h5>
         <h1 className="uppercase font-bold text-5xl h-[72px] flex justify-center items-center">Review your bookings</h1>
         <p className="text-lg text-page-subtitle">Check, review or cancel your current bookings.</p>
       </section>

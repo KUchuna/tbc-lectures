@@ -70,7 +70,7 @@ export default function Hamburger() {
                 </ul>
                 {!user &&
                     <div className="px-[16px] flex flex-col gap-[12px] pb-[40px]">
-                        <a href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`} className="uppercase bg-service-card-orange text-white font-bold h-[44px] py-[10px] rounded-xl text-center">
+                        <a href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`} className="uppercase bg-light-orange text-white font-bold h-[44px] py-[10px] rounded-xl text-center">
                             log in
                         </a>
                     </div>
