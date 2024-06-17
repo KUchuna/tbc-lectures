@@ -24,7 +24,7 @@ export default function ServiceSearch(props: ServiceSearch) {
     };
 
     return (
-        <div className="service-search-container">
+        <div className="pt-[12px] md:pt-[30px]">
             <div className='service-search-content dark:bg-slate-500 dark:border-slate-400'>
                 <input type="text" className="service-search-input dark:bg-slate-500 dark:text-black" onChange={handleChange} placeholder='Search for service'/>
                 <Image className='service-search-icon' src={search} alt="" />

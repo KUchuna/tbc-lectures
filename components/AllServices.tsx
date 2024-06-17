@@ -88,21 +88,21 @@ export default function AllServices() {
                        /> })
 
     return (
-        <div className='section-container parent-flex-column-center service-section dark:bg-slate-800'>
+        <div className='section-container xl:pt-[96px] md:pt-[40px] py-[30px] px-[16px] md:px-[40px] xl:px-[112px] parent-flex-column-center service-section dark:bg-slate-800'>
             <div className='parent-max-width'>
-                <div className="section-short-title-link-container pt-[96px]"> 
+                <div className="section-short-title-link-container"> 
                     <span className="section-short-title">Services</span>
                 </div>
                 <h3 className="text-4xl font-bold mb-5">Get your finances right</h3>
                 <p className='section-description services-section-desc dark:text-slate-400'>We offer the best accounting and expense tracking for ambitious businesses.</p>
             </div>
-            <div className='flex flex-col w-full 2xl:max-w-[1216px]'>
+            <div className='flex flex-col w-full lg:max-w-[1216px]'>
                 {isAdmin && <AddService />}
                 <ServiceSearch 
                     handleSearch={handleSearch}
                 />
             </div>
-            <div className={loading ? "" : 'service-cards-container'}>
+            <div className={loading ? "" : 'md:grid md:grid-cols-[1fr_1fr_1fr] gap-[25px] flex flex-col flex-wrap justify-center items-center md:py-[60px] py-[40px]'}>
                 {loading ? <FancyLoading /> : mappedServices}
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import hamsvg from '@/public/assets/ham.svg'
+import hamWhitesvg from '@/public/assets/hamWhite.svg'
 import Link from "next/link"
 import { useI18n } from "@/locales/client"
 import { useUser } from "@auth0/nextjs-auth0/client"
@@ -11,11 +12,12 @@ import twittersvg from "@/public/assets/twitter.svg"
 import fbsvg from "@/public/assets/facebook.svg"
 import linkedinsvg from "@/public/assets/linkedin.svg"
 import redditsvg from "@/public/assets/reddit.svg"
-
+import { useTheme } from "next-themes"
 
 export default function Hamburger() {
 
     const t = useI18n()
+    const { resolvedTheme } = useTheme()
 
     const {user} = useUser()
     
@@ -34,8 +36,8 @@ export default function Hamburger() {
 
     return (
         <div className="md:hidden">
-            <Image src={hamsvg} alt='menu' className='md:hidden cursor-pointer' onClick={handleMenu}/>
-            <div className={`shadow-hamburger absolute bg-section-grey left-0 top-[94px] right-0 overflow-hidden ${open ? "max-h-[700px] overflow-y-auto" : "max-h-0"} transition-[max-height] duration-[300ms] ease-[ease]`}>
+            <Image src={resolvedTheme=='light' ? hamsvg : hamWhitesvg} alt='menu' className='md:hidden cursor-pointer' onClick={handleMenu}/>
+            <div className={`dark:bg-slate-800  shadow-hamburger absolute bg-section-grey left-0 top-[94px] right-0 overflow-hidden ${open ? "max-h-[700px] overflow-y-auto" : "max-h-0"} transition-[max-height] duration-[300ms] ease-[ease]`}>
                 {user &&
                     <div className="flex px-[16px] pt-[32px] items-center">
                         {user.picture && 
@@ -45,7 +47,7 @@ export default function Hamburger() {
                         <Link href='/profile'>
                             <div className="flex flex-col ml-[12px]">
                                 <span className="font-bold text-xl">{user.name}</span>
-                                <span className="text-hamburger-list text-lg">{user.email}</span>
+                                <span className="text-hamburger-list text-lg dark:text-slate-300">{user.email}</span>
                             </div>
                         </Link>
                         <a href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`} className="ml-auto">
@@ -54,12 +56,12 @@ export default function Hamburger() {
                     </div>
                 }
                 
-                <ul className={`border-b-[1px] border-b-border-grey flex flex-col dark:text-slate-300 gap-[20px] px-[16px] py-[32px] transition-opacity duration-[300ms] ease-[ease-in-out] ${open ? "delay-[150ms] opacity-100" : "opacity-0"}`}>
-                        <li className='text-hamburger-list'><Link href='/'>{t('home')}</Link></li>
-                        <li className='text-hamburger-list'><Link href='/services'>{t('services')}</Link></li>
-                        <li className='text-hamburger-list'><Link href='/blogs'>{t('Blog')}</Link></li>
-                        <li className='text-hamburger-list'><Link href='/contact'>{t('contact')}</Link></li>
-                        <li className='text-hamburger-list'><a href='/#faq'>{t('faq')}</a></li>
+                <ul className={` border-b-[1px] border-b-border-grey flex flex-col gap-[20px] px-[16px] py-[32px] transition-opacity duration-[300ms] ease-[ease-in-out] ${open ? "delay-[150ms] opacity-100" : "opacity-0"}`}>
+                        <li className='text-hamburger-list dark:text-slate-300'><Link href='/'>{t('home')}</Link></li>
+                        <li className='text-hamburger-list dark:text-slate-300'><Link href='/services'>{t('services')}</Link></li>
+                        <li className='text-hamburger-list dark:text-slate-300'><Link href='/blogs'>{t('Blog')}</Link></li>
+                        <li className='text-hamburger-list dark:text-slate-300'><Link href='/contact'>{t('contact')}</Link></li>
+                        <li className='text-hamburger-list dark:text-slate-300'><a href='/#faq'>{t('faq')}</a></li>
                         {isAdmin && <li className=''><Link href='/admin'>{t('admin')}</Link></li>}
                 </ul>
                 <ul className="flex px-[16px] w-full justify-center gap-[32px] items-center py-[32px]">
