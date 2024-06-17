@@ -30,7 +30,7 @@ export default function ServiceCard(props: ServiceCard) {
     }
 
     return (
-        <div className={`card-container bg-grey-50 xl:p-6 p-3 rounded-2xl dark:bg-slate-600 md:hover:scale-[105%] md:transition-transform md:duration-300`}>
+        <div className={`card-container bg-service-card-cont xl:p-6 p-3 rounded-2xl dark:bg-slate-600 md:hover:scale-[105%] md:transition-transform md:duration-300`}>
             <div onClick={handleClick} className='flex flex-col'>
                 <Image src={props.img} className={`card-img ${props.imgStyle} self-center`} width={300} height={300} alt=''/>
                 <span className='card-date'>{props.date}</span>
