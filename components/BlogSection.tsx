@@ -1,19 +1,50 @@
 import Link from 'next/link'
 import '../styles/Section.css'
 import linkarrow from '../public/assets/uprightarrow.svg'
-import blogData from '../datas/blogData.js'
 import BlogCard from './BlogCard'
 import Image from 'next/image'
+import { getBlogs } from '@/api.ts'
 
-export default function BlogSection() {
 
-    const mappedBlog = blogData.slice(0,3).map(card => {
+interface Card {
+    short_description: string;
+    full_description: string;
+    title: string;
+    date: any;
+    id: number;
+    image: string;
+    likes:number
+}
+
+export default async function BlogSection() {
+
+    const blogs = await getBlogs()
+
+    const sortedBlogs = blogs.sort((a:any, b:any) => {
+                    const dateA: any = new Date(a.date)
+                    const dateB: any = new Date(b.date)
+                    return dateA - dateB
+                })
+
+    const formatDate = (isoDate: string) => {
+        const date = new Date(isoDate);
+        const options: Intl.DateTimeFormatOptions = {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        };
+        return date.toLocaleDateString('en-GB', options);
+    };
+
+    const mappedBlog = sortedBlogs.slice(0,3).map((card: Card) => {
+        const formattedDate = formatDate(card.date);
         return <BlogCard 
-                    img={card.img}
-                    date={card.date}
+                    img={card.image}
+                    date={formattedDate}
                     title={card.title}
-                    desc={card.desc}
+                    desc={card.short_description}
                     key={card.id}
+                    likes={card.likes}
                 />
     })
 

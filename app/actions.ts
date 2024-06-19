@@ -1,6 +1,6 @@
 "use server";
  
-import { createUser,deleteUser, addService, createBooking } from "@/api";
+import { createUser,deleteUser, addService, createBooking, likeUnlikeBlog } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -13,6 +13,14 @@ export async function createUserAction(formData: FormData) {
 export async function createBookingAction(service_id: number, auth_id: string) {
   await createBooking(service_id, auth_id)
   revalidatePath('/')
+}
+
+export async function likeBlogAction(blog_id: number, auth_id: string, action: string) {
+  await likeUnlikeBlog(blog_id, auth_id, action)
+}
+
+export async function unlikeBlogAction(blog_id: number, auth_id: string, action: string) {
+  await likeUnlikeBlog(blog_id, auth_id, action)
 }
 
 export async function addServiceAction(formData: FormData) {

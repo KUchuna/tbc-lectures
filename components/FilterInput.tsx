@@ -44,11 +44,22 @@ export default function FilterInput(props: FilterInput) {
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 
-                    <ul className="sorting-menu-container dark:bg-slate-500 dark:border-slate-900">
-                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("None")}>None</li>
-                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Date ascending")}>Date ascending</li>
-                        <li className="sorting-menu-item dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("Date descending")}>Date descending</li>
-                    </ul>
+                    <div className="sorting-menu-container px-[12px] py-[20px] gap-[20px] dark:bg-slate-500 dark:border-slate-900">
+                        <div className="flex items-center justify-between border-b-[1px] pb-[20px]">
+                            <span className="dark:text-slate-200">Date</span>
+                            <ul className="flex flex-col gap-[10px]">
+                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("ascending")}>Ascending</li>
+                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("descending")}>Descending</li>
+                            </ul>
+                        </div>
+                        <div className="flex items-center justify-between">
+                            <span className="dark:text-slate-200">Likes</span>
+                            <ul className="flex flex-col gap-[10px]">
+                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("most")}>Most</li>
+                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("least")}>Least</li>
+                            </ul>
+                        </div>
+                    </div>
                     }
             </div>)}
         </div>

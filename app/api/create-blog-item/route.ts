@@ -5,36 +5,34 @@ export const POST = async (req: NextRequest) => {
   try {
     const body = await req.json();
 
-    const { title, short_description, sub_title, full_description, price, total_time_needed, image } = body;
+    const { title, short_description, full_description, likes = 0, image, date = new Date().toISOString().split('T')[0] } = body;
 
-    if (!title || !short_description || !price || !total_time_needed || !image || !sub_title || !full_description) {
+    if (!title || !short_description || !image || !full_description) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
     const result = await sql`
-      INSERT INTO services (
+      INSERT INTO blogs (
         title,
         short_description,
-        sub_title,
         full_description,
-        price,
-        total_time_needed,
+        likes,
+        date,
         image
       ) VALUES (
         ${title},
         ${short_description},
-        ${sub_title},
         ${full_description},
-        ${price},
-        ${total_time_needed},
+        ${likes},
+        ${date},
         ${image}
       );
     `;
 
-    console.log("Service Insertion Result:", result);
-    return NextResponse.json({ message: 'Service added successfully' }, { status: 200 });
+    console.log("Blog Insertion Result:", result);
+    return NextResponse.json({ message: 'Blog added successfully' }, { status: 200 });
   } catch (error) {
-    console.error("Service Insertion Error:", error);
+    console.error("Blog Insertion Error:", error);
     return NextResponse.json({ error }, { status: 500 });
   }
 };

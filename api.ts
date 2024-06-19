@@ -20,11 +20,15 @@ export async function getServices() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/get-services`, {cache: 'no-store'});
   const {services} = await response.json();
-  console.log("services: " +services.rows)
   return services.rows;
 }
 
-
+export async function getBlogs() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/get-blogs`, {cache: 'no-store'});
+  const {blogs} = await response.json();
+  return blogs.rows;
+}
 
 
 export async function getService(id: number) {
@@ -33,7 +37,6 @@ export async function getService(id: number) {
   );
   return response;
 }
-
 
 
 export async function createUser(name: string, email: string, age: string) {
@@ -59,7 +62,22 @@ export async function createBooking(service_id: number, auth_id: string) {
   return response;
 }
 
-// Function to get bookings and extract service IDs
+export async function likeUnlikeBlog(blog_id: number, auth_id: string, action: string) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/like-unlike-blog`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ blog_id, auth_id, action }),
+    }
+  );
+ 
+  revalidatePath('/services')
+  return response;
+}
+
 export async function getBookedIds(auth_id: string) {
   try {
     if (!auth_id) {
