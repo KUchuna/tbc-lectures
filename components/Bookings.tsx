@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { getServices } from "@/api"; // Adjust the import path as needed
+import { getServices } from "@/api";
 import FancyLoading from "./FancyLoading";
 import { unstable_noStore as noStore } from "next/cache";
 

@@ -78,6 +78,34 @@ export async function likeUnlikeBlog(blog_id: number, auth_id: string, action: s
   return response;
 }
 
+export async function getLikedBlogIds(auth_id: string) {
+  try {
+    if (!auth_id) {
+      throw new Error('auth_id is required');
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-liked-blogs?auth_id=${auth_id}`, { cache: 'no-store' });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch liked blogs (${response.status} ${response.statusText})`);
+    }
+
+    const responseData = await response.json();
+
+    if (!responseData || !responseData.likedblogs || !Array.isArray(responseData.likedblogs.rows)) {
+      throw new Error('Invalid response format: missing or invalid data');
+    }
+    
+    const likedBlogIds = responseData.likedblogs.rows.map((row: any) => row.blog_id);
+    console.log('Liked Blog IDs:', likedBlogIds); // Log the extracted liked blog IDs
+    return likedBlogIds;
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    throw new Error('Failed to fetch blogs. Please try again later.');
+  }
+}
+
+
 export async function getBookedIds(auth_id: string) {
   try {
     if (!auth_id) {
@@ -96,7 +124,6 @@ export async function getBookedIds(auth_id: string) {
       throw new Error('Invalid response format: missing or invalid data');
     }
 
-    // Extract and return service IDs
     const serviceIds = bookings.rows.map((booking: { service_id: number }) => booking.service_id);
     return serviceIds;
   } catch (error) {

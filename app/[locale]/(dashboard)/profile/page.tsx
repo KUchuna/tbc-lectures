@@ -1,16 +1,22 @@
-'use client';
 
-import { useUser } from '@auth0/nextjs-auth0/client';
 import Image from 'next/image';
+import { getSession } from "@auth0/nextjs-auth0";
+import LikedBlogs from '@/components/LikedBlogs.tsx';
+import { getLikedBlogIds } from '@/api';
 
-export default function ProfileClient() {
-  const { user, error, isLoading } = useUser();
+export default async function Profile() {
 
+  const data = await getSession();
 
+  let user;
+  let likedBlogIds;
 
+  if (data) {
+    user = data.user;
+    const auth_id = user.sub
+    likedBlogIds = await getLikedBlogIds(auth_id)
+  }
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
 
 
   return (
@@ -21,6 +27,11 @@ export default function ProfileClient() {
             }
             <h2>{user.nickname}</h2>
             <p>{user.email}</p>
+            <div>
+              <LikedBlogs 
+                likedBlogIds={likedBlogIds}
+              />
+            </div>
           </div>
       )
   );

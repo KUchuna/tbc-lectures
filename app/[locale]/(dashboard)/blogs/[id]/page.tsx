@@ -26,16 +26,6 @@ export default async function BlogPost({
   
   const blog = blogs.find((service: blog) => service.id == id);
 
-  const userData = await getSession()
-
-  let auth_id;
-
-  if(userData) {
-    auth_id = userData.user.sub
-  }
-  
-
-
   const formatDate = (isoDate: any) => {
     const date = new Date(isoDate);
     const options: Intl.DateTimeFormatOptions = {
