@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getBlogs } from "@/api";
 import FancyLoading from "./FancyLoading";
 import Image from "next/image";
+import BlogCard from "./BlogCard";
 
 interface LikedBlogsProps {
   likedBlogIds: number[];
@@ -17,7 +18,6 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
     const fetchLikedBlogs = async () => {
       setLoading(true);
       try {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
         const blogs = await getBlogs();
         const filteredBlogs = blogs.filter((blog: any) =>
           likedBlogIds.includes(blog.id)
@@ -33,8 +33,19 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
     fetchLikedBlogs();
   }, [likedBlogIds]);
 
+
+  const formatDate = (isoDate: string) => {
+    const date = new Date(isoDate);
+    const options: Intl.DateTimeFormatOptions = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    };
+    return date.toLocaleDateString('en-GB', options);
+};
+
   return (
-    <>
+    <div className="grid grid-cols-[1fr_1fr] gap-8 px-[30px] overflow-y-auto max-h-[900px] flex-wrap max-w-[800px]">
       {loading ? (
         <FancyLoading />
       ) : likedBlogs.length === 0 ? (
@@ -42,14 +53,26 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
           You do not have any liked blogs.
         </h1>
       ) : (
-        likedBlogs.map((blog) => (
-          <div key={blog.id} className="mb-4">
-            <Image src={blog.image} alt='blog-image' width={300} height={280} />
-            <h1 className="font-bold text-2xl">{blog.title}</h1> 
-            <p className="text-gray-600">{blog.short_description}</p>
-          </div>
-        ))
+        likedBlogs.map((card) => {
+          
+          const formattedDate = formatDate(card.date);
+          
+          return (
+            <BlogCard 
+                img={card.image}
+                title={card.title}
+                desc={card.short_description}
+                key={card.id}
+                date={formattedDate}
+                likes={card.likes}
+                id={card.id}
+                profilepage
+            />
+        );
+        }
+        
+        )
       )}
-    </>
+    </div>
   );
 }
