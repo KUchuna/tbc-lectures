@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getBlogs } from "@/api";
 import FancyLoading from "./FancyLoading";
+import Image from "next/image";
 
 interface LikedBlogsProps {
   likedBlogIds: number[];
@@ -36,7 +37,7 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
   }, [likedBlogIds]);
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
+    <>
       {loading ? (
         <FancyLoading />
       ) : likedBlogs.length === 0 ? (
@@ -46,11 +47,12 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
       ) : (
         likedBlogs.map((blog) => (
           <div key={blog.id} className="mb-4">
-            <h1 className="font-bold text-2xl">{blog.title}</h1>
+            <Image src={blog.image} alt='blog-image' width={300} height={280} />
+            <h1 className="font-bold text-2xl">{blog.title}</h1> 
             <p className="text-gray-600">{blog.short_description}</p>
           </div>
         ))
       )}
-    </div>
+    </>
   );
 }

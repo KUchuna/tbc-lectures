@@ -21,13 +21,13 @@ export default async function Profile() {
 
   return (
       user && (
-          <div className='min-h-[calc(100vh-460px)]'>
+          <div>
             {user.picture &&
                 <Image src={user.picture} alt='' width={30} height={30}/>
             }
             <h2>{user.nickname}</h2>
             <p>{user.email}</p>
-            <div>
+            <div className='flex flex-col overflow-y-auto max-h-[600px]'>
               <LikedBlogs 
                 likedBlogIds={likedBlogIds}
               />
