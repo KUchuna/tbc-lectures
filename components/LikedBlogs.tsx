@@ -19,12 +19,9 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
       try {
         await new Promise((resolve) => setTimeout(resolve, 2000));
         const blogs = await getBlogs();
-        console.log("Fetched blogs:", blogs);
-        console.log("LIKED BLOG IDS", likedBlogIds)
         const filteredBlogs = blogs.filter((blog: any) =>
           likedBlogIds.includes(blog.id)
         );
-        console.log("Filtered blogs:", filteredBlogs);
         setLikedBlogs(filteredBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);

@@ -97,7 +97,6 @@ export async function getLikedBlogIds(auth_id: string) {
     }
     
     const likedBlogIds = responseData.likedblogs.rows.map((row: any) => row.blog_id);
-    console.log('Liked Blog IDs:', likedBlogIds); // Log the extracted liked blog IDs
     return likedBlogIds;
   } catch (error) {
     console.error('Error fetching blogs:', error);
