@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { getBlogs } from "@/api";
 import FancyLoading from "./FancyLoading";
-import Image from "next/image";
 import BlogCard from "./BlogCard";
 
 interface LikedBlogsProps {
