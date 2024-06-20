@@ -9,7 +9,9 @@ export const POST = async (request: NextRequest) => {
             SELECT id, likes FROM blogs 
             WHERE id = ${blog_id}
         `;
-
+        if(!auth_id) {
+            return NextResponse.json({ message: "Must be Logged IN!"}, {status: 400})
+        }
         if (blogExists.rowCount === 0) {
             return NextResponse.json({ message: 'Blog does not exist' }, { status: 400 });
         }
