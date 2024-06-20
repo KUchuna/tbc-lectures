@@ -4,7 +4,6 @@ import '../styles/Card.css'
 import blogarrow from '../public/assets/uprightarrow.svg'
 import Image, { StaticImageData } from 'next/image'
 import { useRouter } from 'next/navigation'
-import LikeUnlikeBlog from './LikeUnlikeBlog';
 
 interface BlogCard {
     blogpage?: boolean,
