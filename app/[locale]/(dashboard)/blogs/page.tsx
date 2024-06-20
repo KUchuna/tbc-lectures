@@ -11,11 +11,7 @@ export default function Blog() {
                 <h1 className="blog-service-page-title font-bold md:text-3xl lg:text-5xl text-3xl text-center">read our latest blog</h1>
                 <p className="blog-service-page-desc text-page-subtitle text-xl dark:text-slate-400 text-center">Insights, Tips, and News for Car Enthusiasts</p>
             </div>
-            <div className="parent-flex-column-center">
-                <div className="sorting-container dark:bg-slate-800 w-full h-full mt-10">
-                </div>
-                <AllBlogs />
-            </div>
+            <AllBlogs />
         </div>
     )
 }

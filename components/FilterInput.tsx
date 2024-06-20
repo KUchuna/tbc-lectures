@@ -27,6 +27,7 @@ export default function FilterInput(props: FilterInput) {
        props.storeSelection(option)
     }
 
+    
 
     return (
         <div className={props.isMainFilter ? "filter-input-dropdown-container" : props.contStyle}>
@@ -44,19 +45,20 @@ export default function FilterInput(props: FilterInput) {
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 
-                    <div className="sorting-menu-container px-[12px] py-[20px] gap-[20px] dark:bg-slate-500 dark:border-slate-900">
-                        <div className="flex items-center justify-between border-b-[1px] pb-[20px]">
+                    <div className="sorting-menu-container px-[12px] py-[10px] dark:bg-slate-500 dark:border-slate-900" >
+                        <span className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400 text-center border-[1px] rounded-xl" onClick={() => handleSelect("Sort by:")}>Clear filter</span>
+                        <div className="flex items-center gap-2 border-b-[1px] py-[8px] w-full">
                             <span className="dark:text-slate-200">Date</span>
-                            <ul className="flex flex-col gap-[10px]">
-                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("ascending")}>Ascending</li>
-                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("descending")}>Descending</li>
+                            <ul className="flex flex-col w-full">
+                                <li className="sorting-menu-item p-2 w-full rounded-xl dark:text-slate-200 dark:hover:bg-slate-400 text-right" onClick={() => handleSelect("Date ascending")}>Ascending</li>
+                                <li className="sorting-menu-item p-2 w-full rounded-xl dark:text-slate-200 dark:hover:bg-slate-400 text-right" onClick={() => handleSelect("Date descending")}>Descending</li>
                             </ul>
                         </div>
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 py-[8px]">
                             <span className="dark:text-slate-200">Likes</span>
-                            <ul className="flex flex-col gap-[10px]">
-                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("most")}>Most</li>
-                                <li className="sorting-menu-item p-2 w-full dark:text-slate-200 dark:hover:bg-slate-400" onClick={() => handleSelect("least")}>Least</li>
+                            <ul className="flex flex-col w-full">
+                                <li className="sorting-menu-item p-2 w-full rounded-xl dark:text-slate-200 dark:hover:bg-slate-400 text-right" onClick={() => handleSelect("Mostly liked")}>Most</li>
+                                <li className="sorting-menu-item p-2 w-full rounded-xl dark:text-slate-200 dark:hover:bg-slate-400 text-right" onClick={() => handleSelect("Least liked")}>Least</li>
                             </ul>
                         </div>
                     </div>

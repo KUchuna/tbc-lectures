@@ -23,7 +23,7 @@ export default function BlogCard(props: BlogCard) {
     const router = useRouter()
 
     function handleClick() {
-        props.blogpage || props.profilepage && router.push(`/blogs/${props.id}`)
+        router.push(`/blogs/${props.id}`)
     }
 
     return (

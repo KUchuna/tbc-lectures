@@ -45,6 +45,7 @@ export default async function BlogSection() {
                     desc={card.short_description}
                     key={card.id}
                     likes={card.likes}
+                    id={card.id}
                 />
     })
 
