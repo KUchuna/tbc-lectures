@@ -1,5 +1,5 @@
 const nextConfig = {
-    images: { domains: ['cdn.dummyjson.com'],
+    images: {
       remotePatterns: [
         {
           protocol: 'https',
@@ -12,7 +12,11 @@ const nextConfig = {
         {
           protocol: 'https',
           hostname: 'i.ibb.co'
-        }
+        },
+        {
+          protocol: 'https',
+          hostname: 'q21gy4sbxwzqo2lf.public.blob.vercel-storage.com'
+        },
       ]
      },
     async redirects() {

@@ -3,7 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+::-webkit-file-upload-button {
+    display: none;
+ }
+ 
 * {
     margin: 0;
     padding: 0;

@@ -5,7 +5,6 @@ import LikedBlogs from "@/components/LikedBlogs";
 export default async function LikedBlogsPage() {
 
     const data = await getSession();
-
     let user;
     let likedBlogIds;
   

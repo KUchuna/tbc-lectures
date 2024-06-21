@@ -40,6 +40,7 @@ module.exports = {
         "section-grey": "rgba(242, 244, 247, 1);",
         "hamburger-list": "rgba(29, 41, 57, 1)",
         "border-grey": "rgba(208, 213, 221, 1)",
+        "overlay-grey": "#262626",
       },
     },
   },

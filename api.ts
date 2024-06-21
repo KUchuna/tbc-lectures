@@ -23,6 +23,27 @@ export async function getServices() {
   return services.rows;
 }
 
+export async function getAvatar(auth_id: string) {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-avatar?auth_id=${auth_id}`, {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch avatar (${response.status} ${response.statusText})`);
+    }
+
+    const data = await response.json();
+    return data.avatar;
+  } catch (error) {
+    console.error('Error fetching avatar:', error);  // Log detailed error information
+    throw new Error('Failed to fetch avatar. Please try again later.');
+  }
+}
+
+
+
+
 export async function getBlogs() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/get-blogs`, {cache: 'no-store'});
