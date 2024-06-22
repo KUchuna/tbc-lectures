@@ -13,6 +13,8 @@ import fbsvg from "@/public/assets/facebook.svg"
 import linkedinsvg from "@/public/assets/linkedin.svg"
 import redditsvg from "@/public/assets/reddit.svg"
 import { useTheme } from "next-themes"
+import { checkAvatarAction } from '@/app/actions.ts'
+
 
 export default function Hamburger() {
 
@@ -20,7 +22,27 @@ export default function Hamburger() {
     const { resolvedTheme } = useTheme()
 
     const {user} = useUser()
-    
+
+    const [avatar, setAvatar] = React.useState('')
+
+
+    React.useEffect(() => {
+        async function fetchAvatarExists() {
+            try {
+              const result = await checkAvatarAction();
+              
+              if (user) {
+                setAvatar(result)
+            }
+            } catch (error) {
+              console.error('Error checking avatar:', error);
+            }
+          }
+      
+          fetchAvatarExists();
+    }, [user]);
+
+
     let isAdmin;
 
     if(user) {
@@ -40,9 +62,9 @@ export default function Hamburger() {
             <div className={`dark:bg-slate-800  shadow-hamburger absolute bg-section-grey left-0 top-[94px] right-0 overflow-hidden ${open ? "max-h-[700px] overflow-y-auto" : "max-h-0"} transition-[max-height] duration-[300ms] ease-[ease]`}>
                 {user &&
                     <div className="flex px-[16px] pt-[32px] items-center">
-                        {user.picture && 
+                        {avatar && 
                         <Link href='/profile'>
-                            <Image src={user.picture} alt='profile picture' priority quality={100} width={30} height={30} className="w-[48px] h-[48px] rounded-full"/>
+                            <Image src={avatar} alt='profile picture' priority quality={100} width={30} height={30} className="w-[48px] h-[48px] rounded-full"/>
                         </Link>}
                         <Link href='/profile'>
                             <div className="flex flex-col ml-[12px]">

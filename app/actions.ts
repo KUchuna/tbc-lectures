@@ -1,10 +1,11 @@
 "use server";
  
-import { createUser,deleteUser, addService, createBooking, likeUnlikeBlog } from "@/api";
+import { createUser,deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { list, del } from '@vercel/blob';
 import { getSession } from "@auth0/nextjs-auth0";
+import defaultPicture from '@/public/assets/defaultprofile.jpg'
 
 export async function createUserAction(formData: FormData) {
   const { name, email, age } = Object.fromEntries(formData);
@@ -84,5 +85,29 @@ export async function deletePhotoAction(avatar: string) {
     }
   } catch (error) {
       console.error('An error occurred:', error);
+  }
+}
+
+export async function checkAvatarAction() {
+  const session = await getSession();
+  
+  try {
+    if (session && session.user) {
+      const avatarUrl = await getAvatar(session.user.sub as string);
+      const response = await list();
+
+      const exists = response.blobs.some(blob => blob.url === avatarUrl);
+      
+      if (exists) {
+        return avatarUrl
+      }else {
+        return defaultPicture
+      }
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error('Error fetching avatar:', error);
+    throw new Error('Failed to check avatar');
   }
 }
