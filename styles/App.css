@@ -66,3 +66,11 @@ button {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(174, 50, 0, 1);
 }
+
+.username-button {
+    display: flex;
+}
+
+.username:focus + .username-button {
+    display: flex;
+}

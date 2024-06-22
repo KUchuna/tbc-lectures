@@ -8,6 +8,7 @@ import '../styles/Section.css'
 import FancyLoading from './FancyLoading'
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { getServices } from '@/api'
+import { useI18n, useScopedI18n } from '@/locales/client'
 
 interface Service {
     id: number,
@@ -87,14 +88,18 @@ export default function AllServices() {
                             servicepage
                        /> })
 
+
+    const scopedT = useScopedI18n('services')
+    const t = useI18n()
+
     return (
         <div className='xl:pt-[96px] md:pt-[40px] py-[30px] px-[16px] md:px-[40px] xl:px-[112px] parent-flex-column-center service-section dark:bg-slate-800'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
-                    <span className="section-short-title">Services</span>
+                    <span className="section-short-title">{t('services')}</span>
                 </div>
-                <h3 className="text-4xl font-bold mb-5">Get your finances right</h3>
-                <p className='section-description services-section-desc dark:text-slate-400'>We offer the best accounting and expense tracking for ambitious businesses.</p>
+                <h3 className="text-4xl font-bold mb-5">{scopedT('title')}</h3>
+                <p className='section-description services-section-desc dark:text-slate-400'>{scopedT('subtitle')}</p>
             </div>
             <div className='flex flex-col w-full lg:max-w-[1216px]'>
                 {isAdmin && <AddService />}

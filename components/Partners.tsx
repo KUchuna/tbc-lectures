@@ -5,11 +5,15 @@ import partner3 from "@/public/assets/partner3.png"
 import partner4 from "@/public/assets/partner4.png"
 import partner5 from "@/public/assets/partner5.png"
 import partner6 from "@/public/assets/partner6.png"
+import { getI18n } from "@/locales/server"
 
-export default function Partners() {
+export default async function Partners() {
+
+    const t = await getI18n()
+
     return (
         <div className="py-[64px] md:pb-[20px] md:mt-[0] flex flex-col justify-center items-center flex-nowrap">
-            <p className="text-slate-600 dark:text-slate-200 mb-8">OUR PARTNERS</p>
+            <p className="text-slate-600 dark:text-slate-200 mb-8">{t('partners')}</p>
             <div className="flex-wrap w-full flex md:inline-flex md:flex-nowrap md:overflow-hidden md:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
                 <ul className="flex-wrap md:flex-nowrap gap-8 md:gap-0 flex items-center justify-center md:justify-start md:[&_li]:mx-8 [&_img]:max-w-none md:animate-infinite-scroll">
                     <li>

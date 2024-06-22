@@ -30,7 +30,7 @@ export async function DELETE(request: NextRequest) {
   try {
     if (!id) throw new Error('ID is required');
 
-    // fetch the auth_id from the database based on the userID
+
     const { rows } = await sql`SELECT auth_id FROM authusers WHERE id = ${Number(id)};`;
     if (rows.length === 0) {
       throw new Error('User not found');
@@ -38,13 +38,13 @@ export async function DELETE(request: NextRequest) {
 
     const authId = rows[0].auth_id;
 
-    // delete related bookings first
+
     await sql`DELETE FROM bookings WHERE auth_id = ${authId};`;
 
-    // delete the user from the database
+    await sql `DELETE FROM likedblogs WHERE auth_id = ${authId}`
+
     await sql`DELETE FROM authusers WHERE id = ${Number(id)};`;
 
-    // delete the user from auth0
     await deleteAuth0User(authId);
   } catch (error) {
     console.error('Error deleting user:', error);

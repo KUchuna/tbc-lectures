@@ -23,7 +23,7 @@
 
 .contact-input-container input:focus, textarea:focus {
     outline: none;
-    border: 2px solid #F54700 !important;
+    border: 1px solid #F54700 !important;
 }
 
 textarea {

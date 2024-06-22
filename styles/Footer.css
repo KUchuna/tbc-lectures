@@ -35,7 +35,7 @@
 
 .input-email:focus {
     outline: none;
-    border: 2px solid #F54700 !important;
+    border: 1px solid #F54700;
 }
 
 .input-submit {

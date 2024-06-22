@@ -42,8 +42,6 @@ export async function getAvatar(auth_id: string) {
 }
 
 
-
-
 export async function getBlogs() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/get-blogs`, {cache: 'no-store'});

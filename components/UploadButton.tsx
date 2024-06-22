@@ -47,7 +47,7 @@ export default function UploadButton(props: uploadButtonProps) {
         <>
             <button
                 onClick={handleClick}
-                className="py-[10px] px-[17px] bg-light-orange hover:bg-dark-orange transition-colors duration-300 rounded-xl text-white font-bold cursor-pointer"
+                className="py-[10px] px-[17px] bg-light-orange hover:bg-dark-orange transition-colors duration-300 rounded-xl text-white font-bold"
             >
                 Upload new photo
             </button>

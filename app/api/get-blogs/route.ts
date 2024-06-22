@@ -5,7 +5,7 @@ export const revalidate = 0;
 
 export async function GET() {
   try {
-    const blogs = await sql`SELECT * FROM blogs;`;
+    const blogs = await sql`SELECT * FROM blogs ORDER BY id asc;`;
 
     return NextResponse.json({ blogs }, { status: 200 });
   } catch (error) {

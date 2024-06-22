@@ -4,6 +4,7 @@ import linkarrow from '../public/assets/uprightarrow.svg'
 import BlogCard from './BlogCard'
 import Image from 'next/image'
 import { getBlogs } from '@/api.ts'
+import { getScopedI18n } from '@/locales/server'
 
 
 interface Card {
@@ -49,15 +50,18 @@ export default async function BlogSection() {
                 />
     })
 
+
+    const scopedT = await getScopedI18n('blog')
+
     return (
         <section className="section-container md:py-[96px] py-[64px] px-[16px] xl:px-[112px] md:px-[40px] parent-flex-column-center dark:bg-slate-700" id='blog'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
-                    <span className="section-short-title">Our blog</span>
-                    <Link href='/blogs' className='hidden md:block'><span className="section-link dark:text-slate-400">View all blogposts<Image src={linkarrow} alt='' /></span></Link>
+                    <span className="section-short-title">{scopedT('blog')}</span>
+                    <Link href='/blogs' className='hidden md:block'><span className="section-link dark:text-slate-400">{scopedT('all')}<Image src={linkarrow} alt='' /></span></Link>
                 </div>
-                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left">Latest blog posts</h3>
-                <p className="section-description dark:text-slate-400 md:mb-[64px] mb-[32px]">Stay informed with our expert advice and tips on car maintenance, repair, and care.</p>
+                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left">{scopedT('title')}</h3>
+                <p className="section-description dark:text-slate-400 md:mb-[64px] mb-[32px]">{scopedT('subtitle')}</p>
                 <div className="md:grid md:grid-cols-[1fr_1fr_1fr] gap-[25px] flex flex-col flex-wrap justify-center items-center">
                     {mappedBlog}
                 </div>

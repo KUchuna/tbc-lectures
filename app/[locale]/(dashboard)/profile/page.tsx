@@ -5,7 +5,7 @@ import { getAvatar } from '@/api';
 import { redirect } from 'next/navigation';
 import { list } from '@vercel/blob';
 import defaultPicture from '@/public/assets/defaultprofile.jpg';
-
+import UsernameInput from '@/components/UsernameInput.tsx'
 
 export default async function Profile() {
   const data = await getSession();
@@ -14,7 +14,6 @@ export default async function Profile() {
   if (data) {
     user = data.user;
     avatar = await getAvatar(user.sub);
-
   } else {
     redirect('/');
   }
@@ -41,13 +40,10 @@ export default async function Profile() {
             />
           </div>
           <div className='flex flex-col gap-5'>
-            <div className='flex flex-col gap-2'>
-              <span className='font-bold text-lg text-gray-600'>Username</span>
-              <span className='text-lg border-[1px] rounded-xl px-[10px] py-[11px] border-slate-300'>{user.nickname}</span>
-            </div>
+            <UsernameInput />
             <div className='flex flex-col gap-2'>
               <span className='font-bold text-lg text-gray-600'>Email</span>
-              <span className='text-lg border-[1px] rounded-xl px-[10px] py-[11px] border-slate-300'>{user.email}</span>
+              <span className='text-lg border-[1px] rounded-xl px-[10px] py-[11px] border-slate-300 cursor-not-allowed'>{user.email}</span>
             </div>
           </div>
         </div>

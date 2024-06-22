@@ -5,6 +5,7 @@ import { getBlogs } from '@/api';
 import FancyLoading from './FancyLoading';
 import BlogCard from './BlogCard';
 import FilterInput from './FilterInput';
+import { useScopedI18n } from '@/locales/client';
 
 interface Card {
     short_description: string;
@@ -103,14 +104,16 @@ export default function AllBlogs() {
         });
     }
     
+    const scopedT = useScopedI18n('blogs.page')
+
     return (
         <div className='xl:pt-[96px] md:pt-[40px] py-[30px] px-[16px] md:px-[40px] xl:px-[112px] flex flex-col items-center service-section dark:bg-slate-800'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
-                    <span className="section-short-title text-light-orange">Blog posts</span>
+                    <span className="section-short-title text-light-orange">{scopedT('blog')}</span>
                 </div>
-                <h3 className="text-4xl font-bold mb-5">Latest blog posts</h3>
-                <p className='section-description services-section-desc dark:text-slate-400'> Stay informed with our expert advice and tips on car maintenance, repair, and care.</p>
+                <h3 className="text-4xl font-bold mb-5">{scopedT('title')}</h3>
+                <p className='section-description services-section-desc dark:text-slate-400'>{scopedT('subtitle')}</p>
             </div>
             <div className='flex w-full max-w-[1216px]'>
                 <FilterInput 

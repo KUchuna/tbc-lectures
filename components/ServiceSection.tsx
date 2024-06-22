@@ -4,6 +4,7 @@ import ServiceCard from './ServiceCard.tsx'
 import Link from 'next/link';
 import Image from 'next/image';
 import {getServices} from '@/api.ts'
+import { getI18n, getScopedI18n } from '@/locales/server.ts';
 
 interface ServiceSection {
     homePage?: boolean,
@@ -36,16 +37,18 @@ export default async function ServiceSection(props: ServiceSection) {
                />
     })
 
+    const t = await getI18n()
+    const scopedT = await getScopedI18n('services')
 
     return (
         <section className="py-[64px] xl:px-[112px] md:px-[40px] lg:py-[96px] px-[16px] parent-flex-column-center service-section dark:bg-slate-800" id='services'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
-                    <span className="section-short-title">Services</span>
-                    {props.homePage ? <Link href='/services' className='hidden md:block'><span className="section-link dark:text-slate-400">View all services<Image src={linkarrow} alt='' /></span></Link> : <></>}
+                    <span className="section-short-title">{t('services')}</span>
+                    {props.homePage ? <Link href='/services' className='hidden md:block'><span className="section-link dark:text-slate-400">{scopedT('all')}<Image src={linkarrow} alt='' /></span></Link> : <></>}
                 </div>
-                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left">Comprehensive Car Care Services</h3>
-                <p className={`section-description ${props.descStyle} dark:text-slate-400 md:mb-[64px] mb-[32px]`}>Explore our range of professional car services designed to keep your vehicle in top condition.</p>
+                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left">{scopedT('title')}</h3>
+                <p className={`section-description ${props.descStyle} dark:text-slate-400 md:mb-[64px] mb-[32px]`}>{scopedT('subtitle')}</p>
                 
                 <div className="md:grid md:grid-cols-[1fr_1fr_1fr] gap-[25px] flex flex-col flex-wrap justify-center items-center">
                     {mappedServices}
