@@ -79,6 +79,7 @@ export async function deletePhotoAction(avatar: string) {
 
     if (blobToDelete) {
     await del([blobToDelete.url], { token });
+    revalidatePath('/')
     console.log(`Blob with URL ${avatar} was deleted`);
     } else {
     console.log('Avatar blob not found.');

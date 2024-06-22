@@ -35,7 +35,7 @@ export default async function Profile() {
         <h1 className='text-4xl uppercase font-bold mb-[50px]'>Information about you</h1>
         <div>
           <div className='flex items-center mb-[35px] gap-7'>
-            <Image src={avatarSrc} alt='' width={100} height={100} className='rounded-full border-[2px] border-light-orange'/>
+            <Image src={avatarSrc} alt='' width={100} height={100} className='w-[100px] h-[100px] object-cover rounded-full border-[2px] border-light-orange'/>
             <UploadButton 
               avatar={avatar}
             />
