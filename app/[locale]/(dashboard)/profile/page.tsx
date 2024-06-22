@@ -3,6 +3,9 @@ import { getSession } from "@auth0/nextjs-auth0";
 import UploadButton from '@/components/UploadButton';
 import { getAvatar } from '@/api';
 import { redirect } from 'next/navigation';
+import { list } from '@vercel/blob';
+import defaultPicture from '@/public/assets/defaultprofile.jpg';
+
 
 export default async function Profile() {
   const data = await getSession();
@@ -11,9 +14,20 @@ export default async function Profile() {
   if (data) {
     user = data.user;
     avatar = await getAvatar(user.sub);
+
   } else {
-    redirect('/')
+    redirect('/');
   }
+
+  const response = await list();
+
+  let avatarExists = false;
+
+  if (avatar) {
+    avatarExists = response.blobs.some(blob => blob.url === avatar);
+  }
+
+  const avatarSrc = avatarExists ? avatar : defaultPicture;
 
   return (
     user && (
@@ -21,10 +35,10 @@ export default async function Profile() {
         <h1 className='text-4xl uppercase font-bold mb-[50px]'>Information about you</h1>
         <div>
           <div className='flex items-center mb-[35px] gap-7'>
-            {avatar &&
-              <Image src={avatar} alt='' width={100} height={100} className='rounded-full'/>
-            }
-            <UploadButton />
+            <Image src={avatarSrc} alt='' width={100} height={100} className='rounded-full border-[2px] border-light-orange'/>
+            <UploadButton 
+              avatar={avatar}
+            />
           </div>
           <div className='flex flex-col gap-5'>
             <div className='flex flex-col gap-2'>

@@ -1,15 +1,19 @@
 "use client";
 import React from "react";
-import type { PutBlobResult } from '@vercel/blob';
 import Image from "next/image";
 import upload from "@/public/assets/upload.jpg"
+import SpinnerLoader from "./SpinnerLoader";
+import { deletePhotoAction } from "@/app/actions";
 
+interface uploadButtonProps {
+    avatar: string
+}
 
-export default function UploadButton() {
+export default function UploadButton(props: uploadButtonProps) {
     const [open, setOpen] = React.useState(false);
     const overlayRef = React.useRef<any>(null);
     const inputFileRef = React.useRef<HTMLInputElement>(null);
-    const [blob, setBlob] = React.useState<PutBlobResult | null>(null);
+    const [loading, setLoading] = React.useState(false)
 
     function handleClick() {
         setOpen(!open);
@@ -36,6 +40,9 @@ export default function UploadButton() {
         };
     }, []);
 
+        
+
+
     return (
         <>
             <button
@@ -43,6 +50,9 @@ export default function UploadButton() {
                 className="py-[10px] px-[17px] bg-light-orange hover:bg-dark-orange transition-colors duration-300 rounded-xl text-white font-bold cursor-pointer"
             >
                 Upload new photo
+            </button>
+            <button onClick={() => deletePhotoAction(props.avatar)} className="py-[10px] px-[17px] bg-section-grey hover:bg-section-hover-grey transition-colors duration-300 rounded-xl text-black font-bold cursor-pointer">
+                Remove photo
             </button>
             <div className={`${open ? "delay-[150ms] opacity-100" : "opacity-0 pointer-events-none delay-0"} absolute flex justify-center items-center top-0 bottom-0 left-0 w-full h-full`}>
                 <div
@@ -59,18 +69,16 @@ export default function UploadButton() {
 
                         const file = inputFileRef.current.files[0];
 
-                        const response = await fetch(
+                        await fetch(
                             `/api/upload-avatar?filename=${file.name}`,
                             {
                             method: 'POST',
                             body: file,
                             },
                         );
-
-                        const newBlob = (await response.json()) as PutBlobResult;
-
-                        setBlob(newBlob);
-                        console.log(blob)
+                        setLoading(true)
+                        await new Promise(resolve => setTimeout(resolve, 1500));
+                        window.location.reload();
                         }}
                         className="p-[10px] w-full h-full flex flex-col justify-center items-center z-[102]"
                     >   
@@ -78,7 +86,7 @@ export default function UploadButton() {
                             <Image src={upload} width={200} height={200} alt="click to upload" />
                         </label>
                         <input name="file" id="file" ref={inputFileRef} type="file" required className="w-[120px] mb-4"/>
-                        <button type="submit" className="bg-light-orange py-[8px] px-[12px] text-white font-bold uppercase rounded-xl hover:bg-dark-orange transition-colors duration-300 w-[200px]">Upload</button>
+                        <button type="submit" className="min-h-[48px] bg-light-orange py-[8px] px-[12px] text-white font-bold uppercase rounded-xl hover:bg-dark-orange transition-colors duration-300 w-[200px]">{loading ? <SpinnerLoader /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

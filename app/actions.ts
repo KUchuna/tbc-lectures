@@ -3,6 +3,8 @@
 import { createUser,deleteUser, addService, createBooking, likeUnlikeBlog } from "@/api";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
+import { list, del } from '@vercel/blob';
+import { getSession } from "@auth0/nextjs-auth0";
 
 export async function createUserAction(formData: FormData) {
   const { name, email, age } = Object.fromEntries(formData);
@@ -51,4 +53,36 @@ export async function editUserAction(
   }
  
   revalidatePath("/admin");
+}
+
+export async function deletePhotoAction(avatar: string) {
+
+  const session = await getSession()
+
+    if (!session) {
+      console.log('User is not logged in');
+      return;
+  }
+
+  try {
+    const user = session.user
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+
+    if (!user) {
+    throw new Error('no user found');
+    }
+    
+    const response = await list();
+    
+    const blobToDelete = response.blobs.find(blob => blob.url === avatar);
+
+    if (blobToDelete) {
+    await del([blobToDelete.url], { token });
+    console.log(`Blob with URL ${avatar} was deleted`);
+    } else {
+    console.log('Avatar blob not found.');
+    }
+  } catch (error) {
+      console.error('An error occurred:', error);
+  }
 }

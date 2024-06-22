@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
       SELECT avatar FROM authusers
       WHERE auth_id = ${auth_id}
     `;
-
+    
     if (result.rowCount === 0) {
       return NextResponse.json({ message: 'User not found' }, { status: 404 });
     }
