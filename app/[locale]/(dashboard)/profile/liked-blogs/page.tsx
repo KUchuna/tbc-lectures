@@ -16,8 +16,8 @@ export default async function LikedBlogsPage() {
 
 
     return (
-        <div className='pl-[70px] pb-[200px]'>
-            <h1 className="uppercase font-bold text-4xl mb-[50px] text-center">Blog posts liked by you</h1>
+        <div className='md:pl-[70px] pl-[16px] pb-[200px] flex justify-center flex-col w-full  items-center '>
+            <h1 className="uppercase font-bold md:text-4xl text-2xl mb-[50px] text-center">Blog posts liked by you</h1>
               <LikedBlogs 
                 likedBlogIds={likedBlogIds}
               />

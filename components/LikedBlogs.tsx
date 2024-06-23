@@ -44,11 +44,11 @@ export default function LikedBlogs({ likedBlogIds }: LikedBlogsProps) {
 };
 
   return (
-    <div className="grid grid-cols-[1fr_1fr] gap-8 px-[30px] overflow-y-auto max-h-[900px] flex-wrap max-w-[800px]">
+    <div className="grid md:grid-cols-[1fr_1fr] grid-cols-[1fr] gap-8 md:px-[30px] pr-[16px] overflow-y-auto max-h-[900px] md:max-w-[800px] max-w-[300px]">
       {loading ? (
         <FancyLoading />
       ) : likedBlogs.length === 0 ? (
-        <h1 className="font-bold text-4xl uppercase w-full flex justify-center align-center h-full">
+        <h1 className="font-bold md:text-4xl text-2xl uppercase w-full flex justify-center align-center h-full">
           You do not have any liked blogs.
         </h1>
       ) : (

@@ -1,3 +1,5 @@
+"use server"
+
 import { revalidatePath } from "next/cache";
 
 export interface User {
@@ -15,6 +17,49 @@ export async function getUsers() {
   revalidatePath('/admin')
   return users.rows;
 }
+
+export async function getCurrentUser(auth_id: string) {
+  try {
+    if (!auth_id) {
+      throw new Error('auth_id is required');
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/current-user?auth_id=${auth_id}`, { cache: 'no-store' });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch user (${response.status} ${response.statusText})`);
+    }
+
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw new Error('Failed to fetch user. Please try again later.');
+  }
+}
+
+export async function changeUsername(auth_id: string, new_name: string) {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/change-username`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ auth_id, new_name }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to change username (${response.status} ${response.statusText})`);
+    }
+
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error('Error:', error);
+    throw new Error('Failed to change username');
+  }
+}
+
 
 export async function getServices() {
   const response = await fetch(

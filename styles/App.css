@@ -67,10 +67,7 @@ button {
     background: rgba(174, 50, 0, 1);
 }
 
-.username-button {
+.username:focus {
     display: flex;
-}
-
-.username:focus + .username-button {
-    display: flex;
+    background-color: white;
 }

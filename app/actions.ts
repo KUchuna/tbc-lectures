@@ -1,10 +1,11 @@
 "use server";
  
-import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar } from "@/api";
+import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername } from "@/api";
 import { revalidatePath } from "next/cache";
 import { list, del } from '@vercel/blob';
 import { getSession } from "@auth0/nextjs-auth0";
 import defaultPicture from '@/public/assets/defaultprofile.jpg'
+
 
 
 
@@ -27,6 +28,10 @@ export async function addServiceAction(formData: FormData) {
   revalidatePath('/services')
 }
 
+export async function changeUserNameAction(auth_id: string, new_name: string) {
+  await changeUsername(auth_id, new_name);
+  revalidatePath('/profile');
+}
 
 export async function deleteUserAction(id: number) {
   revalidatePath("/admin");

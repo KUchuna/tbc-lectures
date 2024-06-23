@@ -56,7 +56,7 @@ export default function UploadButton(props: uploadButtonProps) {
             </button>
             <div className={`${open ? "delay-[150ms] opacity-100" : "opacity-0 pointer-events-none delay-0"} absolute flex justify-center items-center top-0 bottom-0 left-0 w-full h-full`}>
                 <div
-                    className={`w-[700px] h-[450px] p-[20px]  bg-white z-[103] absolute transition-opacity duration-[300ms] rounded-xl 
+                    className={`md:w-[700px] h-[450px] p-[20px] w-full  bg-white z-[103] absolute transition-opacity duration-[300ms] rounded-xl 
                         ${open ? "delay-[150ms] opacity-100" : "opacity-0 pointer-events-none delay-0"}`}>
                     
                     <form
@@ -85,7 +85,7 @@ export default function UploadButton(props: uploadButtonProps) {
                         <label htmlFor='file' className="w-full h-full border-dashed border-[5px] flex justify-center items-center">
                             <Image src={upload} width={200} height={200} alt="click to upload" />
                         </label>
-                        <input name="file" id="file" ref={inputFileRef} type="file" required className="w-[120px] mb-4"/>
+                        <input name="file" id="file" ref={inputFileRef} type="file" required className="w-[max] mb-4 text-black"/>
                         <button type="submit" className="min-h-[48px] bg-light-orange py-[8px] px-[12px] text-white font-bold uppercase rounded-xl hover:bg-dark-orange transition-colors duration-300 w-[200px]">{loading ? <SpinnerLoader /> : "Upload"}</button>
                     </form>
                 </div>
