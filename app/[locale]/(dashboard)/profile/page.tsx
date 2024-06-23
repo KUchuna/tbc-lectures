@@ -50,7 +50,7 @@ export default async function Profile() {
             />
             <div className='flex flex-col gap-2'>
               <span className='font-bold text-lg text-gray-600'>Email</span>
-              <span className='text-lg border-[1px] rounded-xl px-[10px] py-[11px] border-slate-300 cursor-not-allowed'>{user.email}</span>
+              <span className='md:text-lg text-sm border-[1px] rounded-xl px-[10px] py-[11px] border-slate-300 cursor-not-allowed'>{user.email}</span>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ export default function UsernameInput(props: usernameinputprops) {
       <input
         type='text'
         id='username'
-        className='bg-section-grey focus:outline-none focus:border-[1px] focus:border-light-orange username text-lg border-[1px] dark:bg-slate-800 rounded-xl px-[10px] py-[11px] border-slate-300 w-full'
+        className='text-sm bg-section-grey focus:outline-none focus:border-[1px] focus:border-light-orange username md:text-lg border-[1px] dark:bg-slate-800 rounded-xl px-[10px] py-[11px] border-slate-300 w-full'
         value={newUsername}
         onChange={(e) => setNewUsername(e.target.value)}
       />
