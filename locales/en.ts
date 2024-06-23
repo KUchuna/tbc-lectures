@@ -64,7 +64,7 @@ export default {
     'blogs.filter.most': 'Most',
     'blogs.filter.least': 'Least',
     'contact.contact': 'contact us',
-    'contact.title': 'WE&#39;D LOVE TO HEAR FROM YOU',
+    'contact.title': 'WE’D LOVE TO HEAR FROM YOU',
     'contact.subtitle': 'Our friendly team is always here to chat.',
     'contact.info1.name': 'Email',
     'contact.info1.desc': 'Our friendly team is here to help.',
