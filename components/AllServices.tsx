@@ -98,7 +98,7 @@ export default function AllServices() {
                 <div className="section-short-title-link-container"> 
                     <span className="section-short-title">{t('services')}</span>
                 </div>
-                <h3 className="text-4xl font-bold mb-5">{scopedT('title')}</h3>
+                <h3 className="text-4xl font-bold mb-5 uppercase">{scopedT('title')}</h3>
                 <p className='section-description services-section-desc dark:text-slate-400'>{scopedT('subtitle')}</p>
             </div>
             <div className='flex flex-col w-full lg:max-w-[1216px]'>

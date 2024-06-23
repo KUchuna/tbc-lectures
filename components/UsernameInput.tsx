@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { changeUserNameAction } from '@/app/actions';
 import SpinnerLoader from './SpinnerLoader';
+import { useScopedI18n } from '@/locales/client';
 
 interface usernameinputprops {
   postgressUser: PostgresUser;
@@ -43,9 +44,11 @@ export default function UsernameInput(props: usernameinputprops) {
     }
   };
 
+  const scopedT = useScopedI18n('profile')
+
   return (
     <form className='flex flex-col gap-2 items-start' onSubmit={handleSubmit}>
-      <span className='font-bold text-lg text-gray-600'>Username</span>
+      <span className='font-bold text-lg text-gray-600 dark:text-slate-50'>{scopedT('username')}</span>
       <input
         type='text'
         id='username'
@@ -58,7 +61,7 @@ export default function UsernameInput(props: usernameinputprops) {
         className='h-[48px] flex justify-center items-center w-[100px] username-button py-[10px] px-[17px] bg-light-orange hover:bg-dark-orange transition-colors duration-300 rounded-xl text-white font-bold'
         id='username-button'
       >
-        {loading ? <SpinnerLoader/> : "Save" }
+        {loading ? <SpinnerLoader/> : scopedT('save') }
       </button>
     </form>
   );

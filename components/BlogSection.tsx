@@ -60,7 +60,7 @@ export default async function BlogSection() {
                     <span className="section-short-title">{scopedT('blog')}</span>
                     <Link href='/blogs' className='hidden md:block'><span className="section-link dark:text-slate-400">{scopedT('all')}<Image src={linkarrow} alt='' /></span></Link>
                 </div>
-                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left">{scopedT('title')}</h3>
+                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left uppercase">{scopedT('title')}</h3>
                 <p className="section-description dark:text-slate-400 md:mb-[64px] mb-[32px]">{scopedT('subtitle')}</p>
                 <div className="md:grid md:grid-cols-[1fr_1fr_1fr] gap-[25px] flex flex-col flex-wrap justify-center items-center">
                     {mappedBlog}

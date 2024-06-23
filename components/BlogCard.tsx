@@ -27,7 +27,7 @@ export default function BlogCard(props: BlogCard) {
     }
 
     return (
-        <div className={props.profilepage ? "card-container" : "hover:scale-[105%] md:transition-transform md:duration-300 card-container ${props.style}"} onClick={handleClick}>
+        <div className={props.profilepage ? "card-container" : "md:hover:scale-[105%] md:transition-transform md:duration-300 card-container ${props.style}"} onClick={handleClick}>
             <Image src={props.img} className='card-img md:mb-32px mb-[16px]' width={384} height={240} quality={100} priority alt=''/>
             <div className='flex justify-between w-full'>
                 <span className='card-date'>{props.date}</span>

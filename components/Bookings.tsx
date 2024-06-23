@@ -7,6 +7,7 @@ import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { deleteBookingAction } from "@/app/actions";
+import { useScopedI18n } from "@/locales/client";
 
 interface BookingIds {
   bookedIds: number[];
@@ -42,29 +43,33 @@ export default function Bookings(props: BookingIds) {
     fetchBookedServices();
   }, [props.bookedIds]);
   
+
+  const scopedT = useScopedI18n('bookings.card')
+  const scopedT2 = useScopedI18n('bookings')
+
   return (
     <div className="w-full h-full flex justify-center items-center flex-col xl:max-w-[1216px] gap-6">
       {loading ? <FancyLoading />  :
-      bookedServices.length == 0 ? <h1 className="font-bold text-4xl uppercase w-full flex justify-center align-center h-full"> you do not have any bookings </h1>
+      bookedServices.length == 0 ? <h1 className="font-bold text-4xl uppercase w-full flex justify-center align-center h-full">{scopedT2('empty')}</h1>
       :
       (
           bookedServices.map((service) => (
 
-            <div key={service.id} className="flex gap-5 px-[15px] py-[10px] rounded-xl bg-section-grey">
-              <Image src={service.image} alt="service image" width={300} height={200}  className="min-w-[300px] h-[200px] rounded-xl object-fill"/>
-              <div className="flex flex-col">  
+            <div key={service.id} className="flex md:flex-row flex-col gap-5 px-[15px] py-[10px] rounded-xl bg-section-grey dark:bg-slate-600">
+              <Image src={service.image} alt="service image" width={300} height={200}  className="min-w-[300px] w-full h-[200px] rounded-xl object-cover"/>
+              <div className="flex flex-col md:justify-center">  
                 <h1 className="font-bold">{service.title}</h1>
-                <p>{service.short_description.slice(0,500)}...</p>
+                <p>{service.short_description.slice(0,300)}...</p>
               </div>
 
-              <div className="flex flex-col border-l-[1px] pl-[20px] justify-center gap-5">
+              <div className="flex md:flex-col justify-between pt-[12px] md:pt-0 md:border-l-[1px] border-t-[1px] md:border-t-0 md:pl-[20px] pl-0 md:justify-center md:gap-5 gap-2">
                 <Link href={`services/${service.id}`}>
                   <button className="w-full bg-white hover:bg-section-hover-grey py-[8px] px-[12px] text-black rounded-xl font-bold transition-colors duration-300">
-                      Full info
+                      {scopedT('info')}
                   </button>
                 </Link>
                 <button onClick={() => deleteBookingAction(service.id, props.auth_id)} className="bg-light-orange py-[8px] px-[12px] w-max text-white rounded-xl font-bold transition-colors duration-300 hover:bg-dark-orange">
-                  Cancel booking
+                {scopedT('cancel')}
                 </button>
               </div>
             </div>

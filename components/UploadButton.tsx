@@ -4,6 +4,7 @@ import Image from "next/image";
 import upload from "@/public/assets/upload.jpg"
 import SpinnerLoader from "./SpinnerLoader";
 import { deletePhotoAction } from "@/app/actions";
+import { useScopedI18n } from "@/locales/client";
 
 interface uploadButtonProps {
     avatar: string
@@ -41,7 +42,7 @@ export default function UploadButton(props: uploadButtonProps) {
     }, []);
 
         
-
+    const scopedT = useScopedI18n('profile')
 
     return (
         <>
@@ -49,10 +50,10 @@ export default function UploadButton(props: uploadButtonProps) {
                 onClick={handleClick}
                 className="py-[10px] px-[17px] bg-light-orange hover:bg-dark-orange transition-colors duration-300 rounded-xl text-white font-bold"
             >
-                Upload new photo
+                {scopedT('upload')}
             </button>
             <button onClick={() => deletePhotoAction(props.avatar)} className="py-[10px] px-[17px] bg-section-grey hover:bg-section-hover-grey transition-colors duration-300 rounded-xl text-black font-bold cursor-pointer">
-                Remove photo
+                {scopedT('remove')}
             </button>
             <div className={`${open ? "delay-[150ms] opacity-100" : "opacity-0 pointer-events-none delay-0"} absolute flex justify-center items-center top-0 bottom-0 left-0 w-full h-full`}>
                 <div

@@ -4,62 +4,65 @@ import contactemail from '@/public/assets/contactemail.svg'
 import contactlocation from '@/public/assets/contactlocation.svg'
 import contactphone from '@/public/assets/contactphone.svg'
 import ContactInput from '@/components/ContactInput.tsx'
+import { getScopedI18n } from '@/locales/server'
 
 
+export default async function Contact() {
 
-export default function Contact() {
+    const scopedT = await getScopedI18n('contact')
+
     return (
         <div className="contact-page-container parent-flex-column-center dark:bg-slate-900">
-            <div className="contact-above-section-container parent-max-width parent-flex-column-center">
+            <div className="rounded-b-xl md:py-[40px] md:px-[40px] py-[64px] px-[16px] lg:px-[112px] lg:py-[96px] bg-section-grey parent-flex-column-center dark:bg-slate-900 rounded-br-[20px] rounded-bl-[20px]">
                 <div className="contact-title-container">
-                    <span id="contact-us">Contact us</span>
-                    <h1 id='contact-title' className='font-bold'>We’d love to hear from you</h1>
-                    <span className='text-page-subtitle text-xl dark:text-slate-400'>Our friendly team is always here to chat.</span>
+                    <span id="contact-us" className='uppercase'>{scopedT('contact')}</span>
+                    <h1 className='font-bold text-center lg:text-5xl text-3xl uppercase mb-[23px]'>{scopedT('title')}</h1>
+                    <span className='text-page-subtitle text-xl dark:text-slate-400 text-center'>{scopedT('subtitle')}</span>
                 </div>
-                <div className='contact-info-cards-container'>
+                <div className='contact-info-cards-container md:pt-[96px] pt-[64px] gap-3 md:gap-0'>
                     <ContactInfo 
                         img={contactemail}
-                        name='Email'
-                        desc="Our friendly team is here to help."
-                        info="hi@movan.com"
+                        name={scopedT('info1.name')}
+                        desc={scopedT('info1.desc')}
+                        info={scopedT('info1.address')}
                     />
                     <ContactInfo 
                         img={contactlocation}
-                        name='Office'
-                        desc="Come say hello at our office HQ."
-                        info="100 Smith Street Collingwood VIC 3066 AU"
+                        name={scopedT('info2.name')}
+                        desc={scopedT('info2.desc')}
+                        info={scopedT('info2.address')}
                     />
                     <ContactInfo 
                         img={contactphone}
-                        name='Phone'
-                        desc="Mon-Fri from 8am to 5pm."
-                        info="+995 555 555 555"
+                        name={scopedT('info3.name')}
+                        desc={scopedT('info3.desc')}
+                        info={scopedT('info3.address')}
                     />
                 </div>
             </div>
-            <div className='contact-below-section-container parent-flex-column-center dark:bg-slate-700'>
+            <div className='contact-below-section-container md:py-[96px] md:px-[112px] px-[16px] py-[64px] parent-flex-column-center dark:bg-slate-700'>
                 <ContactInput 
-                    label="Full name"
+                    label={scopedT('input1.label')}
                     type="text"
-                    placeholder='Full name'
+                    placeholder={scopedT('input1.placeholder')}
                 />
                 <ContactInput 
-                    label="Email"
+                    label={scopedT('input2.label')}
                     type="email"
-                    placeholder='example@example.com'
+                    placeholder={scopedT('input2.placeholder')}
                 />
                 <ContactInput 
-                    label="Phone number"
+                    label={scopedT('input3.label')}
                     type="text"
-                    placeholder='+995 555 555 555'
+                    placeholder={scopedT('input3.placeholder')}
                 />
                 <ContactInput 
-                    label="Message"
+                    label={scopedT('input4.label')}
                     type="text"
                     textarea
-                    placeholder="Leave us a message..."
+                    placeholder={scopedT('input4.placeholder')}
                 />
-                <button className='contact-button'>CONTACT</button>
+                <button className='contact-button'>{scopedT('button')}</button>
             </div>
         </div>
     )
