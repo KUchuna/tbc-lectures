@@ -34,7 +34,7 @@ export default async function Service({params: { id }}: any) {
           <div className='md:px-[40px] px-[16px] absolute md:top-[-70px] top-[-50px] w-full flex justify-center'>
             <Image src={service.image} alt='service image' width={30} height={30} quality={100} unoptimized={true} className='object-cover rounded-3xl w-full h-full lg:max-h-[450px] md:max-h-[350px] max-h-[270px] max-w-[1216px]'/>
           </div>
-          <div className='flex md:flex-row flex-col px-[16px] justify-between max-w-[1216px] w-full lg:pt-[420px] md:pt-[350px] pt-[300px] pb-[64px]'>
+          <div className='flex md:flex-row flex-col px-[16px] md:px-0 justify-between max-w-[1216px] w-full lg:pt-[420px] md:pt-[350px] pt-[300px] pb-[64px]'>
             <div className='lg:max-w-[450px] xl:max-w-[650px] md:max-w-[350px]'>
               <h1 className='text-2xl font-bold mb-5'>{service.sub_title}</h1>
               <p className='mb-5'>{service.full_description}</p>
@@ -58,8 +58,8 @@ export default async function Service({params: { id }}: any) {
                 If you have any specific payment preferences or need further clarification on our services, please don&#39;t hesitate to reach out to us. We are here to help and look forward to serving you.
               </p>
             </div>
-            <div className='md:max-w-[400px] w-full pr-[32px] md:relative fixed bottom-[40px]'>
-              <div className='md:py-[32px] md:px-[24px] py-[18px] px-[12px] bg-section-grey rounded-xl sticky top-[130px] border-t-4 border-light-orange dark:bg-slate-900'>
+            <div className='md:max-w-[400px] w-full pr-[32px] md:[position:initial] fixed md:pr-0 bottom-[40px]'>
+              <div className='md:py-[32px] md:px-[24px] py-[18px] px-[12px] bg-section-grey rounded-xl sticky top-[150px] border-t-4 border-light-orange dark:bg-slate-900'>
                 <Image src={caricon} alt='little car' className='hidden md:block'/>
                 <div className='flex md:mt-[32px] justify-between items-center'>
                   <h2 className='text-xl font-bold dark:text-slate-300'>{service.title}</h2>

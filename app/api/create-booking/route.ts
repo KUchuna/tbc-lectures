@@ -15,7 +15,6 @@ export const POST = async (request: NextRequest) => {
             return NextResponse.json({ message: 'Service does not exist' }, { status: 400 });
         }
         
-        // Check if the user already has booked this service
         const existingBooking = await sql`
             SELECT id FROM bookings 
             WHERE auth_id = ${auth_id} AND service_id = ${service_id}
@@ -25,7 +24,6 @@ export const POST = async (request: NextRequest) => {
             return NextResponse.json({ message: 'Service already booked by you.' }, { status: 400 });
         }
 
-        // Insert the booking into the bookings table
         await sql`
             INSERT INTO bookings (auth_id, service_id)
             VALUES (${auth_id}, ${service_id})

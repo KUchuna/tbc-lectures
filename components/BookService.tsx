@@ -47,7 +47,7 @@ export default function BookService(props: BookButton) {
           Book this service
         </button>
       )}
-    <div className={`flex justify-center items-center gap-4 fixed rounded-xl md:h-[100px] h-[50px] px-[16px]  ${confirmationVisible ? "md:bottom-[60px] top-[100px]" : "md:bottom-[-2000px] top-[-400px]" } z-[10000] w-max transition-all duration-300 left-[50%] translate-x-[-50%] ${bgColor=="green" ? "bg-[#ebfbf5] border-[#34d29d]" : "bg-[#fff8eb] border-[#FEC12F]"} border-[1px] md:py-2`}>
+    <div className={`flex justify-center items-center gap-4 fixed rounded-xl md:h-[100px] h-[50px] px-[16px]  ${confirmationVisible ? "md:bottom-[60px] md:top-[initial] top-[100px]" : "md:bottom-[-2000px] md:top-[initial] top-[-400px]" } z-[10000] w-max transition-all duration-300 left-[50%] translate-x-[-50%] ${bgColor=="green" ? "bg-[#ebfbf5] border-[#34d29d]" : "bg-[#fff8eb] border-[#FEC12F]"} border-[1px] md:py-2`}>
         <Image src={bgColor=="yellow" ? yellowsvg : greensvg} alt="" width={25} height={25} />
         <span className="text-black">
             {bookingMessage}
