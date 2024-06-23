@@ -6,14 +6,16 @@ import FancyLoading from "./FancyLoading";
 import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
+import { deleteBookingAction } from "@/app/actions";
 
 interface BookingIds {
   bookedIds: number[];
+  auth_id: string
 }
 
 export default function Bookings(props: BookingIds) {
 
-    noStore()
+  noStore()
 
   const [bookedServices, setBookedServices] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>()
@@ -22,14 +24,12 @@ export default function Bookings(props: BookingIds) {
   useEffect(() => {
     const fetchBookedServices = async () => {
         setLoading(true)
-        await new Promise(resolve => setTimeout(resolve, 2000))
+        await new Promise(resolve => setTimeout(resolve, 1000))
       try {
         const services = await getServices();
-        console.log("Fetched services:", services);
         const filteredServices = services.filter((service: any) =>
           props.bookedIds.includes(service.id)
         );
-        console.log("Filtered services:", filteredServices);
         setBookedServices(filteredServices);
       } catch (error) {
         console.error("Error fetching services:", error);
@@ -42,8 +42,6 @@ export default function Bookings(props: BookingIds) {
     fetchBookedServices();
   }, [props.bookedIds]);
   
-
-
   return (
     <div className="w-full h-full flex justify-center items-center flex-col xl:max-w-[1216px] gap-6">
       {loading ? <FancyLoading />  :
@@ -65,7 +63,7 @@ export default function Bookings(props: BookingIds) {
                       Full info
                   </button>
                 </Link>
-                <button className="bg-light-orange py-[8px] px-[12px] w-max text-white rounded-xl font-bold transition-colors duration-300 hover:bg-dark-orange">
+                <button onClick={() => deleteBookingAction(service.id, props.auth_id)} className="bg-light-orange py-[8px] px-[12px] w-max text-white rounded-xl font-bold transition-colors duration-300 hover:bg-dark-orange">
                   Cancel booking
                 </button>
               </div>

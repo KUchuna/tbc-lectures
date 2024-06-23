@@ -22,7 +22,7 @@ export const POST = async (request: NextRequest) => {
         `;
 
         if (existingBooking.rowCount > 0) {
-            return NextResponse.json({ message: 'Service already booked by user' }, { status: 400 });
+            return NextResponse.json({ message: 'Service already booked by you.' }, { status: 400 });
         }
 
         // Insert the booking into the bookings table

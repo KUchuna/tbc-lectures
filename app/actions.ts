@@ -1,6 +1,6 @@
 "use server";
  
-import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername } from "@/api";
+import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking } from "@/api";
 import { revalidatePath } from "next/cache";
 import { list, del } from '@vercel/blob';
 import { getSession } from "@auth0/nextjs-auth0";
@@ -9,9 +9,30 @@ import defaultPicture from '@/public/assets/defaultprofile.jpg'
 
 
 
+// actions.ts
 export async function createBookingAction(service_id: number, auth_id: string) {
-  await createBooking(service_id, auth_id)
-  revalidatePath('/')
+  try {
+    const response = await createBooking(service_id, auth_id);
+
+    // Check the response status and handle accordingly
+    if (response.status === 200) {
+      return { success: true, message: 'Successfully booked!', color: 'green' };
+    } else if (response.status === 400) {
+      const data = await response.json();
+      return { success: false, message: data.message || 'Service already booked by you.', color: 'yellow' };
+    } else {
+      return { success: false, message: 'Failed to book service. Please try again later.' };
+    }
+  } catch (error) {
+    console.error('Error creating booking:', error);
+    return { success: false, message: 'Failed to book service. Please try again later.' };
+  }
+}
+
+
+export async function deleteBookingAction(service_id: number, auth_id: string){
+  await deleteBooking(service_id, auth_id)
+  revalidatePath('/bookings')
 }
 
 export async function likeBlogAction(blog_id: number, auth_id: string, action: string) {

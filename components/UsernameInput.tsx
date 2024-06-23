@@ -24,7 +24,7 @@ export default function UsernameInput(props: usernameinputprops) {
       setNewUsername(props.postgressUser.name);
 
     }
-  }, [user]);
+  }, [props.postgressUser.name, user, user?.sub]);
 
   
   const handleSubmit = async (e: React.FormEvent) => {

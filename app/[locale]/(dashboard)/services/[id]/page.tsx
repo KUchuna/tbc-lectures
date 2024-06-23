@@ -38,19 +38,25 @@ export default async function Service({params: { id }}: any) {
             <div className='lg:max-w-[490px]'>
               <h1 className='text-2xl font-bold mb-5'>{service.sub_title}</h1>
               <p className='mb-5'>{service.full_description}</p>
-              <h1 className='text-2xl font-bold mb-5'>Lorem ipsum dolor sit</h1>
-              <p className='mb-5'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus sit voluptate architecto fugit tenetur fuga nulla! Sequi voluptatum suscipit, deleniti consectetur fugiat excepturi obcaecati distinctio, libero facilis ad voluptate quo?
-              </p>
+              <h1 className='text-2xl font-bold mb-5'>About</h1>
+              <p>
+              At <strong>Movan</strong>, we are committed to providing exceptional car services with a seamless experience from start to finish. We understand that convenience and transparency are key to customer satisfaction, which is why we offer flexible payment options to suit your preferences.
+              <br />
+              <strong>Payment Options: </strong>
+              We accept a variety of payment methods to ensure your convenience. Whether you prefer to pay by credit card, debit card, or cash, you can rest assured that we accommodate your choice. Our goal is to make the payment process as straightforward and hassle-free as possible, so you can focus on getting back on the road with confidence.
+              <br />
+              <strong>Transparent Pricing: </strong>
+              We believe in transparency. Our pricing is upfront and competitive, with no hidden fees. Before any work begins, we provide you with a detailed estimate and explanation of the services required. This ensures that you have a clear understanding of the costs involved, allowing you to make informed decisions about your vehicle&#39;s maintenance or repair.
+              <br />
+              <strong>Secure Transactions: </strong>
+              Your security is important to us. All transactions are processed securely to protect your personal and financial information. Whether you choose to pay in person or online, rest assured that your data is handled with the utmost care and confidentiality.
+              <br />
+              <strong>Customer Support: </strong>
+              Our dedicated customer support team is available to assist you with any questions or concerns regarding payments, services, or scheduling. We strive to deliver prompt and helpful assistance, ensuring that your experience with us is positive and stress-free.
+              <br />
+              <strong>Contact Us: </strong>
+              If you have any specific payment preferences or need further clarification on our services, please don&#39;t hesitate to reach out to us. We are here to help and look forward to serving you.
+            </p>
             </div>
             <div className='max-w-[400px] w-full relative lg:max-w-[350px]'>
               <div className='py-[32px] px-[24px] bg-section-grey rounded-xl sticky top-[130px] border-t-4 border-light-orange dark:bg-slate-900'>

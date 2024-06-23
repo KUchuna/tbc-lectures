@@ -31,6 +31,7 @@ export default async function BookingsPage() {
       <section className="h-full py-[50px] dark:bg-slate-800 flex justify-center items-end">
         <Bookings 
           bookedIds={bookedIds}
+          auth_id={auth_id}
         />
       </section>
     </div>
