@@ -7,13 +7,15 @@ import { useRouter } from 'next/navigation'
 
 interface BlogCard {
     blogpage?: boolean,
+    profilepage?: boolean,
     id?: number,
     style?: string,
     img: string | StaticImageData,
     reactions?: number,
     title: string,
     desc: string,
-    date?: string
+    date?: string;
+    likes: number;
 }
 
 export default function BlogCard(props: BlogCard) {
@@ -21,15 +23,18 @@ export default function BlogCard(props: BlogCard) {
     const router = useRouter()
 
     function handleClick() {
-        props.blogpage && router.push(`/blogs/${props.id}`)
+        router.push(`/blogs/${props.id}`)
     }
 
     return (
-        <div className={`card-container ${props.style} dark:bg-slate-700`} onClick={handleClick}>
-            <Image src={props.img} className='card-img' alt=''/>
-            <span className='card-date'>Total reactions: {props.reactions}</span>
-            <h3 className='card-title'>{props.title}<Image src={blogarrow} alt='' /></h3>
-            <p className='card-description dark:text-slate-300'>{props.blogpage ? props.desc.slice(0,150) + "..." : props.desc}</p>
+        <div className={props.profilepage ? "card-container" : "md:hover:scale-[105%] md:transition-transform md:duration-300 card-container ${props.style}"} onClick={handleClick}>
+            <Image src={props.img} className='card-img md:mb-32px mb-[16px]' width={384} height={240} quality={100} priority alt=''/>
+            <div className='flex justify-between w-full'>
+                <span className='card-date'>{props.date}</span>
+                <span className='card-date'>Total likes: {props.likes}</span>
+            </div>
+            <h3 className='card-title md:text-xl text-lg'>{props.title}<Image src={blogarrow} alt='' /></h3>
+            <p className='card-description dark:text-slate-300'>{props.desc}</p>
         </div>
     )
 }

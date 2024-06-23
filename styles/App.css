@@ -3,18 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
+::-webkit-file-upload-button {
+    display: none;
+ }
+ 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'helvetica neue';
-}
-
-.app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 a {
@@ -48,4 +45,29 @@ a {
 
 button {
     cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #F54700;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(174, 50, 0, 1);
+}
+
+.username:focus {
+    display: flex;
+    background-color: white;
 }

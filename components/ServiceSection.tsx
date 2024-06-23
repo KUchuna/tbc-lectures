@@ -1,10 +1,10 @@
 import linkarrow from '../public/assets/uprightarrow.svg'
 import '../styles/Section.css'
-import serviceData from "../datas/serviceData.js"
 import ServiceCard from './ServiceCard.tsx'
-import ServiceSearch from "./ServiceSearch.tsx"
 import Link from 'next/link';
 import Image from 'next/image';
+import {getServices} from '@/api.ts'
+import { getI18n, getScopedI18n } from '@/locales/server.ts';
 
 interface ServiceSection {
     homePage?: boolean,
@@ -19,60 +19,41 @@ interface ServiceSection {
     handleSearch?: any,
 }
 
-export default function ServiceSection(props: ServiceSection) {
+export default async function ServiceSection(props: ServiceSection) {
 
+    const services = await getServices()
+    
     let mappedServices;
-
-    props.homePage ? mappedServices = serviceData.slice(0,6).map(card => {
+    
+    mappedServices = services.slice(0,6).map((card: any) => {
         return <ServiceCard 
-                    img={card.img}
+                    img={card.image}
                     title={card.title}
-                    desc={card.desc}
-                    contStyle='service-card-container'
-                    imgStyle='service-card-img'
-                    descStyle='service-card-desc'
-                    key={card.id}
-               />
-    }) : (props.searchValue === "" ? mappedServices = props.defaultService.map((card:any) => {
-        return <ServiceCard 
-                    img={card.thumbnail}
-                    title={card.title}
-                    desc={card.description}
-                    contStyle='service-card-container'
+                    desc={card.short_description}
                     imgStyle='service-card-img'
                     descStyle='service-card-desc'
                     key={card.id}
                     id={card.id}
-                    servicepage
-               /> }) : mappedServices = props.searchedService.map((card:any) => {
-                return <ServiceCard 
-                            img={card.thumbnail}
-                            title={card.title}
-                            desc={card.description}
-                            contStyle='service-card-container'
-                            imgStyle='service-card-img'
-                            descStyle='service-card-desc'
-                            key={card.id}
-                            id={card.id}
-                            servicepage
-                       /> }))
+               />
+    })
+
+    const t = await getI18n()
+    const scopedT = await getScopedI18n('services')
 
     return (
-        <section className="section-container parent-flex-column-center service-section dark:bg-slate-800">
+        <section className="py-[64px] xl:px-[112px] md:px-[40px] lg:py-[96px] px-[16px] parent-flex-column-center service-section dark:bg-slate-800" id='services'>
             <div className='parent-max-width'>
                 <div className="section-short-title-link-container"> 
-                    <span className="section-short-title">Services</span>
-                    {props.homePage ? <Link href='/services'><span className="section-link dark:text-slate-400">View all services<Image src={linkarrow} alt='' /></span></Link> : <></>}
+                    <span className="section-short-title">{t('services')}</span>
+                    {props.homePage ? <Link href='/services' className='hidden md:block'><span className="section-link dark:text-slate-400">{scopedT('all')}<Image src={linkarrow} alt='' /></span></Link> : <></>}
                 </div>
-                <h3 className="text-4xl font-bold mb-5">Get your finances right</h3>
-                <p className={`section-description ${props.descStyle} dark:text-slate-400`}>We offer the best accounting and expense tracking for ambitious businesses.</p>
-                {props.servicePage && 
-                <ServiceSearch 
-                    handleSearch={props.handleSearch}
-                />}
-                <div className="service-cards-container">
+                <h3 className="md:text-4xl font-bold md:mb-5 mb-3 text-3xl text-center md:text-left uppercase">{scopedT('title')}</h3>
+                <p className={`section-description ${props.descStyle} dark:text-slate-400 md:mb-[64px] mb-[32px]`}>{scopedT('subtitle')}</p>
+                
+                <div className="md:grid md:grid-cols-[1fr_1fr_1fr] gap-[25px] flex flex-col flex-wrap justify-center items-center">
                     {mappedServices}
                 </div>
+                <Link href='/services' className='md:hidden flex w-full justify-center border-[1px] h-[48px] rounded-xl mt-[24px]  border-border-grey'><span className="section-link dark:text-slate-400">View all services<Image src={linkarrow} alt='' /></span></Link>
             </div>
         </section>
     )

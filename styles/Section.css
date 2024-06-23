@@ -1,6 +1,5 @@
 .section-container {
     background-color: rgba(242, 244, 247, 1);
-    padding: 96px 112px;
 }
 
 .section-short-title-link-container {
@@ -35,23 +34,12 @@
 .section-description {
     font-size: 1.1rem;
     color: rgba(71, 84, 103, 1);
-    margin-bottom: 64px;
 }
 
 .section-cards-container {
     display: flex;
     justify-content: space-between;
     user-select: none;
-    gap: 25px;
-}
-
-.service-section {
-    background-color: white;
-}
-
-.service-cards-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     gap: 25px;
 }
 

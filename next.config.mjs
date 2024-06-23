@@ -1,5 +1,24 @@
 const nextConfig = {
-    images: { domains: ['cdn.dummyjson.com'] },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 's.gravatar.com'
+        },
+        {
+          protocol: 'https',
+          hostname: 'lh3.googleusercontent.com'
+        },
+        {
+          protocol: 'https',
+          hostname: 'i.ibb.co'
+        },
+        {
+          protocol: 'https',
+          hostname: 'q21gy4sbxwzqo2lf.public.blob.vercel-storage.com'
+        },
+      ]
+     },
     async redirects() {
       return [
         {
@@ -15,6 +34,6 @@ const nextConfig = {
       ];
     },
   };
-  
-  export default nextConfig;
+
+export default nextConfig;
   

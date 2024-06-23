@@ -1,6 +1,5 @@
 .footer-container {
     border-top: 1px solid #D0D5DD;
-    padding: 64px 112px;
     margin-top: auto;
 }
 
@@ -9,12 +8,10 @@
 }
 
 .footer-list-container {
-    display: flex;
     list-style: none;
     font-weight: 500;
     color: #475467;
     margin-top: 32px;
-    gap: 32px;
     font-size: 1.1rem;
 }
 
@@ -27,24 +24,18 @@
     font-size: 1.1rem;
 }
 
-.subscription-form {
-    margin-top: 16px;
-}
-
 .input-email {
     padding: 10px 14px;
     border-radius: 8px;
     border: 1px solid #D0D5DD;
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-    width: 285px;
     height: 44px;
-    margin-right: 16px;
     font-size: 1.1rem;
 }
 
 .input-email:focus {
     outline: none;
-    border: 2px solid #F54700 !important;
+    border: 1px solid #F54700;
 }
 
 .input-submit {

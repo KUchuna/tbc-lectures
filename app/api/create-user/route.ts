@@ -1,19 +1,34 @@
-import { sql } from '@vercel/postgres';
-import { NextResponse } from 'next/server';
+import { getSession } from "@auth0/nextjs-auth0";
+import { sql } from "@vercel/postgres";
+import { redirect } from "next/navigation";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export const GET = async (_: NextRequest) => {
+  const data = await getSession();
 
-  const { name, email, age } = await request.json();
+  let auth_id, email, name, avatar, role;
 
-  try {
-    if (!name || !email || !age) throw new Error('Please fill in all the graphs');
-
-    await sql`INSERT INTO users (name, email, age) VALUES (${name}, ${email}, ${age});`;
-  } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+  if (data) {
+    auth_id = data.user.sub;
+    email = data.user.email;
+    name = data.user.nickname;
+    avatar = data.user.picture;
+    role = "user";
   }
 
-  const users = await sql`SELECT * FROM users;`;
+  try {
+    const res = await sql`SELECT * FROM authusers WHERE auth_id = ${auth_id}`;
+    if (res.rowCount === 0) {
+      const insertRes = await sql`
+        INSERT INTO authusers (auth_id, email, name, avatar, role)
+        VALUES (${auth_id}, ${email}, ${name}, ${avatar}, ${role})
+      `;
+      console.log("Insert Result:", insertRes);
+    }
+  } catch (err) {
+    console.error("Database Error:", err);
+    return NextResponse.json({ err }, { status: 500 });
+  }
 
-  return NextResponse.json({ users }, { status: 200 });
+  return redirect('/');
 }

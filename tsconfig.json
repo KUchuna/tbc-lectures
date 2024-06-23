@@ -37,6 +37,6 @@
     "components/projectData.js",
     "app/layout.js",
     "components/headerFooterContent/LangButton.jsx"
-  ],
+, "components/Loading.tsx"  ],
   "exclude": ["node_modules"]
 }
