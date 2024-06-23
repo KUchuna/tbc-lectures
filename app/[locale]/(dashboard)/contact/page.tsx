@@ -13,7 +13,7 @@ export default async function Contact() {
 
     return (
         <div className="contact-page-container parent-flex-column-center dark:bg-slate-900">
-            <div className="rounded-b-xl md:py-[40px] md:px-[40px] py-[64px] px-[16px] lg:px-[112px] lg:py-[96px] bg-section-grey parent-flex-column-center dark:bg-slate-900 rounded-br-[20px] rounded-bl-[20px]">
+            <div className="rounded-b-xl md:py-[40px] md:px-[40px] py-[64px] px-[16px] lg:px-[112px] lg:py-[96px] parent-flex-column-center dark:bg-slate-900 rounded-br-[20px] rounded-bl-[20px]">
                 <div className="contact-title-container">
                     <span id="contact-us" className='uppercase'>{scopedT('contact')}</span>
                     <h1 className='font-bold text-center lg:text-5xl text-3xl uppercase mb-[23px]'>{scopedT('title')}</h1>
