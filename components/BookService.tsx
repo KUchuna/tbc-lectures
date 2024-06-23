@@ -35,19 +35,19 @@ export default function BookService(props: BookButton) {
     <div>
       {!user ? (
         <a href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`}>
-          <button className='w-full bg-light-orange py-[16px] text-white rounded-xl shadow-def-button active:translate-y-[5px] active:shadow-clicked-button transition-all duration-100'>
+          <button className='uppercase font-bold w-full bg-light-orange md:py-[16px] py-[8px] text-white rounded-xl shadow-def-button active:translate-y-[5px] active:shadow-clicked-button transition-all duration-100'>
             Book this service
           </button>
         </a>
       ) : (
         <button
-          className='w-full bg-light-orange py-[16px] text-white rounded-xl shadow-def-button active:translate-y-[5px] active:shadow-clicked-button transition-all duration-100'
+          className='uppercase font-bold w-full bg-light-orange md:py-[16px] py-[8px] text-white rounded-xl shadow-def-button active:translate-y-[5px] active:shadow-clicked-button transition-all duration-100'
           onClick={() => props.id !== undefined && handleBookingItem(props.id, auth_id)}
         >
           Book this service
         </button>
       )}
-    <div className={`flex justify-center items-center gap-4 fixed rounded-xl h-[100px] px-[16px]  ${confirmationVisible ? "bottom-[60px]" : "bottom-[-2000px]" } transition-all duration-300  left-[50%] translate-x-[-50%] ${bgColor=="green" ? "bg-[#ebfbf5] border-[#34d29d]" : "bg-[#fff8eb] border-[#FEC12F]"} border-[1px] py-2`}>
+    <div className={`flex justify-center items-center gap-4 fixed rounded-xl md:h-[100px] h-[50px] px-[16px]  ${confirmationVisible ? "md:bottom-[60px] top-[100px]" : "md:bottom-[-2000px] top-[-400px]" } z-[10000] w-max transition-all duration-300 left-[50%] translate-x-[-50%] ${bgColor=="green" ? "bg-[#ebfbf5] border-[#34d29d]" : "bg-[#fff8eb] border-[#FEC12F]"} border-[1px] md:py-2`}>
         <Image src={bgColor=="yellow" ? yellowsvg : greensvg} alt="" width={25} height={25} />
         <span className="text-black">
             {bookingMessage}

@@ -16,7 +16,7 @@ export default async function Footer() {
             <div className='footer-up-container parent-max-width flex md:justify-between md:flex-row md:items-center flex-col'>
                 <div className='mb-[48px] md:mb-0'>
                     <Image src={footerLogo} alt='footer-logo' className='dark:bg-slate-500 dark:p-4 dark:rounded-2xl'/>
-                    <ul className='grid grid-cols-[1fr_1fr] md:flex md:flex-row footer-list-container xl:gap-[32px] md:gap-[16px] dark:text-slate-200'>
+                    <ul className='grid grid-cols-[1fr_1fr] md:flex md:flex-row md:flex-wrap footer-list-container xl:gap-[32px] md:gap-[16px] dark:text-slate-200'>
                         <li className='footer-list-item'>{scopedT('item1')}</li>
                         <li className='footer-list-item'>{scopedT('item2')}</li>
                         <li className='footer-list-item'>{scopedT('item3')}</li>
