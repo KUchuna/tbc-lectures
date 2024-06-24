@@ -1,6 +1,6 @@
 "use server";
  
-import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking, addBlog } from "@/api";
+import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking, addBlog, resetBookings } from "@/api";
 import { revalidatePath } from "next/cache";
 import { list, del } from '@vercel/blob';
 import { getSession } from "@auth0/nextjs-auth0";
@@ -34,6 +34,11 @@ export async function deleteBookingAction(service_id: number, auth_id: string){
   await deleteBooking(service_id, auth_id)
   revalidatePath('/bookings')
 }
+
+export async function resetBookingsAction(auth_id: string){
+  await resetBookings(auth_id)
+}
+
 
 export async function likeBlogAction(blog_id: number, auth_id: string, action: string) {
   await likeUnlikeBlog(blog_id, auth_id, action)

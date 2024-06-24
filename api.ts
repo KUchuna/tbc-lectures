@@ -146,7 +146,26 @@ export async function deleteBooking(service_id: number, auth_id: string) {
   }
 }
 
+export async function resetBookings(auth_id: string) {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reset-bookings`, {
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ auth_id }),
+    });
 
+    if (!response.ok) {
+      throw new Error(`Failed to delete booking: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.log(result.message);
+  } catch (error) {
+    console.error('Error deleting booking:', error);
+  }
+}
 
 export async function likeUnlikeBlog(blog_id: number, auth_id: string, action: string) {
   const response = await fetch(
