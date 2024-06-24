@@ -90,6 +90,7 @@ export default {
     'bookings.card.info': 'სრული ინფორმაცია',
     'bookings.card.cancel': 'ჯავშნის გაუქმება',
     'bookings.empty': 'თქვენ არ გაქვთ დაჯავშნილი სერვისი',
+    'bookings.checkout': 'გადახდა',
     'profile.title': 'ინფორმაცია თქვენ შესახებ',
     'profile.upload': 'ახალი სურათის ატვირთვა',
     'profile.remove': 'სურათის წაშლა',

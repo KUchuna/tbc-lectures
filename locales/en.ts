@@ -90,6 +90,7 @@ export default {
     'bookings.card.info': 'Full info',
     'bookings.card.cancel': 'Cancel booking',
     'bookings.empty': 'You dont have any bookings',
+    'bookings.checkout': 'checkout',
     'profile.title': 'information about you',
     'profile.upload': 'Upload new photo',
     'profile.remove': 'Remove photo',

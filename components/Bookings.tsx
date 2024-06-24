@@ -78,7 +78,7 @@ export default function Bookings(props: BookingIds) {
     <div className="w-full h-full flex justify-center items-left flex-col xl:max-w-[1216px] gap-6">
       <div className="flex flex-col items-start gap-2">
         <span className="text-light-orange font-bold text-3xl">Total price:<span className="text-black dark:text-white"> ₾ {totalPrice}</span></span>
-        <button onClick={handleCheckout} className="uppercase bg-light-orange py-[8px] px-[12px] w-max text-white rounded-xl font-bold transition-colors duration-300 hover:bg-dark-orange">checkout</button>
+        <button onClick={handleCheckout} className="uppercase bg-light-orange py-[8px] px-[12px] w-max text-white rounded-xl font-bold transition-colors duration-300 hover:bg-dark-orange">{scopedT2('checkout')}</button>
       </div>
       {loading ? <FancyLoading />  :
       bookedServices.length == 0 ? <h1 className="font-bold text-4xl uppercase w-full flex justify-center align-center h-full">{scopedT2('empty')}</h1>
