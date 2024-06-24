@@ -66,7 +66,7 @@ export default function Bookings(props: BookingIds) {
         
           bookedServices.map((service) => (
             <div key={service.id} className="flex md:flex-row flex-col gap-5 px-[15px] py-[10px] rounded-xl bg-section-grey dark:bg-slate-600">
-              <Image src={service.image} alt="service image" width={300} height={200}  className="min-w-[300px] w-full h-[200px] rounded-xl object-cover"/>
+              <Image src={service.image} alt="service image" width={300} height={200}  className="min-w-[300px] md:max-w-[350px] w-full h-[200px] rounded-xl object-cover"/>
               <div className="flex flex-col md:justify-center">  
                 <h1 className="font-bold">{service.title}</h1>
                 <p>{service.short_description.slice(0,300)}...</p>

@@ -100,5 +100,8 @@ export default {
     'profilenav.bookings': 'ჯავშნები',
     'profilenav.blogs': 'ბლოგპოსტები',
     'likedblogs.title': 'თქვენ მიერ მოწონებული ბლოგპოსტები',
-    'likedblogs.empty': 'თქვენ არ გაქვთ მოწონებული ბლოგპოსტი'
+    'likedblogs.empty': 'თქვენ არ გაქვთ მოწონებული ბლოგპოსტი',
+    'profile.menu.login': 'შესვლა',
+    'profile.menu.logout': 'გასვლა',
+    'profile.menu.profile': 'პროფილი'
 } as const

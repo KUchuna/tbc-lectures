@@ -1,6 +1,6 @@
 "use server";
  
-import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking } from "@/api";
+import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking, addBlog } from "@/api";
 import { revalidatePath } from "next/cache";
 import { list, del } from '@vercel/blob';
 import { getSession } from "@auth0/nextjs-auth0";
@@ -46,6 +46,12 @@ export async function unlikeBlogAction(blog_id: number, auth_id: string, action:
 export async function addServiceAction(formData: FormData) {
   const { title, short_description, sub_title, full_description, price, total_time_needed, image } = Object.fromEntries(formData);
   await addService(title as string, short_description as string, sub_title as string, full_description as string, price as any, total_time_needed as string, image as string);
+  revalidatePath('/services')
+}
+
+export async function addBlogAction(formData: FormData) {
+  const { title, short_description, sub_title, full_description, date, image } = Object.fromEntries(formData);
+  await addBlog(title as string, short_description as string, sub_title as string, full_description as string, date as any, image as string);
   revalidatePath('/services')
 }
 

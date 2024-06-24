@@ -63,7 +63,6 @@
     min-width: 200px;
     width: 100%;
     user-select: none;
-    margin-top: 10px;
 }
 
 .sorting-menu-container {
@@ -79,7 +78,6 @@
     z-index: 100;
     border: 1px solid rgba(208, 213, 221, 1);
     cursor: initial;
-
 }
 
 .sorting-menu-item {

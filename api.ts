@@ -231,6 +231,19 @@ export async function addService(title: string, short_description: string, sub_t
     
 }
 
+export async function addBlog(title: string, short_description: string, sub_title: string, full_description: string, date: string, image: string) {
+  return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/create-blog-item`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({title, short_description, sub_title, full_description, date, image}),
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+    
+}
 
 export async function deleteUser(id: number) {
   return await fetch(

@@ -100,5 +100,9 @@ export default {
     'profilenav.bookings': 'Bookings',
     'profilenav.blogs': 'Blogs',
     'likedblogs.title': 'blog posts liked by you',
-    'likedblogs.empty': 'you do not have any liked blogs'
+    'likedblogs.empty': 'you do not have any liked blogs',
+    'profile.menu.login': 'Log in',
+    'profile.menu.logout': 'Log out',
+    'profile.menu.profile': 'Profile'
+
 } as const
