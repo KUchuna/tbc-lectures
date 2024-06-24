@@ -5,7 +5,7 @@
     position: sticky;
     top: 0;
     height: 94px;
-    z-index: 103;
+    z-index: 105;
 }
 
 .header-left-section-container {
@@ -22,7 +22,12 @@
 .header-list-item {
     cursor: pointer;
 }
- 
+
+.header-list-item:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .profile-button {
     border-radius: 50%;
     border: 1px solid #EAECF0;

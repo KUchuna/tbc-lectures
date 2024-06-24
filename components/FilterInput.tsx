@@ -41,7 +41,7 @@ export default function FilterInput(props: FilterInput) {
             (props.isDate ?  <div className='filter-input-container dark:bg-slate-600 dark:border-slate-500'>
                                 <input type="datetime-local" className="filter-input date-input dark:bg-slate-600 dark:text-slate-50" defaultValue={currentDate} min={currentDate}/>
                              </div> : 
-            <div className={`filter-dropdown-container ${props.sortingStyle} dark:bg-slate-600 dark:border-slate-500 dark:text-slate-50`} onClick={props.onClick}>
+            <div className={`filter-dropdown-container mt-[12px] md:mt-[30px] ${props.sortingStyle} dark:bg-slate-600 dark:border-slate-500 dark:text-slate-50`} onClick={props.onClick}>
                 {props.dropDownDefault}
                 <Image src={dropDown} alt="" />
                 {props.open && 

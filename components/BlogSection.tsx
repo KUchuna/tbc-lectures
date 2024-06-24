@@ -24,7 +24,7 @@ export default async function BlogSection() {
     const sortedBlogs = blogs.sort((a:any, b:any) => {
                     const dateA: any = new Date(a.date)
                     const dateB: any = new Date(b.date)
-                    return dateA - dateB
+                    return dateB - dateA
                 })
 
     const formatDate = (isoDate: string) => {

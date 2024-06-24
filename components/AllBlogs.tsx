@@ -6,6 +6,8 @@ import FancyLoading from './FancyLoading';
 import BlogCard from './BlogCard';
 import FilterInput from './FilterInput';
 import { useScopedI18n } from '@/locales/client';
+import AddBlog from '@/components/AddBlog.tsx';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 interface Card {
     short_description: string;
@@ -106,6 +108,10 @@ export default function AllBlogs() {
     
     const scopedT = useScopedI18n('blog')
 
+    const { user } = useUser();
+    const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
+
+
     return (
         <div className='xl:pt-[96px] md:pt-[40px] py-[30px] px-[16px] md:px-[40px] xl:px-[112px] flex flex-col items-center service-section dark:bg-slate-800'>
             <div className='parent-max-width'>
@@ -115,7 +121,8 @@ export default function AllBlogs() {
                 <h3 className="text-4xl font-bold mb-5 uppercase">{scopedT('title')}</h3>
                 <p className='section-description services-section-desc dark:text-slate-400'>{scopedT('subtitle')}</p>
             </div>
-            <div className='flex w-full max-w-[1216px]'>
+            <div className='flex flex-col w-full lg:max-w-[1216px]'>
+            {isAdmin && <AddBlog />}
                 <FilterInput 
                     dropDownDefault={selection}
                     sortingStyle='sorting-dropdown-container'
