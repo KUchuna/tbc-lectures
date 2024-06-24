@@ -17,7 +17,7 @@ export default function AddService() {
         <div>
         <button className='py-[12px] w-[150px] text-white bg-light-orange rounded-xl uppercase font-bold mt-[24px]' onClick={handleOpen}>Add Service</button>
         {open && 
-            <form action={addServiceAction} className="z-10 translate-x-[-50%] left-[50%] rounded-xl h-fit flex flex-col gap-4 w-[500px] text-black absolute bg-slate-700 p-10">
+            <form action={addServiceAction} className="z-10 translate-x-[-50%] left-[50%] rounded-xl h-fit flex flex-col gap-4 w-[400px] text-black absolute bg-slate-700 p-10">
                         <span className='text-slate-200 font-bold'>All of the fields are required, use indicated format if needed!!</span>
                         <input type="text" name="title" placeholder='Enter title' className='min-h-[40px] rounded-lg dark:bg-slate-600 px-3 text-lg outline-none'/>
                         <input type="text" name="short_description" placeholder='Enter short description' className='min-h-[40px] rounded-lg dark:bg-slate-600 px-3 text-lg  outline-none'/>
