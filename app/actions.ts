@@ -1,10 +1,11 @@
 "use server";
  
-import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking, addBlog, resetBookings } from "@/api";
+import { deleteUser, addService, createBooking, likeUnlikeBlog, getAvatar, changeUsername, deleteBooking, addBlog, resetBookings, deleteService, deleteBlog } from "@/api";
 import { revalidatePath } from "next/cache";
 import { list, del } from '@vercel/blob';
 import { getSession } from "@auth0/nextjs-auth0";
 import defaultPicture from '@/public/assets/defaultprofile.jpg'
+import { redirect } from "next/navigation";
 
 
 
@@ -50,14 +51,27 @@ export async function unlikeBlogAction(blog_id: number, auth_id: string, action:
 
 export async function addServiceAction(formData: FormData) {
   const { title, short_description, sub_title, full_description, price, total_time_needed, image } = Object.fromEntries(formData);
-  await addService(title as string, short_description as string, sub_title as string, full_description as string, price as any, total_time_needed as string, image as string);
-  revalidatePath('/services')
+  try {
+    await addService(title as string, short_description as string, sub_title as string, full_description as string, price as any, total_time_needed as string, image as string);
+
+  } catch (error) {
+    console.log(error)
+  } finally {
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
+  }
 }
 
 export async function addBlogAction(formData: FormData) {
   const { title, short_description, sub_title, full_description, date, image } = Object.fromEntries(formData);
-  await addBlog(title as string, short_description as string, sub_title as string, full_description as string, date as any, image as string);
-  revalidatePath('/services')
+  try {
+    await addBlog(title as string, short_description as string, sub_title as string, full_description as string, date as any, image as string);
+  }catch (error) {
+    console.log(error)
+  } finally {
+    redirect('/blogs')
+  }
 }
 
 export async function changeUserNameAction(auth_id: string, new_name: string) {
@@ -68,6 +82,16 @@ export async function changeUserNameAction(auth_id: string, new_name: string) {
 export async function deleteUserAction(id: number) {
   revalidatePath("/admin");
   await deleteUser(id);
+}
+
+export async function deleteServiceAction(id: number) {
+  revalidatePath("/services");
+  await deleteService(id);
+}
+
+export async function deleteBlogAction(id: number) {
+  revalidatePath("/blogs");
+  await deleteBlog(id);
 }
 
 export async function deletePhotoAction(avatar: string) {

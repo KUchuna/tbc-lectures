@@ -247,7 +247,6 @@ export async function addService(title: string, short_description: string, sub_t
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
-    
 }
 
 export async function addBlog(title: string, short_description: string, sub_title: string, full_description: string, date: string, image: string) {
@@ -267,6 +266,26 @@ export async function addBlog(title: string, short_description: string, sub_titl
 export async function deleteUser(id: number) {
   return await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/delete-user/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+}
+
+export async function deleteService(id: number) {
+
+  return await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/delete-service/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+}
+
+export async function deleteBlog(id: number) {
+  
+  return await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/delete-blog/${id}`,
     {
       method: "DELETE",
     }

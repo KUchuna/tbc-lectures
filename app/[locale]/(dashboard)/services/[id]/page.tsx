@@ -4,6 +4,8 @@ import caricon from '@/public/assets/caricon.svg'
 import clock from '@/public/assets/clock.svg'
 import BlogSection from '@/components/BlogSection';
 import BookService from '@/components/BookService';
+import { getSession } from '@auth0/nextjs-auth0';
+import DeleteService from '@/components/DeleteService';
 
 
 interface service {
@@ -23,6 +25,11 @@ export default async function Service({params: { id }}: any) {
   const services = await getServices();
   
   const service = services.find((service: service) => service.id == id);
+  
+  const user = await getSession()
+
+  const isAdmin = Array.isArray(user?.user.role) && user.user.role.includes("admin");
+
 
   return ( 
       <div className='dark:bg-slate-800'>
@@ -76,6 +83,9 @@ export default async function Service({params: { id }}: any) {
               </div>
             </div>
           </div>
+          {
+            isAdmin && <DeleteService id={service.id}/>
+          }
         </div>
         <BlogSection />
       </div>
